@@ -1,12 +1,43 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import './index.scss';
 import App from './App';
+import axios from 'axios';
 import reportWebVitals from './reportWebVitals';
+
+const TOKEN = process.env.REACT_APP_API_TOKEN;
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
+// For GET requests
+axios.interceptors.request.use(
+  (req) => {
+     // Add configurations here
+     req.headers.Authorization = 'bearer ' + TOKEN;
+     return req;
+  },
+  (err) => {
+     return Promise.reject(err);
+  }
+);
+
+// For POST requests
+axios.interceptors.response.use(
+  (res) => {
+     // Add configurations here
+     if (res.status === 201 || res.status === 200) {
+        console.log('Posted Successfully');
+     }
+     return res;
+  },
+  (err) => {
+     return Promise.reject(err);
+  }
+);
+
+
 root.render(
   <React.StrictMode>
     <App />
