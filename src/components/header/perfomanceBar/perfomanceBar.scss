@@ -1,0 +1,27 @@
+@import '../../../variables.scss';
+
+.perfomance-bar {
+    width: 90%;
+    margin: 120px auto;
+    height: 250px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    &-item {
+        margin:10px;
+        &-count{
+            text-transform: capitalize;
+            font-weight: 700;
+            color: $font_secondary_color;
+            text-align: center;
+            margin: 0 auto;
+            display: block;
+            font-size: 34px;
+        }
+        p {
+            margin: 0;
+            font-family: 'Source Sans Pro', sans-serif;
+            text-transform: uppercase;
+        }
+    }
+}

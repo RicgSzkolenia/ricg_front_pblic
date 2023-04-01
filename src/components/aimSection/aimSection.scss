@@ -1,0 +1,14 @@
+.aims {
+    width: 95%;
+    margin: 0 auto;
+    height: 50vh;
+    &-header {
+        text-align: center;
+    }
+
+    &-card {
+        img{
+            transform: scale(0.4);
+        }
+    }
+}

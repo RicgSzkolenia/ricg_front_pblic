@@ -24,7 +24,7 @@ const NavBar = () => {
                         }
                     })
                 }
-                <Button type={ButtonTypes.default} handleClick={undefined}>Kup Kurs</Button>
+                <Button type={ButtonTypes.default} handleClick={undefined}>Kup Bilet</Button>
             </div>
         </div>
     )
