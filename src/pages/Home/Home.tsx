@@ -1,5 +1,6 @@
 import React from 'react';
 import AimSection from '../../components/aimSection/AimSection';
+import CarouselSection from '../../components/carouselSection/CarouselSection';
 import ContactForm from '../../components/Contactform';
 import Header from '../../components/header/Header';
 import ImageTextSection from '../../components/imageTextSection/ImageTextSection';
@@ -40,6 +41,7 @@ const Home =  () => {
                 sukcesem kilkaset projektów executive search. Nie ma dla nich zadań
                 niemożliwych do realizacji. Regularnie komentuje w mediach tematy
                 związane z rynkiem pracy. Absolwentka MBA HR na Akademii Leona Koźmińskiego. `}/>
+                <CarouselSection title='Co wyróżnia nasz kurs?'/>
         </div>
     )
 }
