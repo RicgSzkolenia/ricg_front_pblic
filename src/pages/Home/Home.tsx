@@ -21,7 +21,7 @@ const Home =  () => {
                 sukcesem kilkaset projektów executive search. Nie ma dla nich zadań
                 niemożliwych do realizacji. Regularnie komentuje w mediach tematy
                 związane z rynkiem pracy. Absolwentka MBA HR na Akademii Leona Koźmińskiego. `}/>
-                  <ImageTextSection buttonAction={() => {}} buttonName={'DĄŁACZAMY DO KURSU'} imageLink='./Illustration2.svg' title={'Dla kogo jest ten kursu ?'} text={`Prezes Zarządu RICG. Ma ponad 20-letnie doświadczenie 
+                  <ImageTextSection buttonAction={() => {}} buttonName={'DĄŁACZ DO KURSU'}  imageLink='./Illustration2.svg' title={'Dla kogo jest ten kursu ?'} text={`Prezes Zarządu RICG. Ma ponad 20-letnie doświadczenie 
                 w branży HR.
                 Prowadzi projekty doradztwa personalnego, procesy rekrutacyjne dla
                 międzynarodowych korporacji
@@ -31,7 +31,7 @@ const Home =  () => {
                 sukcesem kilkaset projektów executive search. Nie ma dla nich zadań
                 niemożliwych do realizacji. Regularnie komentuje w mediach tematy
                 związane z rynkiem pracy. Absolwentka MBA HR na Akademii Leona Koźmińskiego. `}/>
-                  <ImageTextSection reverse={true} imageLink='./Frame.svg' title={'PO UKOŃCZENIU kursu ?'}  text={`Prezes Zarządu RICG. Ma ponad 20-letnie doświadczenie 
+                  <ImageTextSection buttonAction={() => {}} buttonName={'DĄŁACZ DO KURSU'}  reverse={true} imageLink='./Frame.svg' title={'PO UKOŃCZENIU kursu ?'}  text={`Prezes Zarządu RICG. Ma ponad 20-letnie doświadczenie 
                 w branży HR.
                 Prowadzi projekty doradztwa personalnego, procesy rekrutacyjne dla
                 międzynarodowych korporacji
