@@ -1,0 +1,33 @@
+.imagetextSection {
+    width: 95%;
+    max-width: 1440px;
+    margin: 150px auto;
+
+    &-header {
+        text-align: center;
+    }
+
+    &-reverseWrapper {
+        flex-direction: row-reverse !important;
+    }
+    &-wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: end;
+        &-text {
+            width: 40%;
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+
+        &-image {
+            max-width: 700px;
+            overflow: hidden;
+            width: 40%;
+            object-fit: cover;
+            img {
+                width: 85%;
+            }
+        }
+    }
+}

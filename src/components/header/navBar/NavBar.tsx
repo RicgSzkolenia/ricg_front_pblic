@@ -24,7 +24,7 @@ const NavBar = () => {
                         }
                     })
                 }
-                <Button type={ButtonTypes.default} handleClick={undefined}>Kup Bilet</Button>
+                <Button height="35px" width="150px" type={ButtonTypes.default} handleClick={undefined}>Kup Bilet</Button>
             </div>
         </div>
     )

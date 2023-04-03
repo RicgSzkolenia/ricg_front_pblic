@@ -14,7 +14,16 @@ body {
     margin: 20px;
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 700;
-    font-size: 86px;
+    font-size: 85px;
+    color: $font_secondary_color;
+    text-transform: uppercase;
+  }
+
+  .blueSecondaryHeader {
+    margin: 20px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 700;
+    font-size: 65px;
     color: $font_secondary_color;
     text-transform: uppercase;
   }
@@ -32,6 +41,14 @@ body {
     font-weight: 400;
     font-size: 26px;
     color: $font_secondary_color;
+    text-transform: uppercase;
+
+  }
+  .blackMainText {
+    margin: 20px;
+    font-weight: 400;
+    font-size: 22px;
+    color: $font_primary_color;
     text-transform: uppercase;
 
   }

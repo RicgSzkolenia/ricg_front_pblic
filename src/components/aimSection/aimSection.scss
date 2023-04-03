@@ -1,14 +1,26 @@
 .aims {
     width: 95%;
-    margin: 0 auto;
-    height: 50vh;
+    margin: 150px auto;
+
     &-header {
+        margin-bottom: 20px;
         text-align: center;
     }
 
+    &-cardWrapper{
+        max-width: 1440px;
+        width: 95%;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: auto auto auto;
+        justify-content: center;
+    }
+
     &-card {
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 22px;
         img{
-            transform: scale(0.4);
+            transform: scale(0.8);
         }
     }
 }
