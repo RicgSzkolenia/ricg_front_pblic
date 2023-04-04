@@ -1,0 +1,22 @@
+@import '../../variables.scss';
+
+.customCarosuelArrow {
+    position: absolute;
+    top: 50%;
+    
+    &-stick {
+        border-radius: 2px;
+        margin: -10px;
+        width: 5px;
+        background-color: $primaryColor; 
+        height: 25px;
+
+        &:nth-child(1) {
+            transform: rotate(45deg);
+        } 
+
+        &:nth-child(2) {
+            transform: rotate(-45deg);
+        }
+    }
+}

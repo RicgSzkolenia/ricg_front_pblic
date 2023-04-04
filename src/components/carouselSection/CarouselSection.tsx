@@ -1,6 +1,7 @@
 import './carosuelSection.scss'
 import Slider from "react-slick";
 import { slides } from './slides';
+import CustomCarouselArrow from './CustomCarouselArrow';
 
 interface ICarosuelProps {
     title: string;
@@ -15,8 +16,9 @@ const CarouselSection = (props:ICarosuelProps) => {
         speed: 500,
         slidesToShow: 2,
         slidesToScroll: 2,
-        arrows: true,
         rows: 2,
+        nextArrow: <CustomCarouselArrow/>,
+        prevArrow: <CustomCarouselArrow reverse={true} />
     };
 
 
