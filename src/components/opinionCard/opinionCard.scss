@@ -1,0 +1,32 @@
+@import '../../variables.scss';
+.opinionCard {
+    overflow: hidden;
+    position: relative;
+    border: 5px solid $gradientColor;
+    width: 280px;
+    height: 400px;
+    border-radius: 20px;
+    margin: 10px auto;
+
+    &-avatar {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    &-text {
+        padding: 5px;
+        color: #fff;
+        position: absolute;
+        bottom: -1px;
+        background-color: $primaryColor;
+        z-index: 2;
+        height: 200px;
+        border-radius: 16px;
+
+        p {
+            font-size: 24px;
+            font-family: 'Source Sans Pro', sans-serif;
+            margin-top: 10px;
+         }
+    }
+}

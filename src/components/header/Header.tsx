@@ -7,7 +7,7 @@ const Header = () => {
     return (
         <div className='header'>
             <NavBar/>
-            <div id='radialBlur'></div>
+            {/* <div id='radialBlur'></div> */}
             <div className='header-content'>
                 <div className='header-content-left'>
                     <p className='blackSecondaryHeader'>Wystartuj z nami-</p>

@@ -1,0 +1,31 @@
+@import '../../variables.scss';
+.customCountDown {
+    width: 600px;
+    height: 120px;
+    border-radius: 20px;
+    margin: 0 auto;
+    color: $gradientColor;
+    border: 2px solid #000;
+    font-size: 65px;
+    font-weight: 800;
+    font-family: 'Source Sans Pro';
+
+    &-renderer {
+        p {
+            margin: 0;
+        }
+        &-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        height: 150px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: baseline;
+        &-type {
+            font-size: 20px;
+        }
+    }
+}

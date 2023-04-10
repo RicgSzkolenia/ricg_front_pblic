@@ -24,17 +24,18 @@ interface ButtonProps {
     width?: string;
     handleClick: any;
     children?: any;
+    className?: string;
 
 }
 
 const Button = (props: ButtonProps) => {
-    const  {height = '50px', width = 'auto',  type = ButtonTypes.default, handleClick} = props;
+    const  {height = '50px', width = 'auto',  type = ButtonTypes.default, handleClick, className} = props;
 
     const onClick = () => {
         handleClick?.();
     }
     return (
-        <StyledButton height={height} width={width} onClick={onClick} >{props.children}</StyledButton>
+        <StyledButton className={className ?? ''} height={height} width={width} onClick={onClick} >{props.children}</StyledButton>
     )
 }
 

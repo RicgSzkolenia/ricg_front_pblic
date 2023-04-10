@@ -2,7 +2,7 @@
 
 body {
   margin: 0;
-
+  font-family: 'Source Sans Pro', sans-serif;
   .logo {
     img {
       width: 150px;
@@ -14,16 +14,16 @@ body {
     margin: 20px;
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 700;
-    font-size: 85px;
+    font-size: 75px;
     color: $font_secondary_color;
     text-transform: uppercase;
   }
 
   .blueSecondaryHeader {
-    margin: 20px;
+    margin: 50px;
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 700;
-    font-size: 65px;
+    font-size: 60px;
     color: $font_secondary_color;
     text-transform: uppercase;
   }
@@ -51,5 +51,11 @@ body {
     color: $font_primary_color;
     text-transform: uppercase;
 
+  }
+
+  .blueSmallText {
+    font-weight: 400;
+    font-size: 18px;
+    color: $font_secondary_color;
   }
 }

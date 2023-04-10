@@ -1,0 +1,33 @@
+@import '../../variables.scss';
+
+.contactForm {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 450px;
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 100px;
+    background-color: $primaryColor;
+    color: #fff;
+
+    input {
+        margin: 10px;
+        border-radius: 10px;
+        height: 35px;
+        line-height: 35px;
+        border: 0;
+
+    }
+
+    img{
+        width: 150px;
+        margin: 20px auto;
+    } 
+
+    &-button {
+        width: 200px;
+        margin: 20px auto !important;
+        background-color: #1A0F91 !important;
+    }
+}
