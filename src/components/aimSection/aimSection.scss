@@ -21,14 +21,14 @@
         @media only screen and (max-width: 376px) {
             grid-template-columns: auto;
         }
-        
+
     }
 
     &-card {
         font-family: 'Source Sans Pro', sans-serif;
         font-size: 22px;
         img{
-            transform: scale(0.4);
+            transform: scale(0.6);
         }
     }
 }

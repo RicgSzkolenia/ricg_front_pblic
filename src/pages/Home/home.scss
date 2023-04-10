@@ -15,7 +15,7 @@
         &-types {
             max-width: 1000px;
             margin: 0 auto;
-            margin-top: 50px;
+            margin-top: 100px;
         }
 
     }
@@ -36,8 +36,18 @@
         margin: 10px auto;
         &-info {
             text-align: center;
+            width: 40%;
+
+            p {
+                margin: 0;
+                font-size: 36px;
+            }
             @media only screen and (max-width: 376px) {
                 display: none;
+            } 
+
+            img {
+                width: 65%;
             }
 
         }

@@ -8,10 +8,11 @@ interface IProgressBar {
 
 const StyledProgressBar = styled.div`
     width: 500px;
-    height:20px;
+    height: 20px;
     background-color: #D9DFFF;
     position: relative;
     border-radius: 5px;
+    margin-top: 30px;
     @media only screen and (max-width: 376px) {
         width: 280px;
     }
