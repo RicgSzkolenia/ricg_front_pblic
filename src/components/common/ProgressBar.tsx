@@ -13,7 +13,7 @@ const StyledProgressBar = styled.div`
     position: relative;
     border-radius: 5px;
     @media only screen and (max-width: 376px) {
-        width: 375px;
+        width: 280px;
     }
 `
 
@@ -30,7 +30,7 @@ const StyledProgress = styled.div<{ customWidth: number }>`
 const ProgressBar = (props: IProgressBar) => {
     const { progress, className } = props
     const  countWidth = useCallback(() : number => {
-        return 250;
+        return 230;
     }, [progress])
     return (
         <StyledProgressBar className={className?? ''}>

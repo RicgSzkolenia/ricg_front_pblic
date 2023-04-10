@@ -11,6 +11,10 @@
     margin-top: 20px;
     font-family: 'Source Sans Pro', sans-serif;
 
+    @media only screen and (max-width: 376px) {
+        width: 240px;
+    }
+
     &-title {
         margin: 20px auto;
         margin-top: 50px;
@@ -26,6 +30,9 @@
         width: 400px;
         margin: 20px auto;
         font-size: 18px !important;
+        @media only screen and (max-width: 376px) {
+            width: 240px;
+        }
     }
 
     &-button {
@@ -57,6 +64,10 @@
         border-radius: 10px;
         font-family: 'Source Sans Pro', sans-serif;
         text-transform: uppercase;
+
+        @media only screen and (max-width: 376px) {
+            width: 180px;
+        }
     }
 
 }

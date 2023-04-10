@@ -11,12 +11,18 @@
     font-family: 'Source Sans Pro';
 
     @media only screen and (max-width: 376px) {
-        width: 375px;
+        width: 335px;
+        font-size: 48px;
+        height: 90px;
     }
-    
+
     &-renderer {
         p {
             margin: 0;
+
+            @media only screen and (max-width: 376px) {
+                font-size: 48px;
+            }
         }
         &-item {
             display: flex;
@@ -29,6 +35,11 @@
         justify-content: center;
         align-items: baseline;
         &-type {
+
+            @media only screen and (max-width: 376px) {
+                font-size: 12px;
+            }
+
             font-size: 20px;
         }
     }
