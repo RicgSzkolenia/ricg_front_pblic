@@ -16,6 +16,9 @@ const StyledButton = styled.div<{ width: string, height: string }>`
     &:hover {
         background-color: #6149F5;
     }
+    @media only screen and (max-width: 376px) {
+        font-size: 18px;
+    }
 `
 
 export enum ButtonTypes {

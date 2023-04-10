@@ -19,6 +19,10 @@ body {
     font-size: 75px;
     color: $font_secondary_color;
     text-transform: uppercase;
+
+    @media only screen and (max-width: 376px) {
+      font-size: 48px;
+    }
   }
 
   .blueSecondaryHeader {
@@ -37,6 +41,9 @@ body {
     font-size: 34px;
     color: $font_primary_color;
     text-transform: uppercase;
+    @media only screen and (max-width: 376px) {
+      font-size: 26px;
+    }
   }
 
   .blueMainText {

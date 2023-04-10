@@ -10,6 +10,11 @@ const StyledMenuItemDropDown = styled.div`
     position: relative;
     cursor: pointer;
 
+    @media only screen and (max-width: 376px) {
+        font-size: 18px;
+        width: 70px;
+    }
+
     a{
         color: #000;
         text-decoration: none;

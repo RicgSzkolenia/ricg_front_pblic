@@ -6,7 +6,7 @@ import MenuItemDropDown from "../../common/MenuItemDropDown";
 const NavBar = () => {
     return (
         <div className="navbar">
-            <div className="logo">
+            <div className="navbar-logo">
                 <img  src={"/logo.png"}></img>
             </div>
             <div className="navbar-menu">
