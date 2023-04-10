@@ -12,6 +12,10 @@ const StyledButton = styled.div<{ width: string, height: string }>`
     margin: 5px;
     border-radius: 10px;
     font-size: 26px;
+    transition: 0.3s ease-in-out;
+    &:hover {
+        background-color: #6149F5;
+    }
 `
 
 export enum ButtonTypes {

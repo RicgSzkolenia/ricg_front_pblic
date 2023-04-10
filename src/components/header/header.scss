@@ -20,7 +20,12 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        &-left {
+
+        @media only screen and (max-width: 376px) {
+            flex-direction: column;
+        }
+
+    &-left {
             width: 50%;
             &-arrow {
                 img {

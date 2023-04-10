@@ -6,6 +6,10 @@
     justify-content: space-between;
     align-items: center;
 
+    @media only screen and (max-width: 376px) {
+        display: none;
+    }
+
     &-menu {
         display: flex;
         flex-direction: row;

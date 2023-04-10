@@ -10,6 +10,10 @@
     font-weight: 800;
     font-family: 'Source Sans Pro';
 
+    @media only screen and (max-width: 376px) {
+        width: 375px;
+    }
+    
     &-renderer {
         p {
             margin: 0;

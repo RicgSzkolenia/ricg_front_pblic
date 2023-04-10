@@ -7,11 +7,14 @@ interface IProgressBar {
 }
 
 const StyledProgressBar = styled.div`
-    width: 600px;
+    width: 500px;
     height:20px;
     background-color: #D9DFFF;
     position: relative;
     border-radius: 5px;
+    @media only screen and (max-width: 376px) {
+        width: 375px;
+    }
 `
 
 const StyledProgress = styled.div<{ customWidth: number }>`
@@ -27,7 +30,7 @@ const StyledProgress = styled.div<{ customWidth: number }>`
 const ProgressBar = (props: IProgressBar) => {
     const { progress, className } = props
     const  countWidth = useCallback(() : number => {
-        return 400;
+        return 250;
     }, [progress])
     return (
         <StyledProgressBar className={className?? ''}>

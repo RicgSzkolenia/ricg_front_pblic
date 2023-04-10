@@ -32,6 +32,10 @@
         margin: 10px auto;
         &-info {
             text-align: center;
+            @media only screen and (max-width: 376px) {
+                display: none;
+            }
+
         }
         &-wrapper {
             display: flex;

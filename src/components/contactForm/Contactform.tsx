@@ -21,7 +21,6 @@ const ContactForm = () => {
         email: '',
         phone: '',
         topic: ''
-
     })
 
     useEffect(() => {

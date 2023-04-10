@@ -10,6 +10,12 @@
     &-reverseWrapper {
         flex-direction: row-reverse !important;
     }
+
+    &-button  {
+        @media only screen and (max-width: 376px) {
+            display: none;
+        }
+    }
     &-wrapper {
         display: flex;
         flex-direction: row;
@@ -26,6 +32,9 @@
             width: 40%;
             object-fit: cover;
             img {
+                @media only screen and (max-width: 376px) {
+                    display: none;
+                }
                 width: 85%;
             }
         }
