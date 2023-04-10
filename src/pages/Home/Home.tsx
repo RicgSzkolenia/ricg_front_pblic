@@ -22,37 +22,30 @@ const Home =  () => {
         <div className='home'>
             <Header/>
             <AimSection/>
-            <ImageTextSection imageLink='./MasterFoto.png' title={'Dlaczego warto się z nami spotkać?'} subTitile={'Paulina Laczek'} text={`Prezes Zarządu RICG. Ma ponad 20-letnie doświadczenie 
-                w branży HR.
-                Prowadzi projekty doradztwa personalnego, procesy rekrutacyjne dla
-                międzynarodowych korporacji
-                i największych polskich spółek. Jako
-                doradca, mentor i headhunter inspiruje zarządy korporacji do
-                wdrażania zmian, a menedżerów do rozwoju. Przeprowadziła z
-                sukcesem kilkaset projektów executive search. Nie ma dla nich zadań
-                niemożliwych do realizacji. Regularnie komentuje w mediach tematy
-                związane z rynkiem pracy. Absolwentka MBA HR na Akademii Leona Koźmińskiego. `}/>
+            <ImageTextSection imageLink='./MasterFoto.png' title={'Dlaczego warto się z nami spotkać?'} subTitile={'Paulina Laczek'} text={`Prezes Zarządu RICG. Ma ponad 20-letnie doświadczenie w branży HR. Prowadzi projekty doradztwa personalnego, procesy rekrutacyjne dla międzynarodowych korporacji i największych polskich spółek. 
+            
+              Jako doradca, mentor i headhunter inspiruje zarządy korporacji do wdrażania zmian, a menedżerów do rozwoju. Przeprowadziła z sukcesem kilkaset projektów executive search. Nie ma dla nich zadań niemożliwych do realizacji.
+
+              Regularnie komentuje w mediach tematy związane z rynkiem pracy. Absolwentka MBA HR na Akademii Leona Koźmińskiego.
+            `}/>
                 <CarouselSection title='Co wyróżnia nasz kurs?'/>
-                <ImageTextSection buttonAction={() => {}} buttonName={'DĄŁACZ DO KURSU'}  imageLink='./Illustration2.svg' title={'Dla kogo jest ten kursu ?'} text={`Prezes Zarządu RICG. Ma ponad 20-letnie doświadczenie 
-                w branży HR.
-                Prowadzi projekty doradztwa personalnego, procesy rekrutacyjne dla
-                międzynarodowych korporacji
-                i największych polskich spółek. Jako
-                doradca, mentor i headhunter inspiruje zarządy korporacji do
-                wdrażania zmian, a menedżerów do rozwoju. Przeprowadziła z
-                sukcesem kilkaset projektów executive search. Nie ma dla nich zadań
-                niemożliwych do realizacji. Regularnie komentuje w mediach tematy
-                związane z rynkiem pracy. Absolwentka MBA HR na Akademii Leona Koźmińskiego. `}/>
-                  <ImageTextSection buttonAction={() => {}} buttonName={'DĄŁACZ DO KURSU'}  reverse={true} imageLink='./Frame.svg' title={'PO UKOŃCZENIU kursu ?'}  text={`Prezes Zarządu RICG. Ma ponad 20-letnie doświadczenie 
-                w branży HR.
-                Prowadzi projekty doradztwa personalnego, procesy rekrutacyjne dla
-                międzynarodowych korporacji
-                i największych polskich spółek. Jako
-                doradca, mentor i headhunter inspiruje zarządy korporacji do
-                wdrażania zmian, a menedżerów do rozwoju. Przeprowadziła z
-                sukcesem kilkaset projektów executive search. Nie ma dla nich zadań
-                niemożliwych do realizacji. Regularnie komentuje w mediach tematy
-                związane z rynkiem pracy. Absolwentka MBA HR na Akademii Leona Koźmińskiego. `}/>
+                <ImageTextSection buttonAction={() => {}} buttonName={'DĄŁACZ DO KURSU'}  imageLink='./Illustration2.svg' title={'Dla kogo jest ten kursu ?'} text={`Dla wszystkich osób, które stawiają pierwsze kroki na rynku pracy, w tym studenci, absolwenci i maturzyści, którzy szukają swojej zawodowej drogi.
+
+                  Osoby, które po urlopie macierzyńskim czy zdrowotnym ponownie wkraczają na rynek pracy.
+
+                  Osoby, które nie miały okazji zdobyć 
+                  dotychczas doświadczenia zawodowego.
+
+Jeśli jesteś osobą ambitną, pragnącą rozwoju i zdobycia nowej wiedzy - połącz się z nami!`}/>
+                  <ImageTextSection buttonAction={() => {}} buttonName={'DĄŁACZ DO KURSU'}  reverse={true} imageLink='./Frame.svg' title={'PO UKOŃCZENIU kursu ?'}  text={`Przygotowanie merytoryczne do rozpoczęcia poszukiwań swojej wymarzonej pracy
+
+Pewność siebie jesteś przygotowany, 
+więc nie musisz się bać.
+
+Świadomość swojej wartości na rynku pracy
+jesteś przyszłością.
+
+Poznanie odpowiedzi na wiele nurtujących Was pytań m.in. „Dlaczego nikt nie dzwoni w odpowiedzi na moje CV?” `}/>
                 <div className='home-course-title'>
                   <p className=' blueSecondaryHeader'>Zapraszamy na Kurs!</p>
                   <CustomCountDown/>

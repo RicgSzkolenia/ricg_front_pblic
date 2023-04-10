@@ -17,7 +17,7 @@ const ImageTextSection = (props:IImagetextSectionProps) => {
         <div className='imagetextSection'>
             <div className='blueSecondaryHeader imagetextSection-header'>{title}</div>
             <div className={`imagetextSection-wrapper ${ reverse ? 'imagetextSection-reverseWrapper' : '' }`}>
-                <div className='imagetextSection-wrapper-text'>
+                <div className='imagetextSection-wrapper-text' style={{ whiteSpace: "pre-line" }}>
                     <div className='blackSecondaryHeader'>{subTitile}</div>
                     <p className='blackMainText'>
                         {text}

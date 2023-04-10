@@ -1,8 +1,10 @@
 @import './variables.scss';
 
 body {
+
   margin: 0;
   font-family: 'Source Sans Pro', sans-serif;
+
   .logo {
     img {
       width: 150px;
@@ -17,6 +19,10 @@ body {
     font-size: 75px;
     color: $font_secondary_color;
     text-transform: uppercase;
+
+    @media only screen and (max-width: 376px) {
+      font-size: 48px;
+    }
   }
 
   .blueSecondaryHeader {
@@ -26,15 +32,26 @@ body {
     font-size: 60px;
     color: $font_secondary_color;
     text-transform: uppercase;
+
+    @media only screen and (max-width: 376px) {
+      font-size: 36px;
+      margin: 10px;
+    }
+    @media only screen and (max-width: 480px) and (min-width: 377px)  {
+
+    }
   }
 
   .blackSecondaryHeader {
     margin: 20px;
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 500;
-    font-size: 34px;
+    font-size: 40px;
     color: $font_primary_color;
     text-transform: uppercase;
+    @media only screen and (max-width: 376px) {
+      font-size: 26px;
+    }
   }
 
   .blueMainText {
@@ -49,7 +66,6 @@ body {
     font-weight: 400;
     font-size: 22px;
     color: $font_primary_color;
-    text-transform: uppercase;
 
   }
 

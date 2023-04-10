@@ -4,15 +4,26 @@
     height: 120px;
     border-radius: 20px;
     margin: 0 auto;
+    margin-top: 100px;
     color: $gradientColor;
-    border: 2px solid #000;
+    border: 1px solid #000;
     font-size: 65px;
-    font-weight: 800;
+    font-weight: 600;
     font-family: 'Source Sans Pro';
+
+    @media only screen and (max-width: 376px) {
+        width: 335px;
+        font-size: 48px;
+        height: 90px;
+    }
 
     &-renderer {
         p {
             margin: 0;
+            font-weight: 600;
+            @media only screen and (max-width: 376px) {
+                font-size: 48px;
+            }
         }
         &-item {
             display: flex;
@@ -25,6 +36,11 @@
         justify-content: center;
         align-items: baseline;
         &-type {
+            font-weight: 400;
+            @media only screen and (max-width: 376px) {
+                font-size: 12px;
+            }
+
             font-size: 20px;
         }
     }
