@@ -18,6 +18,10 @@
     @media only screen and (max-width: 376px) {
         margin-left: 10px;
     }
+
+    @media only screen and (max-width: 391px) {
+        margin-left: 10px;
+    }
     &-content {
         margin-top: 100px;
         margin-bottom: 100px;
@@ -30,9 +34,20 @@
             flex-direction: column-reverse;
         }
 
+        @media only screen and (max-width: 391px) {
+            margin: 10px auto;
+
+            flex-direction: column-reverse;
+        }
+
     &-left {
             width: 50%;
             @media only screen and (max-width: 376px) {
+                width: 100%;
+                margin-top: 10px;
+            }
+
+            @media only screen and (max-width: 391px) {
                 width: 100%;
                 margin-top: 10px;
             }
@@ -49,6 +64,10 @@
         }
         &-right {
             @media only screen and (max-width: 376px) {
+                width: 100%;
+            }
+
+            @media only screen and (max-width: 391px) {
                 width: 100%;
             }
             width: 50%;

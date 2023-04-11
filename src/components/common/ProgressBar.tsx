@@ -13,7 +13,12 @@ const StyledProgressBar = styled.div`
     position: relative;
     border-radius: 5px;
     margin-top: 30px;
+
     @media only screen and (max-width: 376px) {
+        width: 280px;
+    }
+
+    @media only screen and (max-width: 391px) {
         width: 280px;
     }
 `

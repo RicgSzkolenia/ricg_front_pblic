@@ -2,7 +2,6 @@
   "name": "ricg_front",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://JolyMolyf.github.io/ricg_front",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -34,9 +33,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy" : "npm run build",
-    "deploy" : "gh-pages/root -d build"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [

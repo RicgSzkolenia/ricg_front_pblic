@@ -8,6 +8,10 @@
     @media only screen and (max-width: 376px) {
         width: 80%;
     }
+
+    @media only screen and (max-width: 390px) {
+        width: 80%;
+    }
     .slick-slide>div {padding: 10px 10px;}
 
     &-title {
@@ -23,6 +27,10 @@
 
         &-text {
             @media only screen and (max-width: 376px) {
+                font-size:14px;
+            }
+
+            @media only screen and (max-width: 390px) {
                 font-size:14px;
             }
             margin: 0 auto;

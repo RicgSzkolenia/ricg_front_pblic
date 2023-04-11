@@ -11,12 +11,21 @@
         width: 100%;
     }
 
+    @media only screen and (max-width: 391px) {
+        height: 40px;
+        width: 100%;
+    }
+
     &-logo {
         display: flex;
         flex-direction: row;
         align-items: center;
             img {
                 @media only screen and (max-width: 376px) {
+                    width: 50px;
+                }
+
+                @media only screen and (max-width: 391px) {
                     width: 50px;
                 }
             }
@@ -35,8 +44,19 @@
             width: 260px;
             text-align: center;
         }
+
+        @media only screen and (max-width: 391px) {
+            font-size: 16px;
+            width: 260px;
+            text-align: center;
+        }
         &-item{
             @media only screen and (max-width: 376px) {
+                font-size: 18px;
+                line-height: 18px;
+            }
+
+            @media only screen and (max-width: 391px) {
                 font-size: 18px;
                 line-height: 18px;
             }

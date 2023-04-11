@@ -38,7 +38,7 @@ const CarouselSection = (props:ICarosuelProps) => {
               }
             },
             {
-              breakpoint: 376,
+              breakpoint: 420,
               settings: {
                 slidesToShow: 1,
                 slidesToScroll: 1,

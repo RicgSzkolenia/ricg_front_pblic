@@ -23,6 +23,11 @@ body {
     @media only screen and (max-width: 376px) {
       font-size: 48px;
     }
+
+    @media only screen and (max-width: 390px) {
+      font-size: 48px;
+    }
+
   }
 
   .blueSecondaryHeader {
@@ -37,9 +42,12 @@ body {
       font-size: 36px;
       margin: 10px;
     }
-    @media only screen and (max-width: 480px) and (min-width: 377px)  {
 
+    @media only screen and (max-width: 390px) {
+      font-size: 36px;
+      margin: 10px;
     }
+
   }
 
   .blackSecondaryHeader {
@@ -50,6 +58,10 @@ body {
     color: $font_primary_color;
     text-transform: uppercase;
     @media only screen and (max-width: 376px) {
+      font-size: 26px;
+    }
+
+    @media only screen and (max-width: 390px) {
       font-size: 26px;
     }
   }

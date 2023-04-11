@@ -6,6 +6,11 @@
                 margin-top: 20px !important;
                 margin-bottom: 20px !important;
             }
+
+            @media only screen and (max-width: 391px) {
+                margin-top: 20px !important;
+                margin-bottom: 20px !important;
+            }
             margin-top: 100px !important;
             margin-bottom: 40px;
             text-align: center;
@@ -13,6 +18,10 @@
         }
 
         &-types {
+            @media only screen and (max-width: 391px) {
+               width: 95%;
+               margin: 0  auto;
+            }
             max-width: 1000px;
             margin: 0 auto;
             margin-top: 100px;
@@ -44,7 +53,10 @@
             }
             @media only screen and (max-width: 376px) {
                 display: none;
-            } 
+            }
+            @media only screen and (max-width: 391px) {
+                display: none;
+            }
 
             img {
                 width: 65%;

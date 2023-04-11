@@ -5,6 +5,10 @@
     @media only screen and (max-width: 376px) {
         margin: 15px auto;
     }
+
+    @media only screen and (max-width: 390px) {
+        margin: 15px auto;
+    }
     &-header {
         margin-bottom: 20px;
         text-align: center;
@@ -19,6 +23,10 @@
         justify-content: center;
 
         @media only screen and (max-width: 376px) {
+            grid-template-columns: auto;
+        }
+
+        @media only screen and (max-width: 390px) {
             grid-template-columns: auto;
         }
 

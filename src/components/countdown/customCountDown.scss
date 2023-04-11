@@ -17,11 +17,21 @@
         height: 90px;
     }
 
+    @media only screen and (max-width: 391px) {
+        width: 335px;
+        font-size: 48px;
+        height: 90px;
+    }
+
     &-renderer {
         p {
             margin: 0;
             font-weight: 600;
             @media only screen and (max-width: 376px) {
+                font-size: 48px;
+            }
+
+            @media only screen and (max-width: 391px) {
                 font-size: 48px;
             }
         }
@@ -38,6 +48,10 @@
         &-type {
             font-weight: 400;
             @media only screen and (max-width: 376px) {
+                font-size: 12px;
+            }
+
+            @media only screen and (max-width: 391px) {
                 font-size: 12px;
             }
 

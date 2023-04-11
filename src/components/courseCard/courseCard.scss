@@ -14,6 +14,12 @@
 
     @media only screen and (max-width: 376px) {
         width: 240px;
+        height: 550px;
+    }
+
+    @media only screen and (max-width: 391px) {
+        width: 240px;
+        height: 550px;
     }
 
     &-title {
@@ -32,6 +38,10 @@
         margin: 20px auto;
         font-size: 17px !important;
         @media only screen and (max-width: 376px) {
+            width: 240px;
+        }
+
+        @media only screen and (max-width: 391px) {
             width: 240px;
         }
     }
@@ -69,6 +79,11 @@
         text-transform: uppercase;
 
         @media only screen and (max-width: 376px) {
+            width: 180px;
+        }
+
+
+        @media only screen and (max-width: 391px) {
             width: 180px;
         }
     }
