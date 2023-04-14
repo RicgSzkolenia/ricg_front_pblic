@@ -21,9 +21,20 @@ const StyledButton = styled.div<{ width: string, height: string }>`
         width: 300px !important;
     }
 
-    @media only screen and (max-width: 391px) {
+    @media only screen and (max-width: 480px) {
         font-size: 18px;
         width: 180px !important;
+    }
+
+    @media only screen and (max-width: 768px) {
+        font-size: 18px;
+        width: 250px !important;
+    }
+
+
+    @media only screen and (max-width: 1024px) {
+        font-size: 18px;
+        width: 200px !important;
     }
 `
 

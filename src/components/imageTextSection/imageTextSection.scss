@@ -3,11 +3,7 @@
     max-width: 1440px;
     margin: 150px auto;
 
-    @media only screen and (max-width: 376px) {
-        margin: 15px auto;
-    }
-
-    @media only screen and (max-width: 391px) {
+    @media only screen and (max-width: 480px) {
         margin: 15px auto;
     }
 
@@ -18,22 +14,25 @@
     &-reverseWrapper {
         flex-direction: row-reverse !important;
 
-        @media only screen and (max-width: 376px) {
+        @media only screen and (max-width: 480px) {
             flex-direction: column-reverse !important;
             align-items: center;
         }
-        @media only screen and (max-width: 391px) {
+
+        @media only screen and (max-width: 768px) {
             flex-direction: column-reverse !important;
             align-items: center;
+            justify-content: center;
         }
     }
 
     &-button  {
-        @media only screen and (max-width: 376px) {
+
+        @media only screen and (max-width: 480px) {
             display: none;
         }
 
-        @media only screen and (max-width: 391px) {
+        @media only screen and (max-width: 768px) {
             display: none;
         }
     }
@@ -42,32 +41,38 @@
         flex-direction: row;
         justify-content: space-evenly;
         align-items: end;
-        @media only screen and (max-width: 376px) {
+
+        @media only screen and (max-width: 480px) {
             flex-direction: column-reverse;
             align-items: center;
         }
 
-        @media only screen and (max-width: 391px) {
+        @media only screen and (max-width: 768px) {
             flex-direction: column-reverse;
             align-items: center;
+        }
+
+        @media only screen and (max-width: 1024px) {
+            align-items: center;
+
         }
         &-text {
-            @media only screen and (max-width: 376px) {
+
+            @media only screen and (max-width: 480px) {
                 width: 100%;
             }
 
-            @media only screen and (max-width: 391px) {
+            @media only screen and (max-width: 768px) {
                 width: 100%;
             }
+
             width: 40%;
             font-family: 'Source Sans Pro', sans-serif;
         }
 
         &-image {
-            @media only screen and (max-width: 376px) {
-                width: 70%;
-            }
-            @media only screen and (max-width: 391px) {
+
+            @media only screen and (max-width: 480px) {
                 width: 70%;
             }
             max-width: 700px;

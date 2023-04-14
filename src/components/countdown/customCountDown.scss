@@ -11,28 +11,35 @@
     font-weight: 600;
     font-family: 'Source Sans Pro';
 
-    @media only screen and (max-width: 376px) {
+    @media only screen and (max-width: 390px) {
+        width: 345px;
+        font-size: 48px;
+        height: 100px;
+    }
+
+    @media only screen and (min-width: 3911px) and (max-width: 480px) {
         width: 335px;
         font-size: 48px;
         height: 90px;
     }
 
-    @media only screen and (max-width: 391px) {
-        width: 335px;
-        font-size: 48px;
-        height: 90px;
+    @media only screen and (min-width: 481px) and (max-width: 768px) {
+        width: 465px;
+        font-size: 56px;
+        height: 100px;
     }
 
     &-renderer {
         p {
             margin: 0;
             font-weight: 600;
-            @media only screen and (max-width: 376px) {
+
+            @media only screen and (max-width: 480px) {
                 font-size: 48px;
             }
 
-            @media only screen and (max-width: 391px) {
-                font-size: 48px;
+            @media only screen and (max-width: 768px) {
+                font-size: 56px;
             }
         }
         &-item {
@@ -47,12 +54,13 @@
         align-items: baseline;
         &-type {
             font-weight: 400;
-            @media only screen and (max-width: 376px) {
+
+            @media only screen and (max-width: 480px) {
                 font-size: 12px;
             }
 
-            @media only screen and (max-width: 391px) {
-                font-size: 12px;
+            @media only screen and (max-width: 768px) {
+                font-size: 16px;
             }
 
             font-size: 20px;

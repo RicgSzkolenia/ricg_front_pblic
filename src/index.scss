@@ -20,11 +20,7 @@ body {
     color: $font_secondary_color;
     text-transform: uppercase;
 
-    @media only screen and (max-width: 376px) {
-      font-size: 48px;
-    }
-
-    @media only screen and (max-width: 390px) {
+    @media only screen and (max-width: 480px) {
       font-size: 48px;
     }
 
@@ -38,12 +34,8 @@ body {
     color: $font_secondary_color;
     text-transform: uppercase;
 
-    @media only screen and (max-width: 376px) {
-      font-size: 36px;
-      margin: 10px;
-    }
 
-    @media only screen and (max-width: 390px) {
+    @media only screen and (max-width: 480px) {
       font-size: 36px;
       margin: 10px;
     }
@@ -57,11 +49,8 @@ body {
     font-size: 40px;
     color: $font_primary_color;
     text-transform: uppercase;
-    @media only screen and (max-width: 376px) {
-      font-size: 26px;
-    }
 
-    @media only screen and (max-width: 390px) {
+    @media only screen and (max-width: 480px) {
       font-size: 26px;
     }
   }

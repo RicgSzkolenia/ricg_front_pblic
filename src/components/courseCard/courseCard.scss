@@ -12,14 +12,14 @@
     -webkit-box-shadow: 0px 10px 11px -10px #000000;
     box-shadow: 0px 10px 11px -10px #000000;
 
-    @media only screen and (max-width: 376px) {
+    @media only screen and (max-width: 480px) {
         width: 240px;
-        height: 550px;
+        height: 570px;
     }
 
-    @media only screen and (max-width: 391px) {
-        width: 240px;
-        height: 550px;
+    @media only screen and (max-width: 768px) {
+        width: 340px;
+        height: 500px;
     }
 
     &-title {
@@ -37,12 +37,13 @@
         width: 370px;
         margin: 20px auto;
         font-size: 17px !important;
-        @media only screen and (max-width: 376px) {
+
+        @media only screen and (max-width: 480px) {
             width: 240px;
         }
 
-        @media only screen and (max-width: 391px) {
-            width: 240px;
+        @media only screen and (max-width: 768px) {
+            width: 300px;
         }
     }
 
@@ -78,12 +79,7 @@
         font-family: 'Source Sans Pro', sans-serif;
         text-transform: uppercase;
 
-        @media only screen and (max-width: 376px) {
-            width: 180px;
-        }
-
-
-        @media only screen and (max-width: 391px) {
+        @media only screen and (max-width: 480px) {
             width: 180px;
         }
     }

@@ -2,12 +2,8 @@
     &-course {
 
         &-title {
-            @media only screen and (max-width: 376px) {
-                margin-top: 20px !important;
-                margin-bottom: 20px !important;
-            }
 
-            @media only screen and (max-width: 391px) {
+            @media only screen and (max-width: 480px) {
                 margin-top: 20px !important;
                 margin-bottom: 20px !important;
             }
@@ -18,7 +14,7 @@
         }
 
         &-types {
-            @media only screen and (max-width: 391px) {
+            @media only screen and (max-width: 480px) {
                width: 95%;
                margin: 0  auto;
             }
@@ -51,10 +47,12 @@
                 margin: 0;
                 font-size: 36px;
             }
-            @media only screen and (max-width: 376px) {
+            
+            @media only screen and (max-width: 480px) {
                 display: none;
             }
-            @media only screen and (max-width: 391px) {
+
+            @media only screen and (max-width: 768px) {
                 display: none;
             }
 

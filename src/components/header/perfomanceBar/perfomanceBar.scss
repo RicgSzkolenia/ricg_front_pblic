@@ -6,14 +6,8 @@
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    @media only screen and (max-width: 376px) {
-        margin-top: 10px;
-        width: 95%;
-        justify-content: center;
-        margin-bottom: 10px;
-    }
 
-    @media only screen and (max-width: 391px) {
+    @media only screen and (max-width: 480px) {
         margin-top: 10px;
         width: 95%;
         justify-content: center;
@@ -29,21 +23,14 @@
             margin: 0 auto;
             display: block;
             font-size: 50px;
-            @media only screen and (max-width: 376px) {
-                font-size: 28px;
-            }
 
-            @media only screen and (max-width: 391px) {
+            @media only screen and (max-width: 480px) {
                 font-size: 28px;
             }
         }
         p {
-            @media only screen and (max-width: 376px) {
-                font-size: 10px;
-                text-align: center;
-            }
 
-            @media only screen and (max-width: 391px) {
+            @media only screen and (max-width: 480px) {
                 font-size: 10px;
                 text-align: center;
             }

@@ -11,15 +11,15 @@ const StyledProgressBar = styled.div`
     height: 20px;
     background-color: #D9DFFF;
     position: relative;
-    border-radius: 5px;
+    border-radius: 10px;
     margin-top: 30px;
 
-    @media only screen and (max-width: 376px) {
+    @media only screen and (max-width: 480px) {
         width: 280px;
     }
 
-    @media only screen and (max-width: 391px) {
-        width: 280px;
+    @media only screen and (max-width: 768px) {
+        width: 380px;
     }
 `
 
@@ -29,7 +29,7 @@ const StyledProgress = styled.div<{ customWidth: number }>`
     left: 0;
     height: 20px;
     background-color: #1A0F91;
-    border-radius: 5px;
+    border-radius: 10px;
     width: ${(props) => props.customWidth}px;
 `
 

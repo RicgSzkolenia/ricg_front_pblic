@@ -10,12 +10,7 @@ const StyledMenuItemDropDown = styled.div`
     position: relative;
     cursor: pointer;
 
-    @media only screen and (max-width: 376px) {
-        font-size: 18px;
-        width: 70px;
-    }
-
-    @media only screen and (max-width: 391px) {
+    @media only screen and (max-width: 480px) {
         font-size: 18px;
         width: 70px;
     }
