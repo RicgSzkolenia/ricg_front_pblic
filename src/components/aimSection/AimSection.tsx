@@ -5,7 +5,7 @@ import Card from '../common/Card';
 const AimSection = () => {
     return (
         <div className="aims">
-            <p className="blueSecondaryHeader aims-header"> Cele Webinaru </p>
+            <p className="blueSecondaryHeader aims-header" data-aos="fade-up"> Cele Webinaru </p>
             <div className='aims-cardWrapper'>
             { aims.map((aim) => {
                     return(

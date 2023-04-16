@@ -18,7 +18,7 @@ const StyledProgressBar = styled.div`
         width: 280px;
     }
 
-    @media only screen and (max-width: 768px) {
+    @media only screen and (min-width: 481px) and (max-width: 768px) {
         width: 380px;
     }
 `

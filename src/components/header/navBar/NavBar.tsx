@@ -5,7 +5,7 @@ import Button, { ButtonTypes } from "../../common/Button";
 import MenuItemDropDown from "../../common/MenuItemDropDown";
 const NavBar = () => {
     return (
-        <div className="navbar">
+        <div className="navbar" data-aos="fade-down"  data-aos-delay="300" data-aos-duration="2000">
             <div className="navbar-logo">
                 <img  src={"/logo.png"}></img>
             </div>

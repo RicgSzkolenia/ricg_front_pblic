@@ -16,13 +16,21 @@ const CustomCarousel = (props:any) => {
         ...props.settings,
         responsive: [
             {
-              breakpoint: 900,
+              breakpoint: 1025,
               settings: {
-                slidesToShow: 1.5,
+                slidesToShow: 2,
                 slidesToScroll: 1,
                 rows: 1,
                 infinite: true,
                 dots: true
+              }
+            },
+            {
+              breakpoint: 769,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 2,
+                initialSlide: 2
               }
             },
             {

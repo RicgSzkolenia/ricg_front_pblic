@@ -23,13 +23,13 @@ const StyledCard = styled.div`
         margin: 7px;
     }
 
-    @media only screen and (max-width: 768px) {
+    @media only screen and (min-width: 480px) and (max-width: 768px) {
         height: 315px;
         width: 185px;
         margin: 7px;
     }
 
-    @media only screen and (max-width: 1024px) {
+    @media only screen and (min-width: 769px) and (max-width: 1024px) {
         height: 290px;
         width: 195px;
         margin: 5px;
@@ -42,7 +42,7 @@ interface ICardProps {
 const Card = ({children, className}:any) => {
 
     return (
-        <StyledCard className={className}>
+        <StyledCard data-aos="flip-up" data-aos-duration="2000" className={className}>
             {children}
         </StyledCard>
     )

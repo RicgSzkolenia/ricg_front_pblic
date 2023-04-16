@@ -13,13 +13,15 @@
     font-family: 'Source Sans Pro', sans-serif;
     max-width: 1440px;
     width: 95%;
+    min-height: 90vh;
+    max-height: 100vh;
     margin: 20px auto;
 
     @media only screen and (max-width: 480px) {
         margin-left: 10px;
     }
     &-content {
-        margin-top: 100px;
+        margin-top: 15vh;
         margin-bottom: 100px;
         display: flex;
         flex-direction: row;

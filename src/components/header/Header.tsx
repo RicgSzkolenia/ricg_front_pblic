@@ -9,7 +9,7 @@ const Header = () => {
             <NavBar/>
             {/* <div id='radialBlur'></div> */}
             <div className='header-content'>
-                <div className='header-content-left'>
+                <div className='header-content-left' data-aos="fade-right" data-aos-duration="1500" data-aos-delay="300">
                     <p className='blackSecondaryHeader'>Wystartuj z nami-</p>
                     <p className='blueHeader'>rynek pracy <br></br>bez tajemnic</p>
                     <div className='header-content-left-arrow'>
@@ -17,7 +17,7 @@ const Header = () => {
                         <p className='blueMainText'>Bądż z nami</p>
                     </div>
                 </div>
-                <div className='header-content-right'>
+                <div className='header-content-right' data-aos="fade-left" data-aos-duration="1500" data-aos-delay="300">
                     <img src={'/illustration.svg'} style={{"width": "80%", height: "auto"}}></img>
                 </div>
             </div>
