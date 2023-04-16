@@ -8,7 +8,7 @@ const PerfomanceBar = () => {
             {perfomanceItems.map((item) => {
                 return (
                     <div className='perfomance-bar-item'>
-                       <CountUp suffix={item.suffix} prefix={item.prefix} className='perfomance-bar-item-count' end={item.count} duration={5} ></CountUp>
+                       <CountUp separator="" suffix={item.suffix} prefix={item.prefix} className='perfomance-bar-item-count' end={item.count} duration={5} ></CountUp>
                         <p>{item.title}</p>
                     </div>
                 )

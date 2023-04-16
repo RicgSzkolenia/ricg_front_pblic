@@ -1,6 +1,10 @@
 @import '../../variables';
 
 .header {
+    &-wrapper {
+        width: 100%;
+        background-color: #F2F4FF;
+    }
     #radialBlur{
         position: absolute;
         left: -750px;
@@ -10,6 +14,7 @@
         background: radial-gradient(102.2% 102.2% at 41.57% 49.96%, #50B2DD 0%, rgba(80, 178, 221, 0) 42.71%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
         filter: blur(22px);
     }
+    background-color: #F2F4FF;
     font-family: 'Source Sans Pro', sans-serif;
     max-width: 1440px;
     width: 95%;
@@ -20,12 +25,15 @@
     @media only screen and (max-width: 480px) {
         margin-left: 10px;
     }
+
     &-content {
-        margin-top: 15vh;
+        height: 40vh;
+        margin-top: 5vh;
         margin-bottom: 100px;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        align-items: center;
 
         @media only screen and (max-width: 480px) {
             margin: 10px auto;
@@ -42,6 +50,10 @@
             }
             &-arrow {
                 img {
+                    width: 90px;
+                    animation-name: example;
+                    animation-duration: 4s;
+                    animation-iteration-count: infinite;
                     display: inline-block;
                     transform: scale(0.6);
                 }
@@ -65,3 +77,8 @@
 
 }
 
+@keyframes example{
+    0%  {transform: translateX(0px);}
+    66%  {transform: translateX(50px);}
+    100%  {transform: translateX(0);}
+  }

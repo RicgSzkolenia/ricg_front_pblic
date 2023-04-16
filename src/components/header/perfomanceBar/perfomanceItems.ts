@@ -7,24 +7,26 @@ interface PerfomanceItem {
 
 export const perfomanceItems:Array<PerfomanceItem> = [
     {
-        count: 133,
-        title: 'Courses completed',
-        suffix: '+'
+        count: 23,
+        title: 'Lata w biznesie rekrutacyjnym',
+        suffix: ''
 
     },
     {
-        count: 305,
-        title: 'Courses completed',
-        suffix: '+'
+        prefix: '+',
+        count: 70,
+        title: 'Projektów doradczych w obszarze HR',
     },
     {
-        count: 56,
-        title: 'Courses completed',
+        prefix: '+',
+        count: 2950,
+        title: 'Projektów rekrutacyjnych',
         suffix: 'K'
     },
     {
-        count: 11,
-        title: 'Courses completed',
-        suffix: 'ML'
+        prefix: '+',
+        count: 4000,
+        title: 'Które skorzystały z naszego Indywidualnego Coachingu kariery',
+        suffix: 'osob'
     }
 ]

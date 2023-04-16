@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const StyledButton = styled.div<{ width: string, height: string }>`
     width: ${(props: any)=> [props.width]};
     height: ${(props: any)=> [props.height]};
-    background-color: #50B2DD;
+    background-color: #954580;
     color: #fff;
     cursor: pointer;
     padding: 2px;
@@ -11,7 +11,8 @@ const StyledButton = styled.div<{ width: string, height: string }>`
     line-height: ${(props: any)=> [props.height]};
     margin: 5px;
     border-radius: 10px;
-    font-size: 26px;
+    font-size: 22px;
+    padding: 10px;
     transition: 0.3s ease-in-out;
     &:hover {
         background-color: #6149F5;

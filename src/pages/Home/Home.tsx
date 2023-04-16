@@ -19,7 +19,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 const Home =  () => {
-    const [ preloader, setPreloader ] = useState<boolean>(false);
+    const [ preloader, setPreloader ] = useState<boolean>(true);
     const [ timer, setTimer ] = useState<number>(3)
 
     useEffect(() => {
