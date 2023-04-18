@@ -19,22 +19,24 @@ const StyledButton = styled.div<{ width: string, height: string }>`
         background-color: #6149F5;
     }
     @media only screen and (max-width: 376px) {
-        font-size: 18px;
-        width: 300px !important;
+        font-size: 16px;
+        width: 200px !important;
+        height: 10px;
+        line-height: 10px;
     }
 
-    @media only screen and (max-width: 480px) {
+    @media only screen and (min-width: 377px) and (max-width: 480px) {
         font-size: 18px;
         width: 180px !important;
     }
 
-    @media only screen and (max-width: 768px) {
+    @media only screen and (min-width: 481px) and (max-width: 768px) {
         font-size: 18px;
         width: 250px !important;
     }
 
 
-    @media only screen and (max-width: 1024px) {
+    @media only screen and (min-width: 769px) and (max-width: 1024px) {
         font-size: 18px;
         width: 200px !important;
     }
@@ -51,17 +53,17 @@ interface ButtonProps {
     handleClick: any;
     children?: any;
     className?: string;
-
+    id?:string;
 }
 
 const Button = (props: ButtonProps) => {
-    const  {height = '20px', width = 'auto',  type = ButtonTypes.default, handleClick, className} = props;
+    const  {height = '20px', width = 'auto',  type = ButtonTypes.default, handleClick, className, id} = props;
 
     const onClick = () => {
         handleClick?.();
     }
     return (
-        <StyledButton className={className ?? ''} height={height} width={width} onClick={onClick} >{props.children}</StyledButton>
+        <StyledButton id={id ?? ''} className={className ?? ''} height={height} width={width} onClick={onClick} >{props.children}</StyledButton>
     )
 }
 

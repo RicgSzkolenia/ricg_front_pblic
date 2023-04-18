@@ -44,6 +44,7 @@ const Header = () => {
             <div className="header-content-left-arrow">
               <img src={"/ArrowRight.svg"} />
               <Button
+                id="header-content-left-arrow-button"
                 type={ButtonTypes.default}
                 height="20px"
                 width="150px"
