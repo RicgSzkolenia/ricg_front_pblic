@@ -15,18 +15,9 @@ const CustomCarousel = (props:any) => {
         prevArrow: <CustomCarouselArrow reverse={true} />,
         ...props.settings,
         responsive: [
+
             {
-              breakpoint: 1025,
-              settings: {
-                slidesToShow: 2,
-                slidesToScroll: 1,
-                rows: 1,
-                infinite: true,
-                dots: true
-              }
-            },
-            {
-              breakpoint: 769,
+              breakpoint: 1000,
               settings: {
                 slidesToShow: 1,
                 slidesToScroll: 2,

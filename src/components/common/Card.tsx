@@ -24,16 +24,22 @@ const StyledCard = styled.div`
         margin: 7px;
     }
 
-    @media only screen and (min-width: 480px) and (max-width: 768px) {
-        height: 315px;
-        width: 185px;
+    @media only screen and (min-width: 480px) and (max-width: 568px) {
+        height: 300px;
+        width: 200px;
+        margin: 7px;
+    }
+
+    @media only screen and (min-width: 569px) and (max-width: 768px) {
+        height: 300px;
+        width: 245px;
         margin: 7px;
     }
 
     @media only screen and (min-width: 769px) and (max-width: 1024px) {
-        height: 290px;
-        width: 195px;
-        margin: 5px;
+        height: 250px;
+        width: 200px;
+        margin: 5px 5px;
     }
 `
 interface ICardProps {

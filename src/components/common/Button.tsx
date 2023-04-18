@@ -19,15 +19,17 @@ const StyledButton = styled.div<{ width: string, height: string }>`
         background-color: #6149F5;
     }
     @media only screen and (max-width: 376px) {
-        font-size: 16px;
-        width: 200px !important;
-        height: 10px;
+        font-size: 12px;
+        width: 185px !important;
+        height: 8px;
         line-height: 10px;
     }
 
     @media only screen and (min-width: 377px) and (max-width: 480px) {
-        font-size: 18px;
-        width: 180px !important;
+        font-size: 16px;
+        width: 200px !important;
+        height: 10px !important;
+        line-height: 10px !important;
     }
 
     @media only screen and (min-width: 481px) and (max-width: 768px) {
