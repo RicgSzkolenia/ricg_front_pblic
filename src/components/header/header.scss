@@ -3,7 +3,7 @@
 .header {
     &-wrapper {
         width: 100%;
-        background-color: #F2F4FF;
+        background-color: $seventhColor;
     }
     #radialBlur{
         position: absolute;
@@ -14,7 +14,7 @@
         background: radial-gradient(102.2% 102.2% at 41.57% 49.96%, #50B2DD 0%, rgba(80, 178, 221, 0) 42.71%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
         filter: blur(22px);
     }
-    background-color: #F2F4FF;
+
     font-family: 'Source Sans Pro', sans-serif;
     max-width: 1440px;
     width: 95%;
