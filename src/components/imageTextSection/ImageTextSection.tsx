@@ -23,7 +23,7 @@ const ImageTextSection = (props:IImagetextSectionProps) => {
                         {text}
                     </p>
                     <div className='imagetextSection-button' data-aos={'fade-up'}  data-aos-duration="1500" data-aos-delay="150">
-                       { buttonName && buttonAction && <Button width='300px' height='40px' type={ButtonTypes.default} handleClick={()=> {buttonAction?.()}} >{buttonName}</Button>}
+                       { buttonName && buttonAction && <Button width='300px' height='20px' type={ButtonTypes.default} handleClick={()=> {buttonAction?.()}} >{buttonName}</Button>}
                     </div>
                 </div>
                 <div className='imagetextSection-wrapper-image' data-aos={reverse ? 'fade-right' : 'fade-left'}  data-aos-duration="1500" data-aos-delay="150">

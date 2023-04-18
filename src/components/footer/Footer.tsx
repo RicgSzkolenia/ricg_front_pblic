@@ -1,9 +1,10 @@
 import styled from "styled-components";
+import { colors } from "../../colors";
 
 const StyledFooter = styled.div`
     height: 60px;
     width: 100%;
-    background-color: #50b2dd;
+    background-color: ${colors.thirdColor};
     position: relative;
     img {
         position: absolute;

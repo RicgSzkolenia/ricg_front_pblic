@@ -15,6 +15,7 @@ const StyledButton = styled.div<{ width: string, height: string }>`
     padding: 10px;
     transition: 0.3s ease-in-out;
     &:hover {
+        transform: scale(1.06);
         background-color: #6149F5;
     }
     @media only screen and (max-width: 376px) {
@@ -54,7 +55,7 @@ interface ButtonProps {
 }
 
 const Button = (props: ButtonProps) => {
-    const  {height = '50px', width = 'auto',  type = ButtonTypes.default, handleClick, className} = props;
+    const  {height = '20px', width = 'auto',  type = ButtonTypes.default, handleClick, className} = props;
 
     const onClick = () => {
         handleClick?.();

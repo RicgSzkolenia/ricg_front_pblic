@@ -1,13 +1,14 @@
 import { ReactNode } from "react";
 import styled from "styled-components";
+import { colors } from "../../colors";
 
 
 const StyledCard = styled.div`
     margin: 20px;
-    padding: 20px;
+    padding: 40px 10px;
     width: 230px;
     height: 250px;
-    border: 4px solid #256480;
+    border: 4px solid ${colors.primaryColor};
     border-radius: 10px;
     text-align: center;
     display: flex;

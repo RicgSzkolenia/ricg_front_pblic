@@ -1,5 +1,6 @@
 import { useCallback } from "react";
 import styled from "styled-components";
+import { colors } from "../../colors";
 
 interface IProgressBar {
     progress: number;
@@ -28,7 +29,7 @@ const StyledProgress = styled.div<{ customWidth: number }>`
     top: 0;
     left: 0;
     height: 20px;
-    background-color: #1A0F91;
+    background-color: ${colors.thirdColor};
     border-radius: 10px;
     width: ${(props) => props.customWidth}px;
 `

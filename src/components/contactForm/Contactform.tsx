@@ -41,7 +41,7 @@ const ContactForm = () => {
             }}
             >
             <Form  className="contactForm">
-                <img src='./BigLogo.png'></img>   
+                <img src='./Biglogo.png'></img>   
                 <Field id="firstName" name="firstName" placeholder="Imie" />
                 <Field id="lastName" name="lastName" placeholder="Nazwisko" />
                 <Field

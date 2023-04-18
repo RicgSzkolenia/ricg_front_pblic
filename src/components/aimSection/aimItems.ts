@@ -5,32 +5,32 @@ export interface AimItem {
 }
 export const aims:Array<AimItem> = [
     {
-        icon: './rocket.svg',
+        icon: './roseIcons/rocket.svg',
         title: '',
         text: 'Wystartuj z nami na rynek pracy'
     },
     {
-        icon: './file.svg',
+        icon: './roseIcons/file.svg',
         title: '',
         text: 'Stwórz z nami swoje najlepsze dokumenty aplikacyjne'
     },
     {
-        icon: './contactLoop.svg',
+        icon: './roseIcons/contactLoop.svg',
         title: '',
         text: 'Dowiedz się jak radzić sobie w procesie poszukiwania idealnej pracy'
     },
     {
-        icon: './chart.svg',
+        icon: './roseIcons/chart.svg',
         title: '',
         text: 'Spójrz na siebie z innej strony. Odkryj swój potencjał'
     },
     {
-        icon: './social.svg',
+        icon: './roseIcons/social.svg',
         title: '',
         text: 'Bądź najlepszą wersją siebie na rozmowie o pracę'
     },
     {
-        icon: './phone.svg',
+        icon: './roseIcons/phone.svg',
         title: '',
         text: 'Zadbaj o swój „PR i marketing”'
     }

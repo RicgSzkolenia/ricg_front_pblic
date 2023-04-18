@@ -17,10 +17,14 @@ import OpinionCard from '../../components/opinionCard/OpinionCard';
 import Footer from '../../components/footer/Footer';
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Preloader from '../../components/preloader/Preloader';
 
 const Home =  () => {
-    const [ preloader, setPreloader ] = useState<boolean>(true);
-    const [ timer, setTimer ] = useState<number>(3)
+    const [ preloader, setPreloader ] = useState<boolean>(false);
+
+    useEffect(() => {
+        setTimeout(() => setPreloader(false), 2500)
+    }, [])
 
     useEffect(() => {
       AOS.init();
@@ -29,9 +33,7 @@ const Home =  () => {
 
     return (
       <>
-        {preloader ? (<div className='loader-wrapper absolute'>
-
-                </div>) : (
+        {preloader ? (<Preloader/>) : (
         <div className='home'>
             <Header/>
             <AimSection/>
@@ -41,7 +43,7 @@ const Home =  () => {
               Regularnie komentuje w mediach tematy związane z rynkiem pracy. Absolwentka MBA HR na Akademii Leona Koźmińskiego.
             `}/>
                 <CarouselSection title='Co wyróżnia nasz kurs?'/>
-                <ImageTextSection buttonAction={() => {}} buttonName={'DĄŁACZ DO KURSU'}  imageLink='./Illustration2.svg' title={'Dla kogo jest ten kursu ?'} text={`Dla wszystkich osób, które stawiają pierwsze kroki na rynku pracy, w tym studenci, absolwenci i maturzyści, którzy szukają swojej zawodowej drogi.
+                <ImageTextSection buttonAction={() => {}} buttonName={'DĄŁACZ DO KURSU'}  imageLink='./roseIcons/boyIllustration.svg' title={'Dla kogo jest ten kursu ?'} text={`Dla wszystkich osób, które stawiają pierwsze kroki na rynku pracy, w tym studenci, absolwenci i maturzyści, którzy szukają swojej zawodowej drogi.
 
                   Osoby, które po urlopie macierzyńskim czy zdrowotnym ponownie wkraczają na rynek pracy.
 
@@ -49,7 +51,7 @@ const Home =  () => {
                   dotychczas doświadczenia zawodowego.
 
 Jeśli jesteś osobą ambitną, pragnącą rozwoju i zdobycia nowej wiedzy - połącz się z nami!`}/>
-                  <ImageTextSection buttonAction={() => {}} buttonName={'DĄŁACZ DO KURSU'}  reverse={true} imageLink='./Frame.svg' title={'PO UKOŃCZENIU kursu ?'}  text={`Przygotowanie merytoryczne do rozpoczęcia poszukiwań swojej wymarzonej pracy
+                  <ImageTextSection buttonAction={() => {}} buttonName={'DĄŁACZ DO KURSU'}  reverse={true} imageLink='./roseIcons/girlIllustration.svg' title={'PO UKOŃCZENIU kursu ?'}  text={`Przygotowanie merytoryczne do rozpoczęcia poszukiwań swojej wymarzonej pracy
 
 Pewność siebie jesteś przygotowany, 
 więc nie musisz się bać.
@@ -88,7 +90,7 @@ Poznanie odpowiedzi na wiele nurtujących Was pytań m.in. „Dlaczego nikt nie 
                       <div className='home-contact-info' data-aos={'fade-left'}  data-aos-duration="1500" data-aos-delay="150">
                         <p className='blueSmallText'>Bądź najlepszą wersją siebie
                             na rozmowie o pracę!</p>
-                        <img src={'./Illustration.png'}></img>
+                        <img src={'./roseIcons/illustrationContact.svg'}></img>
                       </div>
                       <div className='home-contact-form' data-aos={'fade-right'}  data-aos-duration="1500" data-aos-delay="150">
                         <ContactForm/>

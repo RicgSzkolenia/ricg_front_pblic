@@ -8,7 +8,7 @@
     padding: 20px;
     border-radius: 20px;
     margin-bottom: 100px;
-    background-color: $primaryColor;
+    background-color: $sixthColor;
     color: #fff;
 
     @media only screen and (max-width: 480px) {
@@ -36,6 +36,6 @@
     &-button {
         width: 200px;
         margin: 20px auto !important;
-        background-color: #1A0F91 !important;
+        // background-color: #1A0F91 !important;
     }
 }

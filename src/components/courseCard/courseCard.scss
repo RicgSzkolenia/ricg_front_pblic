@@ -5,7 +5,7 @@
     margin: 0 auto;
     width: 380px;
     height: 500px;
-    border: 5px solid #6149F5;
+    border: 5px solid $fourthColor;
     border-radius: 30px;
     overflow: visible !important;
     margin-top: 20px;
@@ -25,7 +25,7 @@
     &-title {
         margin: 20px auto;
         margin-top: 50px;
-        color: #50B2DD !important;
+        color: $fifthColor !important;
         text-transform: uppercase;
         font-weight: 700;
         font-size: 24px;
@@ -71,7 +71,7 @@
         height: 40px;
         font-size: 30px;
         line-height: 40px;
-        background-color: #50B2DD !important;
+        background-color: $fifthColor !important;
         color: #fff;
         width: 300px;
         margin: 0 auto;
