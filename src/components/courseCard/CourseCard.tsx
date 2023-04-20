@@ -29,7 +29,7 @@ const CourseCard = (props:ICourseCardProps) => {
             <div className='courseCard-price'>
                 { price } zł
             </div>
-            <Button className='courseCard-button' width='290px' height='40px' type={ButtonTypes.default} handleClick={handleClick} >Kup Kurs</Button>
+            <Button className='courseCard-button' width='290px' height='20px' type={ButtonTypes.default} handleClick={handleClick} >Kup Kurs</Button>
         </div>
     )
 }

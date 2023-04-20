@@ -1,34 +1,32 @@
-import "./preloader.scss";
-import { motion } from "framer-motion";
+import './preloader.scss';
 
 const Preloader = () => {
-  return (
-    <motion.div className="preloader"
-      animate={{ opacity: 0 }}
-      transition={{ delay: 1.5, duration: 1 }}
-    >
-      <motion.div
-        initial={{ scale: 1, opacity: 1 }}
-        animate={{
-          scale: 1,
-          opacity: 0.2,
-          borderRadius: 0,
-          height: "100vh",
-          width: "100%",
-          left: 0,
-          top: 0,
-        }}
-        transition={{ delay: 1.5, duration: 1 }}
-        className="preloader-circle"
-      ></motion.div>
-      <motion.img
-        initial={{ scale: 1 }}
-        animate={{ scale: 1, y: "-100vh", x: 0 }}
-        transition={{ delay: 1, duration: 3.4 }}
-        src={"./rocketPreloader.svg"}
-      ></motion.img>
-    </motion.div>
-  );
-};
+  return(
+        <div className="draw-container">
+          <div className="draw">
+            <div className="rocket">
+              <div className="window"></div>
+            </div>
+            <div className="smoke">
+              <div className="one"></div>
+              <div className="cloud two"></div>
+              <div className="cloud four"></div>
+              <div className='three'> </div>
+            </div>
+
+            <div className="stars">
+              <div className="star one"></div>
+              <div className="star two small"></div>
+              <div className="star three small"></div>
+              <div className="star four small"></div>
+              <div className="star five"></div>
+              <div className="star six samll"></div>
+              <div className="star seven"></div>
+              <div className="star eight small"></div>
+            </div>
+          </div>
+        </div>
+  )
+}
 
 export default Preloader;
