@@ -12,6 +12,7 @@ import CustomCarousel from "../../components/customCarousel/CustomCarousel";
 import {
   courses,
   opinions,
+
   slides,
 } from "../../components/carouselSection/slides";
 import Card from "../../components/common/Card";
