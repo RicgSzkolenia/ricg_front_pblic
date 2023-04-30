@@ -1,46 +1,47 @@
 import styled from 'styled-components';
 
-const StyledButton = styled.div<{ width: string, height: string }>`
-    width: ${(props: any)=> [props.width]};
-    height: ${(props: any)=> [props.height]};
+const StyledButton = styled.div`
+    min-width: 85px;
+    max-width: 250px;
+    height: 35px;
     background-color: #954580;
     color: #fff;
     cursor: pointer;
-    padding: 2px;
+    padding: 0 15px;
     text-align: center;
-    line-height: ${(props: any)=> [props.height]};
+    line-height: 35px;
     margin: 5px;
     border-radius: 10px;
-    font-size: 22px;
-    padding: 10px;
+    font-size: 20px;
     transition: 0.3s ease-in-out;
     &:hover {
         transform: scale(1.06);
         background-color: #6149F5;
     }
     @media only screen and (max-width: 376px) {
-        font-size: 12px;
+        font-size: 14px;
         width: 185px !important;
-        height: 8px;
-        line-height: 10px;
+        height: 30px;
+        line-height: 30px;
     }
 
     @media only screen and (min-width: 377px) and (max-width: 480px) {
-        font-size: 16px;
-        width: 200px !important;
-        height: 10px !important;
-        line-height: 10px !important;
+        font-size: 14px;
+        width: 150px;
+        height: 25px !important;
+        line-height: 25px !important;
+
     }
 
     @media only screen and (min-width: 481px) and (max-width: 768px) {
-        font-size: 18px;
-        width: 250px !important;
+        font-size: 16px;
+        width: 250px;
     }
 
 
     @media only screen and (min-width: 769px) and (max-width: 1024px) {
-        font-size: 18px;
-        width: 200px !important;
+        font-size: 16px;
+        width: 200px;
     }
 `
 
@@ -50,8 +51,6 @@ export enum ButtonTypes {
 
 interface ButtonProps {
     type: ButtonTypes;
-    height?: string;
-    width?: string;
     handleClick: any;
     children?: any;
     className?: string;
@@ -59,13 +58,13 @@ interface ButtonProps {
 }
 
 const Button = (props: ButtonProps) => {
-    const  {height = '20px', width = 'auto',  type = ButtonTypes.default, handleClick, className, id} = props;
+    const  { type = ButtonTypes.default, handleClick, className, id} = props;
 
     const onClick = () => {
         handleClick?.();
     }
     return (
-        <StyledButton id={id ?? ''} className={className ?? ''} height={height} width={width} onClick={onClick} >{props.children}</StyledButton>
+        <StyledButton id={id ?? ''} className={className ?? ''} onClick={onClick} >{props.children}</StyledButton>
     )
 }
 

@@ -32,7 +32,7 @@ const ContactForm = () => {
     }
 
     return (
-        <div>
+        <div className='form'>
             <Formik
             initialValues={initialValues}
             onSubmit={async (values) => {
@@ -62,7 +62,7 @@ const ContactForm = () => {
                 placeholder="Temat"
                 type="text"
                 />
-               <Button className='contactForm-button' type={ButtonTypes.default} height={""} width={""} handleClick={handleSubmit}>Wyslij</Button>
+               <Button className='contactForm-button' type={ButtonTypes.default} handleClick={handleSubmit}>Wyslij</Button>
             </Form>
             </Formik>
         </div>

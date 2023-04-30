@@ -12,7 +12,6 @@ import CustomCarousel from "../../components/customCarousel/CustomCarousel";
 import {
   courses,
   opinions,
-
   slides,
 } from "../../components/carouselSection/slides";
 import Card from "../../components/common/Card";
@@ -25,7 +24,7 @@ import "aos/dist/aos.css";
 import Preloader from "../../components/preloader/Preloader";
 
 const Home = () => {
-  const [preloader, setPreloader] = useState<boolean>(true);
+  const [preloader, setPreloader] = useState<boolean>(false);
 
   useEffect(() => {
     setTimeout(() => setPreloader(false), 3020);
@@ -49,7 +48,8 @@ const Home = () => {
             title={"Dlaczego warto się z nami spotkać?"}
             subTitile={"Paulina Laczek"}
             text={`Prezes Zarządu RICG. Ma ponad 20-letnie doświadczenie w branży HR. Prowadzi projekty doradztwa personalnego, procesy rekrutacyjne dla międzynarodowych korporacji i największych polskich spółek. 
-              Jako doradca, mentor i headhunter inspiruje zarządy korporacji do wdrażania zmian, a menedżerów do rozwoju. Przeprowadziła z sukcesem kilkaset projektów executive search. Nie ma dla nich zadań niemożliwych do realizacji.
+
+            Jako doradca, mentor i headhunter inspiruje zarządy korporacji do wdrażania zmian, a menedżerów do rozwoju. Przeprowadziła z sukcesem kilkaset projektów executive search. Nie ma dla nich zadań niemożliwych do realizacji.
 
               Regularnie komentuje w mediach tematy związane z rynkiem pracy. Absolwentka MBA HR na Akademii Leona Koźmińskiego.
             `}
@@ -116,12 +116,15 @@ Poznanie odpowiedzi na wiele nurtujących Was pytań m.in. „Dlaczego nikt nie 
             data-aos-duration="1500"
             data-aos-delay="150"
           >
-            <p className="home-course-title blueSecondaryHeader">
+            <p className="home-reviews-title blueSecondaryHeader">
               Opinie O Kursie
             </p>
             <CustomCarousel
               settings={{
                 slidesToShow: 3,
+                arrows: false,
+                autoplay: true,
+                autoplaySpeed: 800,
                 responsive: [
                   {
                     breakpoint: 1200,

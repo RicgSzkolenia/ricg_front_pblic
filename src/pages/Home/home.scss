@@ -1,3 +1,4 @@
+@import '../../variables.scss';
 .home{
     overflow-x: hidden;
     &-course {
@@ -33,22 +34,39 @@
     &-reviews {
         width: 90%;
         max-width: 1440px;
-        margin: 50px auto !important;
+        margin: 100px auto !important;
+
+        @media only screen and (min-width: 900px) {
+            margin: 180px auto!important;
+        }
+
+        &-title {
+            text-align: center;
+            margin-bottom: 100px !important;
+        }
     }
 
     &-contact {
         width: 90%;
         max-width: 1440px;
         margin: 10px auto;
+        &-form {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+        }
         &-info {
+
             text-align: center;
             width: 40%;
 
             p {
-                margin: 0;
+                margin-bottom: 30px;
                 font-size: 36px;
+                color: $font_primary_color;
             }
-            
+
             @media only screen and (max-width: 480px) {
                 display: none;
             }
@@ -63,6 +81,7 @@
 
         }
         &-wrapper {
+            margin-top: 100px;
             display: flex;
             flex-direction: row;
             justify-content: space-around;

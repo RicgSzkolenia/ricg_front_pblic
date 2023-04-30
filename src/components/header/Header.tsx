@@ -46,8 +46,6 @@ const Header = () => {
               <Button
                 id="header-content-left-arrow-button"
                 type={ButtonTypes.default}
-                height="20px"
-                width="150px"
                 handleClick={undefined}
               >
                 KUP WEBINAR

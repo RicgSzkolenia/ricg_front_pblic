@@ -6,8 +6,8 @@ import { colors } from "../../colors";
 const StyledCard = styled.div`
     margin: 20px;
     padding: 40px 10px;
-    width: 230px;
-    height: 250px;
+    width: 300px;
+    height: 300px;
     border: 4px solid ${colors.primaryColor};
     border-radius: 10px;
     text-align: center;
@@ -18,8 +18,8 @@ const StyledCard = styled.div`
     justify-content: center;
 
     @media only screen and (max-width: 480px) {
-        width: 155px;
-        height: 200px;
+        width: 175px;
+        height: 220px;
         padding: 5px;
         margin: 7px;
     }
