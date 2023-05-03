@@ -37,7 +37,7 @@ const ContactForm = () => {
             }}
             >
             <Form  className="contactForm">
-                <img src='./Biglogo.png'></img>   
+                <img src='./BigLogo.png'></img>   
                 <Field id="firstName" name="firstName" placeholder="Imie" />
                 <Field id="lastName" name="lastName" placeholder="Nazwisko" />
                 <Field
@@ -50,12 +50,6 @@ const ContactForm = () => {
                 id="phone"
                 name="phone"
                 placeholder="Telefon"
-                type="text"
-                />
-                <Field
-                id="topic"
-                name="topic"
-                placeholder="Temat"
                 type="text"
                 />
                <Button className='contactForm-button' type={ButtonTypes.default} handleClick={handleSubmit}>Wyslij</Button>
