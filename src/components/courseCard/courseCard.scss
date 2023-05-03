@@ -3,8 +3,8 @@
     padding: 20px;
     position: relative;
     margin: 0 auto;
-    width: 420px;
-    height: 500px;
+    width: 425px;
+    height: 580px;
     border: 5px solid $fourthColor;
     border-radius: 30px;
     overflow: visible !important;
@@ -23,6 +23,7 @@
     }
 
     &-title {
+        height: 56px;
         margin: 20px auto;
         margin-top: 50px;
         color: $primaryColor !important;
@@ -31,6 +32,10 @@
         font-size: 24px;
         text-align: center;
 
+    }
+
+    &-pointWrapper{
+        height: 250px;
     }
 
     &-point {

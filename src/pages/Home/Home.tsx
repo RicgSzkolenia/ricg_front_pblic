@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./home.scss";
+import "aos/dist/aos.css";
+import AOS from "aos";
 import AimSection from "../../components/aimSection/AimSection";
 import CarouselSection from "../../components/carouselSection/CarouselSection";
 import ContactForm from "../../components/contactForm/Contactform";
@@ -9,30 +11,44 @@ import Countdown from "react-countdown";
 import CustomCountDown from "../../components/countdown/CustomCountDown";
 import ProgressBar from "../../components/common/ProgressBar";
 import CustomCarousel from "../../components/customCarousel/CustomCarousel";
-import {
-  courses,
-  opinions,
-  slides,
-} from "../../components/carouselSection/slides";
 import Card from "../../components/common/Card";
 import Button, { ButtonTypes } from "../../components/common/Button";
 import CourseCard from "../../components/courseCard/CourseCard";
 import OpinionCard from "../../components/opinionCard/OpinionCard";
 import Footer from "../../components/footer/Footer";
-import AOS from "aos";
-import "aos/dist/aos.css";
 import Preloader from "../../components/preloader/Preloader";
+import { ImageTextBlock } from "../../utils/models/ImageTextBlock";
+import { Opinion } from "../../utils/models/Opinion";
+import { Course } from "../../utils/models/Course";
+import courseApi from "../../utils/apis/CourseApi";
+import imageTextSectionApi from "../../utils/apis/ImageTextSectionApi";
+import opinionApi from "../../utils/apis/OpinionApi";
+import customCarouselSettingsConstants from "../../components/customCarousel/customCarouselSettingsConstants";
+
 
 const Home = () => {
   const [preloader, setPreloader] = useState<boolean>(false);
+  const [courses, setCourses] = useState<Array<Course>>([]);
+  const [ imageTextBlocks, setImageTextBlocks ] = useState<Array<ImageTextBlock>>([]);
+  const [ opinions, setOpinions ] = useState<Array<Opinion>>([]);
 
   useEffect(() => {
+    // animations
     setTimeout(() => setPreloader(false), 3020);
-  }, []);
-
-  useEffect(() => {
     AOS.init();
     AOS.refresh();
+
+    // fetching data
+    courseApi.getAllCourses().then((courses) => {
+      setCourses(courses)
+    })
+    imageTextSectionApi.getAllImageTextBlocks().then((blocks) => {
+      setImageTextBlocks(blocks)
+    })
+
+    opinionApi.getAllOpinions().then((opinions:any) => {
+      setOpinions(opinions)
+    })
   }, []);
 
   return (
@@ -55,42 +71,25 @@ const Home = () => {
             `}
           />
           <CarouselSection title="Co wyróżnia nasz kurs?" />
-          <ImageTextSection
-            buttonAction={() => {}}
-            buttonName={"DĄŁACZ DO KURSU"}
-            imageLink="./roseIcons/boyIllustration.svg"
-            title={"Dla kogo jest ten kursu ?"}
-            text={`Dla wszystkich osób, które stawiają pierwsze kroki na rynku pracy, w tym studenci, absolwenci i maturzyści, którzy szukają swojej zawodowej drogi.
 
-                  Osoby, które po urlopie macierzyńskim czy zdrowotnym ponownie wkraczają na rynek pracy.
+          { imageTextBlocks.map((block) => {
+            return(
+              <div key={block?.id}>
+                <ImageTextSection
+                    buttonAction={() => {}}
+                    buttonName={"DĄŁACZ DO KURSU"}
+                    imageLink={block.image}
+                    title={block.title}
+                    text={block.text}/>
+              </div>
+            )
+          })}
 
-                  Osoby, które nie miały okazji zdobyć 
-                  dotychczas doświadczenia zawodowego.
-
-Jeśli jesteś osobą ambitną, pragnącą rozwoju i zdobycia nowej wiedzy - połącz się z nami!`}
-          />
-          <ImageTextSection
-            buttonAction={() => {}}
-            buttonName={"DĄŁACZ DO KURSU"}
-            reverse={true}
-            imageLink="./roseIcons/girlIllustration.svg"
-            title={"PO UKOŃCZENIU kursu ?"}
-            text={`Przygotowanie merytoryczne do rozpoczęcia poszukiwań swojej wymarzonej pracy
-
-Pewność siebie jesteś przygotowany, 
-więc nie musisz się bać.
-
-Świadomość swojej wartości na rynku pracy
-jesteś przyszłością.
-
-Poznanie odpowiedzi na wiele nurtujących Was pytań m.in. „Dlaczego nikt nie dzwoni w odpowiedzi na moje CV?” `}
-          />
           <div
             className="home-course-title"
             data-aos={"fade-down"}
             data-aos-duration="1500"
-            data-aos-delay="150"
-          >
+            data-aos-delay="150">
             <p className=" blueSecondaryHeader">Zapraszamy na Kurs!</p>
             <CustomCountDown />
             <ProgressBar className={"home-progressBar"} progress={80} />
@@ -120,38 +119,7 @@ Poznanie odpowiedzi na wiele nurtujących Was pytań m.in. „Dlaczego nikt nie 
               Opinie O Kursie
             </p>
             <CustomCarousel
-              settings={{
-                slidesToShow: 3,
-                arrows: false,
-                autoplay: true,
-                autoplaySpeed: 800,
-                responsive: [
-                  {
-                    breakpoint: 1200,
-                    settings: {
-                      slidesToShow: 1,
-                      slidesToScroll: 2,
-                      initialSlide: 2,
-                    },
-                  },
-                  {
-                    breakpoint: 600,
-                    settings: {
-                      slidesToShow: 1,
-                      slidesToScroll: 2,
-                      initialSlide: 2,
-                    },
-                  },
-                  {
-                    breakpoint: 481,
-                    settings: {
-                      slidesToShow: 1,
-                      slidesToScroll: 1,
-                      rows: 1,
-                    },
-                  },
-                ],
-              }}
+              settings={customCarouselSettingsConstants.customOpinionCarouselSettings}
             >
               {opinions.map((opinion) => {
                 return (

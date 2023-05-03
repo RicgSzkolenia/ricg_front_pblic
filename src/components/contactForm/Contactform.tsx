@@ -23,10 +23,6 @@ const ContactForm = () => {
         topic: ''
     })
 
-    useEffect(() => {
-        clientApi.getAllClients();
-    }, [])
-
     const handleSubmit = async (values:FormFields) => {
         console.log('submiting');
     }

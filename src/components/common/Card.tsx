@@ -46,7 +46,7 @@ interface ICardProps {
     className: string
 }
 
-const Card = ({children, className}:any) => {
+const Card = ({children, className, key}:any) => {
 
     return (
         <StyledCard data-aos="flip-up" data-aos-duration="2000" className={className}>

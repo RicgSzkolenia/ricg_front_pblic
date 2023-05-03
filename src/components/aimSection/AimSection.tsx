@@ -1,18 +1,30 @@
 import './aimSection.scss'
-import { aims } from "./aimItems";
+import { AimItem } from "./aimItems";
 import Card from '../common/Card';
-
+import { useEffect, useState } from 'react';
+import targetApi from '../../utils/apis/TargetApi';
 const AimSection = () => {
+
+    const [ aims, setAims ] = useState<Array<AimItem>>([]);
+
+    useEffect(() => {
+        targetApi.getAllTargets().then((targets) => {
+            setAims(targets)
+        });
+    }, [])
+
     return (
         <div className="aims">
             <p className="blueSecondaryHeader aims-header" data-aos="fade-up"> Cele Webinaru </p>
             <div className='aims-cardWrapper'>
             { aims.map((aim) => {
                     return(
-                        <Card className='aims-card'>
-                            <img src={aim.icon}></img>
-                            <p>{aim.text}</p>
-                        </Card>
+                        <div key={aim.id}>
+                            <Card className='aims-card' >
+                                <img src={aim.icon}></img>
+                                <p>{aim.text}</p>
+                            </Card>
+                        </div>
                     )
                 }) }
             </div>

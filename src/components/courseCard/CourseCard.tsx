@@ -19,7 +19,7 @@ const CourseCard = (props:ICourseCardProps) => {
         <div className="courseCard">
             <div className='courseCard-title'>{title}</div>
             <div className='courseCard-type'>{type}</div>
-            <div> { points.map((point, index:number) => {
+            <div className='courseCard-pointWrapper'> { points.map((point, index:number) => {
                 return (
                     <div className='courseCard-point' key={index}>
                         { point }

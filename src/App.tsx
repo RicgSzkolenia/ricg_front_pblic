@@ -4,8 +4,17 @@ import { Route,  BrowserRouter as Router, Routes, Navigate } from 'react-router-
 import Header from './components/header/Header';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import axios from 'axios';
 
 function App() {
+
+  axios.interceptors.request.use((req) => {
+    console.log('Intercepting to add new token');
+    const authToken = process.env.REACT_APP_API_TOKEN;
+    req.headers["Authorization"] = `bearer ${authToken}`
+    return req;
+});
+
   return (
     <>
       <Router>
