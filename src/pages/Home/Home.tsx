@@ -27,7 +27,7 @@ import customCarouselSettingsConstants from "../../components/customCarousel/cus
 
 
 const Home = () => {
-  const [preloader, setPreloader] = useState<boolean>(false);
+  const [preloader, setPreloader] = useState<boolean>(true);
   const [courses, setCourses] = useState<Array<Course>>([]);
   const [ imageTextBlocks, setImageTextBlocks ] = useState<Array<ImageTextBlock>>([]);
   const [ opinions, setOpinions ] = useState<Array<Opinion>>([]);
