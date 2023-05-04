@@ -24,11 +24,13 @@ import courseApi from "../../utils/apis/CourseApi";
 import imageTextSectionApi from "../../utils/apis/ImageTextSectionApi";
 import opinionApi from "../../utils/apis/OpinionApi";
 import customCarouselSettingsConstants from "../../components/customCarousel/customCarouselSettingsConstants";
+import coursePercItemApi from "../../utils/apis/CoursePercItemApi";
 
 
 const Home = () => {
-  const [preloader, setPreloader] = useState<boolean>(true);
+  const [preloader, setPreloader] = useState<boolean>(false);
   const [courses, setCourses] = useState<Array<Course>>([]);
+  const [ authorCourseBlock, setAuthorCourseBlock ] = useState<ImageTextBlock>();
   const [ imageTextBlocks, setImageTextBlocks ] = useState<Array<ImageTextBlock>>([]);
   const [ opinions, setOpinions ] = useState<Array<Opinion>>([]);
 
@@ -42,8 +44,13 @@ const Home = () => {
     courseApi.getAllCourses().then((courses) => {
       setCourses(courses)
     })
+
     imageTextSectionApi.getAllImageTextBlocks().then((blocks) => {
       setImageTextBlocks(blocks)
+    })
+
+    imageTextSectionApi.getCourseAuthorBlock().then((block:ImageTextBlock) => {
+      setAuthorCourseBlock(block);
     })
 
     opinionApi.getAllOpinions().then((opinions:any) => {
@@ -60,15 +67,10 @@ const Home = () => {
           <Header />
           <AimSection />
           <ImageTextSection
-            imageLink="./MasterFoto.png"
-            title={"Dlaczego warto się z nami spotkać?"}
-            subTitile={"Paulina Laczek"}
-            text={`Prezes Zarządu RICG. Ma ponad 20-letnie doświadczenie w branży HR. Prowadzi projekty doradztwa personalnego, procesy rekrutacyjne dla międzynarodowych korporacji i największych polskich spółek. 
-
-            Jako doradca, mentor i headhunter inspiruje zarządy korporacji do wdrażania zmian, a menedżerów do rozwoju. Przeprowadziła z sukcesem kilkaset projektów executive search. Nie ma dla nich zadań niemożliwych do realizacji.
-
-              Regularnie komentuje w mediach tematy związane z rynkiem pracy. Absolwentka MBA HR na Akademii Leona Koźmińskiego.
-            `}
+            imageLink={authorCourseBlock?.image || ''}
+            title={authorCourseBlock?.title || ''}
+            subTitle={authorCourseBlock?.subTitle}
+            text={authorCourseBlock?.text || ''}
           />
           <CarouselSection title="Co wyróżnia nasz kurs?" />
 

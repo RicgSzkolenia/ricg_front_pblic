@@ -5,20 +5,20 @@ interface IImagetextSectionProps {
     title: string;
     imageLink: string;
     text:string;
-    subTitile?: string;
+    subTitle?: string;
     reverse?:boolean;
     buttonName?:  string;
     buttonAction?: (props?:any) => void;
 }
 
 const ImageTextSection = (props:IImagetextSectionProps) => {
-    const { title, imageLink, subTitile, text, reverse, buttonName, buttonAction } = props;
+    const { title, imageLink, subTitle, text, reverse, buttonName, buttonAction } = props;
     return (
         <div className='imagetextSection'>
             <div className='blueSecondaryHeader imagetextSection-header' data-aos={'fade-down'}  data-aos-duration="1500" data-aos-delay="150">{title}</div>
             <div className={`imagetextSection-wrapper ${ reverse ? 'imagetextSection-reverseWrapper' : '' }`}>
                 <div className='imagetextSection-wrapper-text' style={{ whiteSpace: "pre-line" }}>
-                    <div className='blackSecondaryHeader'>{subTitile}</div>
+                    <div className='blackSecondaryHeader'>{subTitle}</div>
                     <p className='blackMainText' data-aos={!reverse ? 'fade-right' : 'fade-left'} data-aos-duration="1500"  data-aos-delay="150">
                         {text}
                     </p>
