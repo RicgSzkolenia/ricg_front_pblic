@@ -27,6 +27,6 @@ export const perfomanceItems:Array<PerfomanceItem> = [
         prefix: '+',
         count: 400,
         title: 'Które skorzystały z naszego Indywidualnego Coachingu kariery',
-        suffix: 'osob'
+        suffix: 'osób'
     }
 ]

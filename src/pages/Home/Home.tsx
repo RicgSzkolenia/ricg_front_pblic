@@ -72,7 +72,7 @@ const Home = () => {
             subTitle={authorCourseBlock?.subTitle}
             text={authorCourseBlock?.text || ''}
           />
-          <CarouselSection title="Co wyróżnia nasz kurs?" />
+          <CarouselSection title="Co wyróżnia nasz webinar?" />
 
           { imageTextBlocks.map((block) => {
             return(
