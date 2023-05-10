@@ -97,7 +97,7 @@ const Home = () => {
             <ProgressBar className={"home-progressBar"} progress={80} />
           </div>
           <div className="home-course-types">
-            <CustomCarousel settings={{ slidesToShow: 2 }}>
+            <CustomCarousel settings={customCarouselSettingsConstants.customCourseCarouselSettings}>
               {courses.map((course) => {
                 return (
                   <CourseCard

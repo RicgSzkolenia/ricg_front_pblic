@@ -19,15 +19,16 @@
     max-width: 1440px;
     width: 95%;
     margin: 0px auto;
+    overflow: hidden;
 
     @media only screen and (min-width: 376px) and (max-width: 480px) {
         height: 80vh;
     }
 
     &-content {
-        min-height: 300px;
+        min-height: 350px;
         height: 40vh;
-        margin-top: 80px;
+        margin-top: 70px;
         margin-bottom: 50px;
         display: flex;
         flex-direction: row;
@@ -36,13 +37,13 @@
 
         @media only screen and (max-width: 375px) {
             margin: 10px auto;
-            height: 70vh;
+            height: 480px;
             flex-direction: column-reverse;
         }
 
         @media only screen and (min-width: 376px) and (max-width: 480px) {
             margin: 5vh auto;
-            height: 55vh;
+            height: 520px;
             flex-direction: column-reverse;
         }
 
@@ -53,6 +54,7 @@
                 width: 100%;
                 margin-top: 10px;
             }
+
             &-arrow {
                 img {
                     width: 90px;

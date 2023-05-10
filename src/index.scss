@@ -25,6 +25,11 @@ body {
       font-size: 48px;
     }
 
+    @media only screen and (min-width: 480px) and (max-width: 1024px) {
+      font-size: 62px;
+      margin: 10px;
+    }
+
   }
 
   .blueSecondaryHeader {
@@ -38,6 +43,11 @@ body {
 
     @media only screen and (max-width: 480px) {
       font-size: 33px;
+      margin: 10px;
+    }
+
+    @media only screen and (min-width: 480px) and (max-width: 1024px) {
+      font-size: 40px;
       margin: 10px;
     }
 
