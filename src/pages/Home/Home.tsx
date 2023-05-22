@@ -24,8 +24,6 @@ import courseApi from "../../utils/apis/CourseApi";
 import imageTextSectionApi from "../../utils/apis/ImageTextSectionApi";
 import opinionApi from "../../utils/apis/OpinionApi";
 import customCarouselSettingsConstants from "../../components/customCarousel/customCarouselSettingsConstants";
-import coursePercItemApi from "../../utils/apis/CoursePercItemApi";
-
 
 const Home = () => {
   const [preloader, setPreloader] = useState<boolean>(false);
@@ -33,6 +31,10 @@ const Home = () => {
   const [ authorCourseBlock, setAuthorCourseBlock ] = useState<ImageTextBlock>();
   const [ imageTextBlocks, setImageTextBlocks ] = useState<Array<ImageTextBlock>>([]);
   const [ opinions, setOpinions ] = useState<Array<Opinion>>([]);
+
+
+
+
 
   useEffect(() => {
     // animations
@@ -79,7 +81,7 @@ const Home = () => {
               <div key={block?.id}>
                 <ImageTextSection
                     buttonAction={() => {}}
-                    buttonName={"DĄŁACZ DO KURSU"}
+                    buttonName={"DĄŁACZ DO Webinaru"}
                     imageLink={block.image}
                     title={block.title}
                     text={block.text}/>
@@ -92,7 +94,7 @@ const Home = () => {
             data-aos={"fade-down"}
             data-aos-duration="1500"
             data-aos-delay="150">
-            <p className=" blueSecondaryHeader">Zapraszamy na Kurs!</p>
+            <p className=" blueSecondaryHeader">Zapraszamy na Webinar!</p>
             <CustomCountDown />
             <ProgressBar className={"home-progressBar"} progress={80} />
           </div>

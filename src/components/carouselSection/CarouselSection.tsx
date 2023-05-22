@@ -53,12 +53,10 @@ const CarouselSection = (props:ICarosuelProps) => {
 
     const [ percItems, setPercItems ] = useState<Array<PercCarouselItem>>([])
 
-    coursePercItemApi.getCoursePercItems().then ((items:any) => {
-      setPercItems(items);
-    });
-
     useEffect(() => {
-
+      coursePercItemApi.getCoursePercItems().then ((items:any) => {
+        setPercItems(items);
+      });
     }, [])
 
     return(
