@@ -1,6 +1,8 @@
+import { createPayment } from '../../utils/hooks/usePayment';
 import Button, { ButtonTypes } from '../common/Button';
 import './courseCard.scss';
 interface ICourseCardProps {
+    id: string;
     title: string;
     type: string;
     points: Array<string>
@@ -9,10 +11,10 @@ interface ICourseCardProps {
 }
 
 const CourseCard = (props:ICourseCardProps) => {
-    const { title, type, points, price, link } = props;
+    const { id, title, type, points, price, link } = props;
 
     const handleClick = () => {
-
+        createPayment(id, title, price)
     }
 
     return (
@@ -29,7 +31,7 @@ const CourseCard = (props:ICourseCardProps) => {
             <div className='courseCard-price'>
                 { price } zł
             </div>
-            <Button className='courseCard-button' type={ButtonTypes.default} handleClick={handleClick} >Kup Kurs</Button>
+            <Button className='courseCard-button' type={ButtonTypes.default} handleClick={handleClick} >Kup</Button>
         </div>
     )
 }

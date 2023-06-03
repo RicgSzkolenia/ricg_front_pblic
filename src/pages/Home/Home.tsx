@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./home.scss";
 import "aos/dist/aos.css";
 import AOS from "aos";
@@ -26,13 +26,14 @@ import opinionApi from "../../utils/apis/OpinionApi";
 import customCarouselSettingsConstants from "../../components/customCarousel/customCarouselSettingsConstants";
 
 const Home = () => {
+  const coursesCarouselRef = useRef<any>(null)
   const [preloader, setPreloader] = useState<boolean>(false);
   const [courses, setCourses] = useState<Array<Course>>([]);
   const [ authorCourseBlock, setAuthorCourseBlock ] = useState<ImageTextBlock>();
   const [ imageTextBlocks, setImageTextBlocks ] = useState<Array<ImageTextBlock>>([]);
   const [ opinions, setOpinions ] = useState<Array<Opinion>>([]);
 
-
+  const executeScroll = () => coursesCarouselRef.current.scrollIntoView();
 
 
 
@@ -66,7 +67,7 @@ const Home = () => {
         <Preloader />
       ) : (
         <div className="home">
-          <Header />
+          <Header coursesCarouselRef={coursesCarouselRef} />
           <AimSection />
           <ImageTextSection
             imageLink={authorCourseBlock?.image || ''}
@@ -80,8 +81,8 @@ const Home = () => {
             return(
               <div key={block?.id}>
                 <ImageTextSection
-                    buttonAction={() => {}}
-                    buttonName={"DĄŁACZ DO Webinaru"}
+                    buttonAction={ executeScroll}
+                    buttonName={"Dołącz do webinaru"}
                     imageLink={block.image}
                     title={block.title}
                     text={block.text}/>
@@ -94,7 +95,7 @@ const Home = () => {
             data-aos={"fade-down"}
             data-aos-duration="1500"
             data-aos-delay="150">
-            <p className=" blueSecondaryHeader">Zapraszamy na Webinar!</p>
+            <p ref={coursesCarouselRef} className=" blueSecondaryHeader">Zapraszamy na Webinar!</p>
             <CustomCountDown />
             <ProgressBar className={"home-progressBar"} progress={80} />
           </div>
@@ -103,6 +104,7 @@ const Home = () => {
               {courses.map((course) => {
                 return (
                   <CourseCard
+                    id={course!.id || ''}
                     title={course.title}
                     type={course.type}
                     points={course.points}

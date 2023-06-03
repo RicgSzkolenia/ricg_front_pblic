@@ -3,7 +3,8 @@ import './navbar.scss'
 import '../../../index.scss'
 import Button, { ButtonTypes } from "../../common/Button";
 import MenuItemDropDown from "../../common/MenuItemDropDown";
-const NavBar = () => {
+
+const NavBar = (props:any) => {
     return (
         <div className="navbar" data-aos="fade-down"  data-aos-delay="300" data-aos-duration="2000">
             <div className="navbar-logo">
@@ -24,7 +25,9 @@ const NavBar = () => {
                         }
                     })
                 }
-                <Button id='navbar-action' type={ButtonTypes.default} handleClick={undefined}>Kup Bilet</Button>
+                <Button id='navbar-action' type={ButtonTypes.default} handleClick={() => {
+                    props?.coursesCarouselRef?.current?.scrollIntoView()
+                }}>Kup Webinar</Button>
             </div>
         </div>
     )

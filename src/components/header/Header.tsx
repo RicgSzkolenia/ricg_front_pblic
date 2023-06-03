@@ -7,34 +7,16 @@ import { TypeAnimation } from "react-type-animation";
 import {Elements} from '@stripe/react-stripe-js';
 import {loadStripe} from '@stripe/stripe-js';
 import axios from "axios";
+import { createPayment } from "../../utils/hooks/usePayment";
 
-const Header = () => {
+const Header = (props:any) => {
 
-  const stripePromise = loadStripe('pk_test_51N6g4qAxQ1CFxjjOkikYlfumtOZyWVyImkVvsRO9HBEX2ux2j4NltR7qXB26oET7kMS0I02qdU0vzTOMsV56ZxXS00TZQApF0E');
-
-  const handlePayment = async () => {
-      try {
-
-        const stripe = await stripePromise;
-
-          const res = await axios.post(`${process.env.REACT_APP_BASE_URL}/orders`, {
-            products: [ { id: 1, title: 'Webinar', price: '239' } ],
-          })
-
-          await stripe?.redirectToCheckout({
-            sessionId: res.data.stripeSession.id
-          })
-
-      } catch(err) {
-        console.log(err);
-      }
-  }
 
 
   return (
     <div className="header-wrapper">
       <div className="header">
-        <NavBar />
+        <NavBar coursesCarouselRef={props?.coursesCarouselRef} />
         {/* <div id='radialBlur'></div> */}
         <div className="header-content">
           <div
@@ -71,7 +53,9 @@ const Header = () => {
               <Button
                 id="header-content-left-arrow-button"
                 type={ButtonTypes.default}
-                handleClick={handlePayment}
+                handleClick={ () => {
+                  createPayment('1', 'web', 239);
+                }}
               >
                 KUP WEBINAR
               </Button>
