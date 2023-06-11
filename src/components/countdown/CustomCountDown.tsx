@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import './customCountDown.scss';
-import Countdown from "react-countdown";
 import axios from 'axios';
 
 const CustomCountDown = () => {
@@ -51,26 +50,26 @@ const CustomCountDown = () => {
            <div className='customCountDown-renderer'>
             <div style={{ marginRight: 30}} className={'customCountDown-renderer-item'}>
                 <p>{timeLeft?.days < 10 ? '0' + timeLeft?.days : timeLeft?.days}</p>
-                <div className='customCountDown-renderer-type'>Dzien</div>
+                <div className='customCountDown-renderer-type'>Dni</div>
             </div>
 
             <div>
                 <p>{timeLeft?.hours < 10 ? '0' + timeLeft?.hours : timeLeft?.hours}</p>
-                <div className='customCountDown-renderer-type'>Hours</div>
+                <div className='customCountDown-renderer-type'>Godzin</div>
             </div>
 
             <div>:</div>
 
             <div>
                 <p>{timeLeft?.minutes < 10 ? '0' + timeLeft?.minutes : timeLeft?.minutes }</p>
-                <div className='customCountDown-renderer-type'>Minutes</div>
+                <div className='customCountDown-renderer-type'>Minut</div>
             </div>
 
             <div>:</div>
 
             <div>
                 <p>{ timeLeft?.seconds < 10 ? '0' + timeLeft?.seconds : timeLeft?.seconds}</p>
-                <div className='customCountDown-renderer-type'>Seconds</div>
+                <div className='customCountDown-renderer-type'>Sekund</div>
             </div>
         </div>
         </div>

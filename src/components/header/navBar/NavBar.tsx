@@ -8,13 +8,22 @@ const NavBar = (props:any) => {
     return (
         <div className="navbar" data-aos="fade-down"  data-aos-delay="300" data-aos-duration="2000">
             <div className="navbar-logo">
-                <img  src={"/logo.png"}></img>
+                <img  src={"/Group_logo.png"}></img>
             </div>
             <div className="navbar-menu">
                 { menuItems.map((item, index) => {
                         if ( !item?.subItems ) {
                             return (
-                                <div className="navbar-menu-item" key={index}>
+                                <div onClick={() => {
+                                    if (item.url === 'contact') {
+                                        console.log('HERE')
+                                        props?.contactRef?.current?.scrollIntoView();
+                                    } else {
+                                        console.log('HERE ELSE')
+                                        props?.coursesCarouselRef?.current?.scrollIntoView();
+                                    }
+                                    props.coursesCarouselRef.current.scrollIntoView()
+                                }} className="navbar-menu-item" key={index}>
                                     {item.title}
                                 </div>
                                 );

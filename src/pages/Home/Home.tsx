@@ -26,8 +26,9 @@ import opinionApi from "../../utils/apis/OpinionApi";
 import customCarouselSettingsConstants from "../../components/customCarousel/customCarouselSettingsConstants";
 
 const Home = () => {
-  const coursesCarouselRef = useRef<any>(null)
-  const [preloader, setPreloader] = useState<boolean>(false);
+  const coursesCarouselRef = useRef<any>(null);
+  const contactRef = useRef<any>(null);
+  const [preloader, setPreloader] = useState<boolean>(true);
   const [courses, setCourses] = useState<Array<Course>>([]);
   const [ authorCourseBlock, setAuthorCourseBlock ] = useState<ImageTextBlock>();
   const [ imageTextBlocks, setImageTextBlocks ] = useState<Array<ImageTextBlock>>([]);
@@ -67,13 +68,14 @@ const Home = () => {
         <Preloader />
       ) : (
         <div className="home">
-          <Header coursesCarouselRef={coursesCarouselRef} />
+          <Header contactref={contactRef} coursesCarouselRef={coursesCarouselRef} />
           <AimSection />
           <ImageTextSection
             imageLink={authorCourseBlock?.image || ''}
             title={authorCourseBlock?.title || ''}
             subTitle={authorCourseBlock?.subTitle}
             text={authorCourseBlock?.text || ''}
+            reverse={authorCourseBlock?.reverse}
           />
           <CarouselSection title="Co wyróżnia nasz webinar?" />
 
@@ -85,7 +87,9 @@ const Home = () => {
                     buttonName={"Dołącz do webinaru"}
                     imageLink={block.image}
                     title={block.title}
-                    text={block.text}/>
+                    text={block.text}
+                    reverse={block?.reverse}
+                    />
               </div>
             )
           })}
@@ -159,6 +163,7 @@ const Home = () => {
                 <img src={"./roseIcons/illustrationContact.svg"}></img>
               </div>
               <div
+                ref={contactRef}
                 className="home-contact-form"
                 data-aos={"fade-right"}
                 data-aos-duration="1500"

@@ -6,20 +6,10 @@ export interface MenuItem {
 export const menuItems: Array<MenuItem>= [
     {
         title: 'Kursy',
-        url: '/kursy',
-        subItems: [
-            {
-                title: 'Webinary',
-                url: '/webinar'
-            }
-        ]
-    },
-    {
-        title: 'O nas',
-        url: '/info'
+        url: 'kursy',
     },
     {
         title: 'Kontakt',
-        url: '/contact'
+        url: 'contact'
     }
 ]

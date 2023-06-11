@@ -24,7 +24,7 @@ const CourseCard = (props:ICourseCardProps) => {
             <div className='courseCard-pointWrapper'> { points.map((point, index:number) => {
                 return (
                     <div className='courseCard-point' key={index}>
-                        { point }
+                        <img src="./star.png"></img> { point }
                     </div>
                 )
             }) } </div>

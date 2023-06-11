@@ -1,5 +1,6 @@
+
 export class ImageTextBlock {
-    constructor (public title:string, public subTitle: string, public image: string, public text: string, public id?:string ) {}
+    constructor (public title:string, public subTitle: string, public image: string, public text: string, public reverse:boolean, public id?:string ) {}
 
     static fromApiJson (imageTextJson: any): ImageTextBlock {
         return {
@@ -7,7 +8,8 @@ export class ImageTextBlock {
             title: imageTextJson.attributes?.Title,
             subTitle: imageTextJson.attributes?.SubTitle,
             image: imageTextJson.attributes?.image?.data?.attributes?.url,
-            text: imageTextJson.attributes?.Text
+            text:  imageTextJson.attributes?.Text || imageTextJson.attributes?.richText,
+            reverse: imageTextJson.attributes?.reverse
         }
     }
 }

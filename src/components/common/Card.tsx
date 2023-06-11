@@ -16,6 +16,11 @@ const StyledCard = styled.div`
     flex-wrap: wrap;
     align-content: flex-start;
     justify-content: center;
+    transition: 0.3s ease-in-out !important;
+
+    &:hover {
+        transform: scale(1.1);
+    }
 
     @media only screen and (max-width: 480px) {
         width: 175px;

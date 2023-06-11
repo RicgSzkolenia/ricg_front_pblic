@@ -11,13 +11,10 @@ import { createPayment } from "../../utils/hooks/usePayment";
 
 const Header = (props:any) => {
 
-
-
   return (
     <div className="header-wrapper">
       <div className="header">
-        <NavBar coursesCarouselRef={props?.coursesCarouselRef} />
-        {/* <div id='radialBlur'></div> */}
+        <NavBar coursesCarouselRef={props?.coursesCarouselRef} contactRef={props?.contactRef}/>
         <div className="header-content">
           <div
             className="header-content-left"
@@ -27,8 +24,8 @@ const Header = (props:any) => {
           >
             <TypeAnimation
               sequence={[
-                "Wystartuj z nami-", // Types 'One'
-                1500, // Waits 1s
+                "Wystartuj z nami-",
+                1500,
               ]}
               wrapper="p"
               cursor={false}
