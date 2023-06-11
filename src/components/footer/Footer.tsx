@@ -6,6 +6,10 @@ const StyledFooter = styled.div`
     width: 100%;
     background-color: ${colors.thirdColor};
     position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     img {
         position: absolute;
         left: 50%;
@@ -14,7 +18,12 @@ const StyledFooter = styled.div`
         height: 55px;
         margin-top: 1.5px;
         margin: 0 auto;
+        @media only screen and (min-width: 356px) and (max-width: 480px) {
+            height: 35px;
+        }
+    
     }
+
 `
 
 const Footer = () => {

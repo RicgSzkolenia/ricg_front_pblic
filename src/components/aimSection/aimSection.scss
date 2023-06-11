@@ -1,5 +1,5 @@
 .aims {
-    min-height: 80vh;
+    min-height: 300px;
     width: 95%;
     margin: 0 auto;
     display: flex;
@@ -15,18 +15,10 @@
         margin: 15px auto;
     }
 
-    @media only screen and (min-width: 768px) and (max-width: 1024px) {
-        min-height: 50vh;
-    }
-
     &-header {
         margin-top: 60px !important;
         margin-bottom: 20px !important;
         text-align: center;
-
-        @media only screen and (min-width: 380px) and (max-width: 768px) {
-            margin-top: 10px !important;
-        }
     }
 
     &-cardWrapper{
@@ -56,7 +48,7 @@
         @media only screen and (min-width: 480px) and (max-width: 768px) {
             height: 100px;
             font-size: 24px;
-        }
+    }
 
 
         img{
