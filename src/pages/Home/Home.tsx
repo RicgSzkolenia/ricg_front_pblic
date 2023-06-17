@@ -28,7 +28,7 @@ import customCarouselSettingsConstants from "../../components/customCarousel/cus
 const Home = () => {
   const coursesCarouselRef = useRef<any>(null);
   const contactRef = useRef<any>(null);
-  const [preloader, setPreloader] = useState<boolean>(true);
+  const [preloader, setPreloader] = useState<boolean>(false);
   const [courses, setCourses] = useState<Array<Course>>([]);
   const [ authorCourseBlock, setAuthorCourseBlock ] = useState<ImageTextBlock>();
   const [ imageTextBlocks, setImageTextBlocks ] = useState<Array<ImageTextBlock>>([]);
@@ -105,9 +105,10 @@ const Home = () => {
           </div>
           <div className="home-course-types">
             <CustomCarousel settings={customCarouselSettingsConstants.customCourseCarouselSettings}>
-              {courses.map((course) => {
+              {courses.map((course, index) => {
                 return (
                   <CourseCard
+                    key={index}
                     id={course!.id || ''}
                     title={course.title}
                     type={course.type}
@@ -131,12 +132,13 @@ const Home = () => {
             <CustomCarousel
               settings={customCarouselSettingsConstants.customOpinionCarouselSettings}
             >
-              {opinions.map((opinion) => {
+              {opinions.map((opinion, index) => {
                 return (
-                  <OpinionCard
-                    avatarLink={opinion.avatarLink}
-                    opinion={opinion.opinion}
-                  />
+                  <div key={index}>
+                    <OpinionCard
+                      opinion={opinion}
+                    />
+                  </div>
                 );
               })}
             </CustomCarousel>

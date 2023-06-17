@@ -14,7 +14,7 @@ interface IImagetextSectionProps {
 
 const ImageTextSection = (props:IImagetextSectionProps) => {
     const { title, imageLink, subTitle, text, reverse, buttonName, buttonAction } = props;
-    console.log(text)
+
     return (
         <div className='imagetextSection'>
             <div className='blueSecondaryHeader imagetextSection-header' data-aos={'fade-down'}  data-aos-duration="1500" data-aos-delay="150">{title}</div>

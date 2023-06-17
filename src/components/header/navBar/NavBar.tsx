@@ -1,42 +1,35 @@
 import { menuItems } from "./menuItems";
-import './navbar.scss'
 import '../../../index.scss'
-import Button, { ButtonTypes } from "../../common/Button";
-import MenuItemDropDown from "../../common/MenuItemDropDown";
+import './navbar.scss'
+import { useState } from "react";
 
 const NavBar = (props:any) => {
+
+    const [ isOpen, setIsOpen ] = useState(false);
+
     return (
         <div className="navbar" data-aos="fade-down"  data-aos-delay="300" data-aos-duration="2000">
             <div className="navbar-logo">
                 <img  src={"/Group_logo.png"}></img>
             </div>
-            <div className="navbar-menu">
+            <div className="navbar-burger" onClick={() => {
+                setIsOpen(!isOpen);
+            }}>
+                { isOpen ? <img src='https://res.cloudinary.com/dtb1fvbps/image/upload/v1686862403/bars_staggered_solid_f7cc524bc5.svg'/> : <img src='https://res.cloudinary.com/dtb1fvbps/image/upload/v1686861783/bars_solid_dd92a50ba6.svg'/>}
+            </div>
+            <div className={isOpen ? "navbar-menu-open" : "navbar-menu" }>
                 { menuItems.map((item, index) => {
-                        if ( !item?.subItems ) {
-                            return (
-                                <div onClick={() => {
-                                    if (item.url === 'contact') {
-                                        console.log('HERE')
-                                        props?.contactRef?.current?.scrollIntoView();
-                                    } else {
-                                        console.log('HERE ELSE')
-                                        props?.coursesCarouselRef?.current?.scrollIntoView();
-                                    }
-                                    props.coursesCarouselRef.current.scrollIntoView()
-                                }} className="navbar-menu-item" key={index}>
-                                    {item.title}
-                                </div>
-                                );
-                        } else {
-                            return (
-                                <MenuItemDropDown title={item.title} url={item.url} items={item.subItems || []}/>
-                            )
-                        }
-                    })
+                        return(
+                            <div key={index} className="navbar-menu-item" onClick={() => {
+                                window.location.replace(item.url)
+                            }}>
+                              {item?.icon ?  <img  src={item.icon}/>  : ''  }
+                              { item.title }
+                            </div>
+                        )
+                })
+
                 }
-                <Button id='navbar-action' type={ButtonTypes.default} handleClick={() => {
-                    props?.coursesCarouselRef?.current?.scrollIntoView()
-                }}>Kup Webinar</Button>
             </div>
         </div>
     )

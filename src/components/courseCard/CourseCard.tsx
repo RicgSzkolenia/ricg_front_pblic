@@ -8,17 +8,18 @@ interface ICourseCardProps {
     points: Array<string>
     price: number;
     link: string;
+    key?: any
 }
 
 const CourseCard = (props:ICourseCardProps) => {
-    const { id, title, type, points, price, link } = props;
+    const { id, title, type, points, price, link, key } = props;
 
     const handleClick = () => {
         createPayment(id, title, price)
     }
 
     return (
-        <div className="courseCard">
+        <div key={key} className="courseCard">
             <div className='courseCard-title'>{title}</div>
             <div className='courseCard-type'>{type}</div>
             <div className='courseCard-pointWrapper'> { points.map((point, index:number) => {

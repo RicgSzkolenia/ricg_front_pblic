@@ -117,7 +117,7 @@ const ContactForm = () => {
             >
                 {({ errors, touched }) => (
                     <Form  className="contactForm">
-                    <img src='./BigLogo.png'></img>   
+                    <img src='https://res.cloudinary.com/dtb1fvbps/image/upload/v1686685604/logo_White_F_8df86b15c6.svg'/>
                     <Field id="name" name="name" placeholder="Imie" />
                     <ErrorMessage>{errors.name && touched.name ? ( <div>{errors.name}</div>) : null}</ErrorMessage>
                     <Field id="surName" name="surName" placeholder="Nazwisko" />

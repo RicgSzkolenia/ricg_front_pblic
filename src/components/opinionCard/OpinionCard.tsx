@@ -1,19 +1,19 @@
+import { Opinion } from '../../utils/models/Opinion';
 import './opinionCard.scss';
 
 interface IOpinionCardProps {
-    avatarLink: string,
-    opinion: string
+    opinion: Opinion
 }
 
 const OpinionCard = (props:IOpinionCardProps) => {
-    const { avatarLink, opinion  } = props;
+    const { opinion  } = props;
     return (
         <div className='opinionCard'>
-            <div className='opinionCard-avatar'>
-                <img src={avatarLink}></img>
-            </div>
             <div className='opinionCard-text'>
-                <p>{opinion}</p>
+                <p>{opinion.opinion}</p>
+            </div>
+            <div className='opinionCard-author'>
+                <p>{opinion.authorName}</p>
             </div>
         </div>
     )

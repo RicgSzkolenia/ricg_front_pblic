@@ -65,7 +65,7 @@ const CarouselSection = (props:ICarosuelProps) => {
             <Slider {...settings}>
                {[...percItems || []].map((slide, index) => {
                 return (
-                   <div className='carouselSection-slide'>
+                   <div key={index} className='carouselSection-slide'>
                         <div className='carouselSection-slide-text'>
                             {slide.title}
                         </div>

@@ -3,9 +3,11 @@
     overflow: hidden;
     position: relative;
     width: 345px;
-    height: 400px;
+    height: 200px;
     margin: 10px auto;
-
+    border-radius: 20px;
+    padding: 0 20px;
+    background-color: $fifthColor;
     @media only screen and (max-width: 480px) {
       width: 290px;
     }
@@ -18,25 +20,23 @@
       width: 290px;
     }
 
-    &-avatar {
-        width: 80%;
-        margin: 0 auto;
-    }
-
     &-text {
-        padding: 0 20px;
+        height: 150px;
         color: #fff;
-        position: absolute;
-        bottom: -1px;
-        background-color: $fifthColor;
-        z-index: 2;
-        height: 200px;
-        border-radius: 20px;
-
         p {
             font-size: 18px;
             font-family: 'Source Sans Pro', sans-serif;
             margin-top: 10px;
          }
+    }
+
+    &-author {
+      height: 20px;
+      margin-top: 5px;
+      width: 100%;
+      text-align: right;
+      color: #fff;
+      font-size: 18px;
+      font-family: 'Source Sans Pro', sans-serif;
     }
 }
