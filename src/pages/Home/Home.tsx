@@ -24,6 +24,8 @@ import courseApi from "../../utils/apis/CourseApi";
 import imageTextSectionApi from "../../utils/apis/ImageTextSectionApi";
 import opinionApi from "../../utils/apis/OpinionApi";
 import customCarouselSettingsConstants from "../../components/customCarousel/customCarouselSettingsConstants";
+import { TikTokEmbed } from "react-social-media-embed";
+import TiktokVidsSection from "../../components/tiktokVids/TikTokVidsSection";
 
 const Home = () => {
   const coursesCarouselRef = useRef<any>(null);
@@ -78,7 +80,7 @@ const Home = () => {
             reverse={authorCourseBlock?.reverse}
           />
           <CarouselSection title="Co wyróżnia nasz webinar?" />
-
+          <TiktokVidsSection/>
           { imageTextBlocks.map((block) => {
             return(
               <div key={block?.id}>

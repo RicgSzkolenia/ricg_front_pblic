@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import coursePercItemApi from "../../utils/apis/CoursePercItemApi";
 import { Course } from '../../utils/models/Course';
 import { PercCarouselItem } from '../../utils/models/PercCarouselItem';
+import Modal from '../modal/Modal';
 interface ICarosuelProps {
     title: string;
 }
@@ -52,6 +53,8 @@ const CarouselSection = (props:ICarosuelProps) => {
     const { title } = props;
 
     const [ percItems, setPercItems ] = useState<Array<PercCarouselItem>>([])
+    const [ isModalOpen, setIsModalOpen ] = useState<boolean>(false);
+    const [currentSlide, setCurrentSlide] = useState<any>();
 
     useEffect(() => {
       coursePercItemApi.getCoursePercItems().then ((items:any) => {
@@ -59,13 +62,25 @@ const CarouselSection = (props:ICarosuelProps) => {
       });
     }, [])
 
+    const handleModalClose = () => {
+      setIsModalOpen(false);
+    }
+
     return(
         <div className="carouselSection">
             <p className="carouselSection-title blueSecondaryHeader">{title}</p>
+            { isModalOpen && <Modal close={handleModalClose}>
+              <div>
+                {currentSlide.title}
+              </div>
+            </Modal> }
             <Slider {...settings}>
                {[...percItems || []].map((slide, index) => {
                 return (
-                   <div key={index} className='carouselSection-slide'>
+                   <div key={index} className='carouselSection-slide' onClick={() => {
+                      setIsModalOpen(true);
+                      setCurrentSlide(slide);
+                   }}>
                         <div className='carouselSection-slide-text'>
                             {slide.title}
                         </div>
