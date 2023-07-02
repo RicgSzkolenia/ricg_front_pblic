@@ -6,8 +6,18 @@ import VideoApi from "../../utils/apis/VideoApi"
 import styled from "styled-components"
 
 const StyledVidsBody = styled.div`
-    width: 95%;
+    width: 90%;
     margin: 0 auto;
+    .slick-slide {
+        display: flex !important;
+        justify-content: center;
+        align-items:center;
+    }
+
+`
+
+const StyledVidsItem = styled.div`
+
 `
 
 const TiktokVidsSection = (props:any) => {
@@ -27,9 +37,9 @@ const TiktokVidsSection = (props:any) => {
                 <Slider {...settings}>
                     { videos?.map((video, index) => {
                         return(
-                            <div key={index}>
-                                <TikTokEmbed url={video}></TikTokEmbed>
-                            </div>
+                            <StyledVidsItem key={index}>
+                                <TikTokEmbed width={300} height={520}  url={video}></TikTokEmbed>
+                            </StyledVidsItem>
                         )
                     })}
                 </Slider>

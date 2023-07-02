@@ -2,11 +2,7 @@ import Button, { ButtonTypes } from "../common/Button";
 import "./header.scss";
 import NavBar from "./navBar/NavBar";
 import PerfomanceBar from "./perfomanceBar/PerfomanceBar";
-import ReactTypingEffect from "react-typing-effect";
 import { TypeAnimation } from "react-type-animation";
-import {Elements} from '@stripe/react-stripe-js';
-import {loadStripe} from '@stripe/stripe-js';
-import axios from "axios";
 import { createPayment } from "../../utils/hooks/usePayment";
 
 const Header = (props:any) => {

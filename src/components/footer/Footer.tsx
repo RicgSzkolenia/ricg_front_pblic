@@ -30,7 +30,7 @@ const Footer = () => {
 
     return (
         <StyledFooter>
-            <img src={'./BigLogo.png'}></img>
+             <img src="https://res.cloudinary.com/dtb1fvbps/image/upload/v1686685604/logo_White_F_8df86b15c6.svg"></img>
         </StyledFooter>
     )
 }

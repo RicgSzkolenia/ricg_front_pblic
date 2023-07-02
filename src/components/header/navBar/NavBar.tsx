@@ -21,7 +21,17 @@ const NavBar = (props:any) => {
                 { menuItems.map((item, index) => {
                         return(
                             <div key={index} className="navbar-menu-item" onClick={() => {
-                                window.location.replace(item.url)
+                                if (item?.element) {
+                                    const element = document.getElementById(item.element);
+                                    if (element)  element.scrollIntoView({ behavior: 'smooth' });
+                                } else {
+                                    if ( item.newTab ) {
+                                        window.open(item.url);
+                                    } else {
+                                        window.location.replace(item.url)
+                                    }
+                                }
+
                             }}>
                               {item?.icon ?  <img  src={item.icon}/>  : ''  }
                               { item.title }

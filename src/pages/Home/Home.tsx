@@ -24,7 +24,6 @@ import courseApi from "../../utils/apis/CourseApi";
 import imageTextSectionApi from "../../utils/apis/ImageTextSectionApi";
 import opinionApi from "../../utils/apis/OpinionApi";
 import customCarouselSettingsConstants from "../../components/customCarousel/customCarouselSettingsConstants";
-import { TikTokEmbed } from "react-social-media-embed";
 import TiktokVidsSection from "../../components/tiktokVids/TikTokVidsSection";
 
 const Home = () => {
@@ -97,6 +96,7 @@ const Home = () => {
           })}
 
           <div
+            id="courses"
             className="home-course-title"
             data-aos={"fade-down"}
             data-aos-duration="1500"
@@ -154,7 +154,7 @@ const Home = () => {
             >
               Kontakt
             </p>
-            <div className="home-contact-wrapper">
+            <div className="home-contact-wrapper" id="contact">
               <div
                 className="home-contact-info"
                 data-aos={"fade-left"}

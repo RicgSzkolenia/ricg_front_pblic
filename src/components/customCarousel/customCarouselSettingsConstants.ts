@@ -8,7 +8,7 @@ const customOpinionCarouselSettings = {
         breakpoint: 1250,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 2,
+          slidesToScroll: 1,
           initialSlide: 2,
         },
       },
@@ -16,7 +16,7 @@ const customOpinionCarouselSettings = {
         breakpoint: 620,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 2,
+          slidesToScroll: 1,
           initialSlide: 2,
         },
       },

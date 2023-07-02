@@ -1,12 +1,13 @@
 import './carosuelSection.scss'
 import Slider from "react-slick";
-import { slides } from './slides';
 import CustomCarouselArrow from './CustomCarouselArrow';
 import { useEffect, useState } from 'react';
 import coursePercItemApi from "../../utils/apis/CoursePercItemApi";
-import { Course } from '../../utils/models/Course';
 import { PercCarouselItem } from '../../utils/models/PercCarouselItem';
 import Modal from '../modal/Modal';
+import parse from 'html-react-parser';
+import Button, { ButtonTypes } from '../common/Button';
+
 interface ICarosuelProps {
     title: string;
 }
@@ -16,7 +17,7 @@ const settings = {
   infinite: true,
   speed: 500,
   slidesToShow: 2,
-  slidesToScroll: 2,
+  slidesToScroll: 1,
   rows: 2,
   nextArrow: <CustomCarouselArrow/>,
   prevArrow: <CustomCarouselArrow reverse={true} />,
@@ -32,7 +33,7 @@ const settings = {
         breakpoint: 768,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 2,
+          slidesToScroll: 1,
           initialSlide: 1,
           rows: 1
         }
@@ -70,8 +71,19 @@ const CarouselSection = (props:ICarosuelProps) => {
         <div className="carouselSection">
             <p className="carouselSection-title blueSecondaryHeader">{title}</p>
             { isModalOpen && <Modal close={handleModalClose}>
-              <div>
-                {currentSlide.title}
+              <div className='carouselSection-modal'>
+                <img src={ currentSlide.image }></img>
+                <div className='carouselSection-modal-content'>
+                  <div className='carouselSection-modal-content-header'>
+                    {currentSlide.title}
+                  </div>
+                  <div className='carouselSection-modal-content-text'>
+                    {   parse(currentSlide.details || '')}
+                  </div>
+                  <div className='carouselSection-modal-content-button'>
+                      <Button type={ButtonTypes.default} handleClick={handleModalClose}>Zamknij</Button>
+                  </div>
+                </div>
               </div>
             </Modal> }
             <Slider {...settings}>
@@ -81,10 +93,11 @@ const CarouselSection = (props:ICarosuelProps) => {
                       setIsModalOpen(true);
                       setCurrentSlide(slide);
                    }}>
-                        <div className='carouselSection-slide-text'>
-                            {slide.title}
-                        </div>
-                        <img src={slide.image}></img>
+                      <img src={slide.image}></img>
+                      <div className='carouselSection-slide-text'>
+                          {slide.title}
+                      </div>
+                      
                    </div>
                 )
                })}

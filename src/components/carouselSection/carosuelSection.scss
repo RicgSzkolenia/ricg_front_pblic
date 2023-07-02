@@ -18,8 +18,14 @@
     }
 
     &-slide {
+        border-radius: 10px;
+        cursor: pointer;
         position: relative;
+
         img {
+            object-fit: cover;
+            height: 300px;
+            border-radius: 10px 10px 0 0;
             margin: 0 auto;
             width: 100%;
         }
@@ -27,31 +33,86 @@
         &-text {
 
             @media only screen and (max-width: 480px) {
-                font-size:14px;
+                font-size:20px;
             }
 
             @media only screen and (min-width: 481px) and (max-width: 900px) {
                 font-size: 30px;
             }
 
-            margin: 0 auto;
-            width: 80%;
-            position: absolute;
-            bottom: 0vh;
+            width: 100%;
             text-transform: capitalize;
             color: #fff;
-            display: table; /* keep the background color wrapped tight */
-            margin: 0px auto 0px auto; /* keep the table centered */
-            padding:5px;
-            font-size:40px;
-            background-color: rgba($primaryColorRGB, 0.5);
-            border-radius: 8px;
+            padding: 10px;
+            font-size:30px;
+            height: 100px;
+            background-color: #9E0B78;
+            border-radius: 0 0 20px 20px;
 
         }
     }
     .slick-prev, .slick-next {
         background-color: $primaryColorRGB !important;
         color: rgba($primaryColorRGB, 0.5) !important;
+    }
+
+    &-modal {
+        display: flex;
+        flex-direction: row;
+
+        @media only screen and (max-width: 480px) {
+            flex-direction: column;
+        }
+
+        img {
+            border-radius: 10px;
+            height: 500px;
+            width: 50%;
+            object-fit: cover;
+
+            @media only screen and (max-width: 480px) {
+                height: 200px;
+                width: 100%;
+            }
+        }
+        &-content {
+            position: relative;
+            padding: 20px;
+
+            @media only screen and (max-width: 480px) {
+                padding: 8px;
+            }
+
+            &-header {
+                font-size: 26px;
+                text-align: center;
+                color: $font_header_color;
+                font-weight: 600;
+                text-transform: uppercase;
+                margin-bottom: 30px;
+
+                @media only screen and (max-width: 480px) {
+                  font-size: 22px;
+                  margin-top: 10px;
+                   margin-bottom: 20px;
+                }
+            }
+
+            &-text {
+                height: 310px;
+                font-size: 16px;
+                 @media only screen and (max-width: 480px) {
+                    height: 220px;
+                }
+            }
+
+            &-button {
+                position: absolute;
+                bottom: 10px;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
     }
 
 }
