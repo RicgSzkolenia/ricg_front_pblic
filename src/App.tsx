@@ -5,6 +5,9 @@ import Header from './components/header/Header';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import axios from 'axios';
+import Login from './pages/Login/LoginForm';
+import FileUpload from './pages/FileUpload/FileUpload';
+import CoursesPage from './pages/Courses/Courses';
 
 function App() {
 
@@ -19,6 +22,9 @@ function App() {
       <Router>
         <Routes>
           <Route path='/' element={<Home/>}/>
+          <Route path='/login' element={<Login/>}/>
+          <Route path='/products' element={<CoursesPage/>}/>
+          <Route path='/upload' element={<FileUpload/>}/>
         </Routes>
       </Router>
     </>

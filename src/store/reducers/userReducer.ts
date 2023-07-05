@@ -1,16 +1,22 @@
+import { AllAuthActionTypes } from "../actions/authActions";
+
 interface userReducerInitialState{
   isAuthenticated: boolean,
   user: any;
+  jwt: string;
 }
 
 const initialState:userReducerInitialState = {
   isAuthenticated: false,
-  user: null,
+  user: {},
+  jwt: '',
 }
 
 const userReducer = (state = initialState, action:any) => {
   switch(action.type){
-    default:
+      case AllAuthActionTypes.SET_USER:
+      return {...state, isAuthenticated: true, user: action.user, jwt: action.jwt};
+      default:
       return state
   }
 

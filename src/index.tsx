@@ -4,6 +4,8 @@ import './index.scss';
 import App from './App';
 import axios from 'axios';
 import reportWebVitals from './reportWebVitals';
+import { Provider } from 'react-redux';
+import { store } from './store/store';
 
 const TOKEN = process.env.REACT_APP_API_TOKEN;
 
@@ -40,7 +42,9 @@ axios.interceptors.response.use(
 
 root.render(
   <React.StrictMode>
-    <App />
+     <Provider store={store}>
+        <App />
+    </Provider>
   </React.StrictMode>
 );
 

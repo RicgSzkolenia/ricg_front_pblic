@@ -5,58 +5,58 @@ import styled from 'styled-components';
 import * as Yup from 'yup';
 import axios from 'axios';
 
-const StyledButton = styled.button`
-border: 0;
-min-width: 85px;
-max-width: 250px;
-height: 35px;
-background-color: #954580;
-color: #fff;
-cursor: pointer;
-padding: 0 15px;
-text-align: center;
-line-height: 35px;
-margin: 5px;
-border-radius: 10px;
-font-size: 20px;
-transition: 0.3s ease-in-out;
-&:hover {
-    transform: scale(1.06);
-    background-color: #6149F5;
-}
-@media only screen and (max-width: 376px) {
-    font-size: 14px;
-    width: 185px !important;
-    height: 30px;
-    line-height: 30px;
-}
+export const StyledButton = styled.button`
+    border: 0;
+    min-width: 85px;
+    max-width: 250px;
+    height: 35px;
+    background-color: #954580;
+    color: #fff;
+    cursor: pointer;
+    padding: 0 15px;
+    text-align: center;
+    line-height: 35px;
+    margin: 5px;
+    border-radius: 10px;
+    font-size: 20px;
+    transition: 0.3s ease-in-out;
+    &:hover {
+        transform: scale(1.06);
+        background-color: #6149F5;
+    }
+    @media only screen and (max-width: 376px) {
+        font-size: 14px;
+        width: 185px !important;
+        height: 30px;
+        line-height: 30px;
+    }
 
-@media only screen and (min-width: 377px) and (max-width: 480px) {
-    font-size: 14px;
-    width: 150px;
-    height: 25px !important;
-    line-height: 25px !important;
+    @media only screen and (min-width: 377px) and (max-width: 480px) {
+        font-size: 14px;
+        width: 150px;
+        height: 25px !important;
+        line-height: 25px !important;
 
-}
+    }
 
-@media only screen and (min-width: 481px) and (max-width: 768px) {
-    font-size: 16px;
-    width: 250px;
-}
+    @media only screen and (min-width: 481px) and (max-width: 768px) {
+        font-size: 16px;
+        width: 250px;
+    }
 
 
-@media only screen and (min-width: 769px) and (max-width: 1024px) {
-    font-size: 16px;
-    width: 200px;
-}
+    @media only screen and (min-width: 769px) and (max-width: 1024px) {
+        font-size: 16px;
+        width: 200px;
+    }
 `
 
-const ErrorMessage = styled.div`
+export const ErrorMessage = styled.div`
     color: tomato;
     margin-left: 10px;
 `
 
-const Message = styled.div`
+export const Message = styled.div`
     width: 50%;
     text-align: center;
     margin: 0 auto;
@@ -111,7 +111,7 @@ const ContactForm = () => {
             <Formik
             validationSchema={ContactSchema}
             initialValues={initialValues}
-            onSubmit={async (values) => {
+            onSubmit={(values) => {
                 handleSubmit(values)
             }}
             >
