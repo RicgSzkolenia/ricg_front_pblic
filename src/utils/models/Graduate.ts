@@ -6,6 +6,7 @@ export enum GraduationStatus  {
 }
 
 export class Graduate { 
+
     constructor(public name:string, public surname: string, public email: string, public role: string, public status:GraduationStatus) {}
 
     static createGraduateFromArray (fields: Array<any>, webinarDuration: number) {
@@ -21,4 +22,7 @@ export class Graduate {
         
         return  new Graduate(name, surname, email, role, status);
     }
+
+   
 }
+

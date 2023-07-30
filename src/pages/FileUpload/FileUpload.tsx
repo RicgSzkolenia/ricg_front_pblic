@@ -1,13 +1,20 @@
 import styled from "styled-components";
 import CustomDropzone from "../../components/common/DropZone";
 import Button, { ButtonTypes } from "../../components/common/Button";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Papa from "papaparse";
 import { Graduate } from "../../utils/models/Graduate";
 import moment from 'moment';
+import WebinarReportApi from "../../utils/apis/WebinarReportApi";
+import { useNavigate } from "react-router-dom";
+import parse from 'parse-duration';
+import CourseApi from "../../utils/apis/CourseApi";
+import Dropdown from 'react-dropdown';
+import 'react-dropdown/style.css';
+import { Course } from "../../utils/models/Course";
 
 const StyledFileUpload = styled.div`
-    height: 100vh;
+    height: 90vh;
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -33,8 +40,12 @@ const StyledUploadWrapper = styled.div`
 const StyledUploadedFile = styled.div`
     display: flex;
     align-items: center;
+    justify-content: center;
     font-size: 20px;
     line-height: 24px;
+    p { 
+        max-width: 80%;
+     }
     img { 
         cursor: pointer;
         margin-left: 10px;
@@ -48,40 +59,45 @@ const FileUpload = () => {
 
     const [fileData, setFileData ] = useState<any>();
     const [ fileName, setFileName ] = useState();
+    const [ options, setOptions ] = useState<Array<any>>([]);
+    const [ isSending, setIsSubmiting ] = useState<boolean>(false);
     
+    const navigate = useNavigate();
+
+
     const getData = (file:any) => {
         Papa.parse(file, {
             header: false,
             skipEmptyLines: true,
             complete: function (results:any) {
+            
                 const dateFormat = 'DD/MM/YYYY-hh:mm:ss';
                 const data = results.data
-                
+                const participantsStartIndex = data.findIndex((row:any) => row[0].includes('Uczestnicy')) + 2;
+                const participantsEndIndex = data.findIndex((row:any) => row[0].includes('Działania podczas spotkania')) - 1
                 const title:string = data?.[2]?.[1];
                 
                 const webinarStartTime:string = data?.[3]?.[1];
                 const webinarEndTime:string = data?.[4]?.[1];
                 
                 
-                const webinarDuration:number = moment.duration(moment(webinarEndTime, dateFormat).diff(moment(webinarStartTime, dateFormat))).asMinutes();
-                const graduates:Array<Graduate> = data.slice(7, data.length - 1).map((graduateFields:any) => {
+                const webinarDuration:number = parse(data.find((row:any) => row[0].includes('Czas trwania spotkania'))?.[1], 'm') || 1;
+                const graduates:Array<Graduate> = data.slice(participantsStartIndex, participantsEndIndex).map((graduateFields:any) => {
                     return Graduate.createGraduateFromArray(graduateFields, webinarDuration);
                 })
-                
-                console.log(graduates);
-                setFileData({raw: data, participants: graduates, webinarStartTime, webinarEndTime, title});
+
+                const preparedFileData = { rawData: JSON.stringify(data), participants: graduates, webinarDate: moment(webinarStartTime, dateFormat).toDate(), title, duration: webinarDuration.toString()};
+                setFileData(preparedFileData);
                 setFileName(file.name);
             },
         });
     }
-
-    const parseWebinarJson = () => {
-
-    }
     
     const handleSubmit = () => {
         if (fileData) {
-            console.log('Uploading data: ', fileData);
+            WebinarReportApi.createWebinarReport(fileData).then(() => {
+                // navigate('/') 
+            })
         }
     } 
 
@@ -89,6 +105,15 @@ const FileUpload = () => {
         setFileData(undefined);
         setFileName(undefined);
     }
+
+    useEffect(() => {
+        CourseApi.getAllCourses().then((courses) => {
+            const tmpOptions = courses.map((course) => { 
+                return { value: course.id as string || '', label: course.title }
+             })
+             setOptions(tmpOptions)
+        })
+    }, [])
 
     return(
             <StyledFileUpload>
@@ -105,8 +130,10 @@ const FileUpload = () => {
                             <img src="./xmark-solid.svg" onClick={handleFileDelete}/>
                         </StyledUploadedFile>) 
                         : <CustomDropzone getData={getData}/>
-                    }  
-                    <Button type={ButtonTypes.default} handleClick={handleSubmit}>Wyślij</Button>
+                    }    
+                    <Dropdown onChange={(e) => {setFileData({...fileData, courseId: e.value}) }} options={options} placeholder="Wybierz typ webinaru" />
+                    {  fileData && fileData.courseId ?  <Button type={ButtonTypes.default} handleClick={handleSubmit}>Wyślij</Button> : '' }
+                  
                 </StyledUploadWrapper>
             </StyledFileUpload>
     )

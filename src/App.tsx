@@ -8,6 +8,7 @@ import axios from 'axios';
 import Login from './pages/Login/LoginForm';
 import FileUpload from './pages/FileUpload/FileUpload';
 import CoursesPage from './pages/Courses/Courses';
+import ProtectedRoute from './components/common/ProtectedRoute';
 
 function App() {
 
@@ -24,7 +25,10 @@ function App() {
           <Route path='/' element={<Home/>}/>
           <Route path='/login' element={<Login/>}/>
           <Route path='/products' element={<CoursesPage/>}/>
-          <Route path='/upload' element={<FileUpload/>}/>
+          <Route element={<ProtectedRoute/>}>
+            <Route path='/upload' element={<FileUpload/>}/>
+          </Route>
+       
         </Routes>
       </Router>
     </>
