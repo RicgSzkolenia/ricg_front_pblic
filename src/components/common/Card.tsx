@@ -5,11 +5,11 @@ import { colors } from "../../colors";
 
 const StyledCard = styled.div`
     margin: 20px;
-    padding: 40px 10px;
-    width: 300px;
-    height: 300px;
+    padding: 5px;
+    width: 220px;
+    height: 250px;
     border: 4px solid ${colors.primaryColor};
-    border-radius: 10px;
+    border-radius: 15px;
     text-align: center;
     display: flex;
     flex-direction: row;
@@ -23,8 +23,8 @@ const StyledCard = styled.div`
     }
 
     @media only screen and (max-width: 480px) {
-        width: 175px;
-        height: 220px;
+        width: 160px;
+        height: 200px;
         padding: 5px;
         margin: 7px;
         overflow: hidden;

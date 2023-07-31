@@ -96,7 +96,7 @@ const FileUpload = () => {
     const handleSubmit = () => {
         if (fileData) {
             WebinarReportApi.createWebinarReport(fileData).then(() => {
-                // navigate('/') 
+                navigate('/');
             })
         }
     } 
@@ -131,7 +131,7 @@ const FileUpload = () => {
                         </StyledUploadedFile>) 
                         : <CustomDropzone getData={getData}/>
                     }    
-                    <Dropdown onChange={(e) => {setFileData({...fileData, courseId: e.value}) }} options={options} placeholder="Wybierz typ webinaru" />
+                    <Dropdown onChange={(e) => {setFileData({...fileData, courseId: e.value, courseName: e.label}) }} options={options} placeholder="Wybierz typ webinaru" />
                     {  fileData && fileData.courseId ?  <Button type={ButtonTypes.default} handleClick={handleSubmit}>Wyślij</Button> : '' }
                   
                 </StyledUploadWrapper>

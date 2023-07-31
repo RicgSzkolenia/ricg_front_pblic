@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import { createPayment } from '../../utils/hooks/usePayment';
 import Button, { ButtonTypes } from '../common/Button';
 import './courseCard.scss';
@@ -13,9 +14,11 @@ interface ICourseCardProps {
 
 const CourseCard = (props:ICourseCardProps) => {
     const { id, title, type, points, price, link, key } = props;
-
+    const navigate = useNavigate();
+    
     const handleClick = () => {
-        createPayment(id, title, price)
+        navigate(`/product/${id}`);
+        // createPayment(id, title, price)
     }
 
     return (

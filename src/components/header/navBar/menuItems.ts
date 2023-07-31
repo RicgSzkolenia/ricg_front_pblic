@@ -7,6 +7,24 @@ export interface MenuItem {
 }
 export const menuItems: Array<MenuItem>= [
     {
+        title: 'Home',
+        url: '/'
+    },
+    {
+        title: 'Kursy',
+        url: '/products',
+    },
+    {
+        title: 'Partnerze',
+        url: 'partners',
+        element: 'partners'
+    },
+    {
+        title: 'Kontakt',
+        url: 'contact',
+        element: 'contact'
+    },
+    {
         url: 'https://instagram.com/ricg_eu?igshid=MzRlODBiNWFlZA==',
         icon: 'https://res.cloudinary.com/dtb1fvbps/image/upload/v1686861783/instagram_5bb61720e9.svg',
         newTab: true
@@ -20,16 +38,6 @@ export const menuItems: Array<MenuItem>= [
         url: 'https://tiktok.com/@rig_eu',
         icon: 'https://res.cloudinary.com/dtb1fvbps/image/upload/v1686861783/tiktok_2_c10db1b000.svg',
         newTab: true,
-    },
-    {
-        title: 'Kursy',
-        url: 'kursy',
-        element: 'courses'
-    },
-    {
-        title: 'Kontakt',
-        url: 'contact',
-        element: 'contact'
     },
 
 ]

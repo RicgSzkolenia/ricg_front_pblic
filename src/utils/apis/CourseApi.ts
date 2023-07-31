@@ -9,6 +9,13 @@ const getAllCourses = async (): Promise<Array<Course>> => {
     })
 }
 
+const getCourseById = async (id: string): Promise<Course> => {
+    return await axios.get(`${process.env.REACT_APP_BASE_URL}/courses/${id}/?populate=*`).then((res) => {
+            return Course.fromApiJson(res.data.data);
+    })
+}
+
 export default {
-    getAllCourses
+    getAllCourses,
+    getCourseById
 }

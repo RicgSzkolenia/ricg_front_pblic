@@ -8,7 +8,7 @@ const NavBar = (props:any) => {
     const [ isOpen, setIsOpen ] = useState(false);
 
     return (
-        <div className="navbar" data-aos="fade-down"  data-aos-delay="300" data-aos-duration="2000">
+        <div className="navbar">
             <div className="navbar-logo">
                 <img  src={"/Group_logo.png"}></img>
             </div>

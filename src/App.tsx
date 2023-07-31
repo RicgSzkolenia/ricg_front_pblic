@@ -9,6 +9,7 @@ import Login from './pages/Login/LoginForm';
 import FileUpload from './pages/FileUpload/FileUpload';
 import CoursesPage from './pages/Courses/Courses';
 import ProtectedRoute from './components/common/ProtectedRoute';
+import CourseDetailsPage from './pages/Course/CourseDetailsPage';
 
 function App() {
 
@@ -24,7 +25,9 @@ function App() {
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/login' element={<Login/>}/>
+          <Route path='/product/:id' element={<CourseDetailsPage/>}/>
           <Route path='/products' element={<CoursesPage/>}/>
+         
           <Route element={<ProtectedRoute/>}>
             <Route path='/upload' element={<FileUpload/>}/>
           </Route>

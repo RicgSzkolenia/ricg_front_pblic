@@ -25,6 +25,7 @@ import imageTextSectionApi from "../../utils/apis/ImageTextSectionApi";
 import opinionApi from "../../utils/apis/OpinionApi";
 import customCarouselSettingsConstants from "../../components/customCarousel/customCarouselSettingsConstants";
 import TiktokVidsSection from "../../components/tiktokVids/TikTokVidsSection";
+import PartnersSection from "../../components/PartnersSection/PartnersSection";
 
 const Home = () => {
   const coursesCarouselRef = useRef<any>(null);
@@ -122,6 +123,7 @@ const Home = () => {
               })}
             </CustomCarousel>
           </div>
+          <PartnersSection/>
           <div
             className="home-reviews"
             data-aos={"fade-down"}
