@@ -11,11 +11,11 @@ export const menuItems: Array<MenuItem>= [
         url: '/'
     },
     {
-        title: 'Kursy',
+        title: 'Webinary',
         url: '/products',
     },
     {
-        title: 'Partnerze',
+        title: 'Partnerzy',
         url: 'partners',
         element: 'partners'
     },

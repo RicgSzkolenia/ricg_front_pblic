@@ -61,7 +61,7 @@ const Header = (props:any) => {
             data-aos-delay="300"
           >
             <img
-              src={"/GroupnewColor.svg"}
+              src={"/group_header.png"}
               style={{ width: "80%", height: "auto" }}
             ></img>
           </div>

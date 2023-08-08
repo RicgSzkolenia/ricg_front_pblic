@@ -31,10 +31,10 @@ const StyledBrandWrapper = styled.div`
 
 const PartnersSection = () => {
     const [ partners, setPartners ] = useState<any>([]);
+    
     useEffect(() => {
         PartnerApi.getAllPartners().then((partner:any) => {
             setPartners(partner.data.data);
-
         })
     }, [])
 
@@ -43,7 +43,6 @@ const PartnersSection = () => {
             <p className="blueSecondaryHeader"> Naszi partnerze</p>
             <StyledPartners>
                 { partners.map((partner:any) => {
-                    console.log(partner);
                     return(
                         <StyledBrandWrapper>
                             <img src={partner?.attributes?.partnerImage.data.attributes.url}></img> 

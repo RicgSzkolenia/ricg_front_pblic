@@ -1,5 +1,4 @@
 const customOpinionCarouselSettings = {
-    slidesToShow: 3,
     arrows: false,
     autoplay: true,
     autoplaySpeed: 2800,
@@ -7,7 +6,6 @@ const customOpinionCarouselSettings = {
       {
         breakpoint: 1250,
         settings: {
-          slidesToShow: 2,
           slidesToScroll: 1,
           initialSlide: 2,
         },

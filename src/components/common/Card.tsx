@@ -17,9 +17,10 @@ const StyledCard = styled.div`
     align-content: flex-start;
     justify-content: center;
     transition: 0.3s ease-in-out !important;
+    background-color: #FFF9F9;
 
     &:hover {
-        transform: scale(1.1);
+        transform: scale(1.05);
     }
 
     @media only screen and (max-width: 480px) {
@@ -45,7 +46,7 @@ const StyledCard = styled.div`
     }
 
     @media only screen and (min-width: 769px) and (max-width: 1024px) {
-        height: 320px;
+        height: 270px;
         width: 240px;
         margin: 5px 5px;
         overflow: hidden;
