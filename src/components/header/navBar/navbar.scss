@@ -83,6 +83,10 @@
             }
         }
     }
+
+    &-active {
+        border-bottom: 3px solid rgb(149, 69, 128);
+    }
 }
 
 #navbar-action {

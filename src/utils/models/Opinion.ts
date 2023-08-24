@@ -10,4 +10,12 @@ export class Opinion {
             avatarLink: opinionApiJson.attributes?.Avatar?.data?.[0]?.attributes?.url,
         }
     }
+
+    static toApiJson(opinion:Opinion) {
+        console.log(opinion);
+        return {
+            AuthorName: opinion.authorName,
+            Description: opinion.opinion,
+        }
+    }
 }

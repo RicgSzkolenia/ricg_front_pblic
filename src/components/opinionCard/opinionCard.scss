@@ -3,7 +3,7 @@
     overflow: hidden;
     position: relative;
     width: 345px;
-    height: 200px;
+    height: 220px;
     margin: 10px auto;
     border-radius: 20px;
     padding: 0 20px;
@@ -21,6 +21,8 @@
     }
 
     &-text {
+        font-family:"Source Sans Pro", serif;  
+        margin-top: 18px;
         height: 150px;
         color: #fff;
         p {
@@ -28,15 +30,40 @@
             font-family: 'Source Sans Pro', sans-serif;
             margin-top: 10px;
          }
+
+         textarea {
+            padding: 5px;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 16px;
+            border: 0;
+            border-radius: 10px;
+            resize: none;
+            height: 150px;
+            width: 100%;
+            margin: 0px auto;
+         }
+         
     }
 
     &-author {
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
       height: 20px;
-      margin-top: 5px;
+      margin-top: 15px;
       width: 100%;
       text-align: right;
       color: #fff;
       font-size: 18px;
       font-family: 'Source Sans Pro', sans-serif;
+      
+      input {
+        cursor: pointer;
+        padding: 0 10px;
+        border-radius: 10px;
+        height: 30px;
+        border: 0;
+        width: 40%;
+      }
     }
 }

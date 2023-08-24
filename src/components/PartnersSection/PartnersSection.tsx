@@ -40,11 +40,11 @@ const PartnersSection = () => {
 
     return (
         <StyledPartnersSection  id="partners">
-            <p className="blueSecondaryHeader"> Naszi partnerze</p>
+            <p className="blueSecondaryHeader"> Naszi partnerzy</p>
             <StyledPartners>
-                { partners.map((partner:any) => {
+                { partners.map((partner:any, index:number) => {
                     return(
-                        <StyledBrandWrapper>
+                        <StyledBrandWrapper key={index}>
                             <img src={partner?.attributes?.partnerImage.data.attributes.url}></img> 
                         </StyledBrandWrapper>
                     )

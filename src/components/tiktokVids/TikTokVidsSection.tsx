@@ -6,6 +6,7 @@ import VideoApi from "../../utils/apis/VideoApi"
 import styled from "styled-components"
 
 const StyledVidsBody = styled.div`
+    transform: scale(0.75);
     width: 90%;
     margin: 0 auto;
     .slick-slide {
@@ -38,7 +39,7 @@ const TiktokVidsSection = (props:any) => {
                     { videos?.map((video, index) => {
                         return(
                             <StyledVidsItem key={index}>
-                                <TikTokEmbed width={300} height={520}  url={video}></TikTokEmbed>
+                                <TikTokEmbed width={320} height={585} url={video}></TikTokEmbed>
                             </StyledVidsItem>
                         )
                     })}

@@ -4,11 +4,13 @@ import CourseApi from "../../utils/apis/CourseApi";
 import CourseCard from "../../components/courseCard/CourseCard";
 import NavBar from "../../components/header/navBar/NavBar";
 import styled from "styled-components";
+import Footer from "../../components/footer/Footer";
 
 const StyledCoursePage = styled.div`
     max-width: 1440px;
-    width: 98%;
+    width: 100%;
     margin: 0 auto;
+    min-height: 80vh;
 
     .courses-header {
         margin-left: 1%;
@@ -25,8 +27,9 @@ const CourseWrapper = styled.div`
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: center;
+    min-height: 90vh;
     .courseCard {
-        transform: scale(0.8);
+        transform: scale(0.95);
         margin: 10px;
     }
 `
@@ -48,11 +51,11 @@ const CoursesPage = () => {
             <CourseWrapper>
                 { courses.map((course, index) => {
                     return (
-                        <CourseCard key={index} id={course.id || ""} title={course.title} type={course.type} points={course.points} price={course.price} link={course.link}  />
+                        <CourseCard key={index}  course={course} />
                     )
                 }) }
             </CourseWrapper>
-         
+            <Footer></Footer>
         </StyledCoursePage>
     )
 }

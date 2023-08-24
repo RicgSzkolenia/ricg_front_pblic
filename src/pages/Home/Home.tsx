@@ -1,13 +1,11 @@
 import { useState, useEffect, useRef } from "react";
-import "./home.scss";
+
 import "aos/dist/aos.css";
 import AOS from "aos";
 import AimSection from "../../components/aimSection/AimSection";
 import CarouselSection from "../../components/carouselSection/CarouselSection";
-import ContactForm from "../../components/contactForm/Contactform";
 import Header from "../../components/header/Header";
 import ImageTextSection from "../../components/imageTextSection/ImageTextSection";
-import ProgressBar from "../../components/common/ProgressBar";
 import CustomCarousel from "../../components/customCarousel/CustomCarousel";
 import CourseCard from "../../components/courseCard/CourseCard";
 import Footer from "../../components/footer/Footer";
@@ -80,7 +78,6 @@ const Home = () => {
           })}
           <AuthorSection/>
           <CarouselSection title="Co wyróżnia nasz webinar?" />
-          <TiktokVidsSection/>
           <div
             id="courses"
             className="home-course-title"
@@ -95,51 +92,15 @@ const Home = () => {
                 return (
                   <CourseCard
                     key={index}
-                    id={course!.id || ''}
-                    title={course.title}
-                    type={course.type}
-                    points={course.points}
-                    price={course.price}
-                    link={course.link}
+                    course={course}
                   />
                 );
               })}
             </CustomCarousel>
           </div>
           <PartnersSection/>
+          <TiktokVidsSection/>
           <OpinionSection/>
-          <div className="home-contact">
-            <p
-              className="home-course-title blueSecondaryHeader"
-              data-aos={"fade-down"}
-              data-aos-duration="1500"
-              data-aos-delay="150"
-            >
-              Kontakt
-            </p>
-            <div className="home-contact-wrapper" id="contact">
-              <div
-                className="home-contact-info"
-                data-aos={"fade-left"}
-                data-aos-duration="1500"
-                data-aos-delay="150"
-              >
-                <p className="blueSmallText">
-                  Bądź najlepszą wersją siebie na rozmowie o pracę!
-                </p>
-                <img src={"./roseIcons/illustrationContact.svg"}></img>
-              </div>
-              <div
-                ref={contactRef}
-                className="home-contact-form"
-                data-aos={"fade-right"}
-                data-aos-duration="1500"
-                data-aos-delay="150"
-              >
-                <ContactForm />
-              </div>
-            </div>
-          </div>
           <Footer />
         </div>
       )}

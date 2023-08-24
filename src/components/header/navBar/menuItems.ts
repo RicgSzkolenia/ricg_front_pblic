@@ -4,6 +4,7 @@ export interface MenuItem {
     icon?: string,
     element?: string,
     newTab?:boolean,
+    parent?: string
 }
 export const menuItems: Array<MenuItem>= [
     {
@@ -17,12 +18,13 @@ export const menuItems: Array<MenuItem>= [
     {
         title: 'Partnerzy',
         url: 'partners',
-        element: 'partners'
+        element: 'partners',
+        parent: '/'
+
     },
     {
         title: 'Kontakt',
-        url: 'contact',
-        element: 'contact'
+        url: '/contact',
     },
     {
         url: 'https://instagram.com/ricg_eu?igshid=MzRlODBiNWFlZA==',
@@ -35,7 +37,7 @@ export const menuItems: Array<MenuItem>= [
         newTab: true,
     },
     {
-        url: 'https://tiktok.com/@rig_eu',
+        url: 'https://www.tiktok.com/@ricg_eu?_t=8ejDRVG0Gcn&_r=1',
         icon: 'https://res.cloudinary.com/dtb1fvbps/image/upload/v1686861783/tiktok_2_c10db1b000.svg',
         newTab: true,
     },

@@ -12,7 +12,6 @@ const AuthorSection = () => {
     useEffect(() => {
         AuthorApi.getAllAuthors().then((authors:Array<Author>) => {
             const slides:Array<Slide> = authors.map((author) => {
-                console.log(author)
                 return {
                     title: author.name + ' ' +  author.surname,
                     text: author.description,
@@ -27,7 +26,7 @@ const AuthorSection = () => {
 
     return (
         <div>
-            <div className='blueSecondaryHeader imagetextSection-header' data-aos={'fade-down'}  data-aos-duration="1500" data-aos-delay="150">Nasi nauczyczile</div>
+            <div className='blueSecondaryHeader imagetextSection-header' data-aos={'fade-down'}  data-aos-duration="1500" data-aos-delay="150">Nasz Zespół</div>
             <Accordion slides={slides}/>
         </div>
     )

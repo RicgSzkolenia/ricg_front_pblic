@@ -12,7 +12,7 @@ export const StyledButton = styled.button`
     height: 35px;
     background-color: #954580;
     color: #fff;
-    cursor: pointer;
+    cursor: pointer;npm 
     padding: 0 15px;
     text-align: center;
     line-height: 35px;
