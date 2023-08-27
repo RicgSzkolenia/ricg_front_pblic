@@ -1,5 +1,6 @@
 @import '../../variables.scss';
 .courseCard {
+    transform: scale(0.8);
     margin: 0 auto;
     width: 390px;
     height: 620px;
@@ -46,6 +47,11 @@
         }
 
         span {
+            display: -webkit-box !important;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
             display: block;
             width: 95%;
             font-size: 14px;
@@ -94,4 +100,8 @@
             color: #fff;
         }
     }
+}
+
+.button-disabled{
+    background-color: #A0A0A0 !important;
 }

@@ -12,7 +12,6 @@ export class Opinion {
     }
 
     static toApiJson(opinion:Opinion) {
-        console.log(opinion);
         return {
             AuthorName: opinion.authorName,
             Description: opinion.opinion,

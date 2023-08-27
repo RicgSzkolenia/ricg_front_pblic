@@ -1,0 +1,124 @@
+.details-wrapper {
+    min-height: 80vh;
+    max-width: 1440px;
+    width: 90%;
+    margin: 10px auto;
+    &-header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        @media only screen and (max-width: 821px) {
+            flex-direction: column;
+        }
+
+        img {
+            border-radius: 20px;
+            max-width: 40%;
+            @media only screen and (max-width: 821px) {
+                max-width: 98%;
+            }
+        }
+
+        &-sum {
+            @media only screen and (max-width: 821px) {
+                width: 98%;
+                margin-top: 20px;
+            }
+            width: 50%;
+
+            &-header {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+
+                p {
+                    text-transform: uppercase;
+                    color: #B64689;
+                }
+            }
+
+            &-body {
+                margin: 20px 0;
+                display: flex;
+                flex-direction: column;
+                color: #FE7062;
+                font-size: 26px;
+                @media only screen and (max-width: 480px) {
+                    width: 98%;
+                }
+
+                &-dates {
+                    color: #B64689;
+                    margin: 20px 0;
+                    font-size: 20px;
+                }
+
+                &-footer {
+                    p {
+                        display: inline-block;
+                        color: #7D7D7D;
+                    }
+
+                    .courseCard-footer-button{
+                        margin-top: 15px;
+                    }
+                }
+            }
+        }
+
+    }
+
+    &-description {
+        &-header {
+            margin: 15px auto;
+            text-align: center;
+            font-size: 36px;
+            text-transform: uppercase;
+            color: #FE7062;
+
+        }
+
+        &-body {
+            width: 75%;
+            margin: 10px auto;
+            text-align: center;
+        }
+    }
+
+    &-points {
+        padding: 10px;
+        &-wrapper {
+         width: 80%;   
+         margin: 10px auto;
+         border-radius: 20px;
+         min-height: 20vh;
+         border: 2px solid #FE7062;
+
+         &-item {
+            text-align: center;
+          
+            &-iterator {
+                text-align: center;
+                font-size: 44px;
+                font-weight: 700;
+                color: #FE7062;
+            }
+
+            &-header {
+                margin: 10px 0;
+                font-weight: 300;
+                font-size: 28px;
+                color: #FE7062;
+            }
+
+            &-body {
+                margin: 5px auto;
+                width: 80%;
+
+
+            }
+         }
+        }
+    }
+}

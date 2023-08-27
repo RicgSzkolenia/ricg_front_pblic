@@ -12,6 +12,7 @@ import ProtectedRoute from './components/common/ProtectedRoute';
 import CourseDetailsPage from './pages/Course/CourseDetailsPage';
 import CertificatePresentationPage from './pages/Certificate/CertificatePresentation';
 import ContactPage from './pages/Contact/ContactPage';
+import Cart from './pages/Cart/Cart';
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
           <Route path='/products' element={<CoursesPage/>}/>
           <Route path='/certificate/:id' element={<CertificatePresentationPage/>} />
           <Route path='/contact' element={<ContactPage/>}/>
+          <Route path='/cart' element={<Cart/>} />
           <Route element={<ProtectedRoute/>}>
             <Route path='/upload' element={<FileUpload/>}/>
           </Route>

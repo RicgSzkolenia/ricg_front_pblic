@@ -39,7 +39,6 @@ const Login = () => {
 
     const handleSubmit = (values:FormikValues) => {
         AuthApi.loginRequest(values.email, values.password).then((res:any) => {
-            console.log('Result recieved' ,res);
             dispatch(authActions.setUser(res.data.user, res.data.jwt ))
             if (res.data.jwt) {
                 navigate('/upload')

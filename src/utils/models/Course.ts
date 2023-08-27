@@ -1,5 +1,5 @@
 export class Course  {
-    constructor( public id: string, public title: string, public image: string, public category: string, public isOnline: boolean, public shortDescription:boolean, public points: Array<string>, public price: number,  public courseDates: Array<any>, public redeemedPrice?: number ) {}
+    constructor( public id: string, public title: string, public image: string, public category: string, public isOnline: boolean, public shortDescription:boolean, public points: any, public price: number,  public courseDates: Array<any>, public redeemedPrice?: number ) {}
 
     static fromApiJson (json:any) : Course {
         const dates = json.attributes?.course_dates?.data.map((date:any) => {
@@ -8,8 +8,7 @@ export class Course  {
                 date: date?.attributes?.date
             }
         })
-
-        console.log(dates);
+        console.log(json.attributes?.BulletPoints);
         return {
             id: json?.id,
             title: json?.attributes?.Title,

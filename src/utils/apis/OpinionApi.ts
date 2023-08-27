@@ -12,7 +12,6 @@ const getAllOpinions = async () => {
 const createOpinion = async (opinion:Opinion) => {
     const convertedOpinion = Opinion.toApiJson(opinion)
     return await axios.post(`${process.env.REACT_APP_BASE_URL}/opinions`,  { data: { ...convertedOpinion }}).then((res) => {
-      console.log(res);
     })
 }
 

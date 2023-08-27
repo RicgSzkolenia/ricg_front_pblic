@@ -2,17 +2,25 @@ import { menuItems } from "./menuItems";
 import '../../../index.scss'
 import './navbar.scss'
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { AppState } from "../../../store/store";
 
 const NavBar = (props:any) => {
 
     const [ isOpen, setIsOpen ] = useState(false);
     const [ activeNavBarItem, setActiveNavBarItem ] = useState<string>();
     const location = useLocation();
+    const navigate = useNavigate();
+    const cartItems = useSelector((state: AppState) => state.cart.items );
 
     useEffect(() => {
         setActiveNavBarItem(location.pathname);
     }, [])
+
+    const goToCart = () => {
+        navigate('/cart')
+    }
 
     return (
         <div className="navbar">
@@ -36,7 +44,7 @@ const NavBar = (props:any) => {
                                     if ( item.newTab ) {
                                         window.open(item.url);
                                     } else {
-                                        window.location.replace(item.url)
+                                       navigate(item.url)
                                     }
                                 }
 
@@ -45,9 +53,11 @@ const NavBar = (props:any) => {
                               { item.title }
                             </div>
                         )
-                })
-
-                }
+                })}
+                <div className="navbar-menu-item navbarCart" onClick={goToCart}>
+                    <img src="./cart.png"></img>
+                    <p>{cartItems?.length ?? '0'}</p>
+                </div>
             </div>
         </div>
     )

@@ -80,7 +80,6 @@ const ContactForm = () => {
     })
 
     const handleSubmit = async (values:FormFields) => {
-        console.log('submiting', values);
         axios.post(`${process.env.REACT_APP_BASE_URL}/contact-requests`, {data: {...values}}).then(() => {
             setMessage('Wyslano')
         })
