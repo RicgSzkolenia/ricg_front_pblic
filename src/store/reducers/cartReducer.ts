@@ -1,8 +1,9 @@
+import moment from "moment";
 import { Course } from "../../utils/models/Course";
 import { ADD_PRODUCT_TO_CART, REMOVE_PRODUCT_FROM_CART } from "../actions/cartActions";
 
 interface cartReducerInitialState {
-    items: Array<{course: Course, date: any}>
+    items: Array<{course: Course, date: any, quantity: number}>
 }
 
 const initialState:cartReducerInitialState = {
@@ -12,7 +13,22 @@ const initialState:cartReducerInitialState = {
 const cartReducer = (state = initialState, action:any) => {
     switch(action.type){
         case ADD_PRODUCT_TO_CART:
-            return {...state, items: [...state.items, action.item]};
+            const foundItemIndex = state.items.findIndex((item) => {
+                const isSameCourseId = item.course.id === action.item.course.id;
+                const isSameDate =  moment(action.item.date.label, "MMMM Do YYYY, HH:mm:ss").isSame(moment(item.date.label, "MMMM Do YYYY, HH:mm:ss"));
+                return isSameCourseId && isSameDate;
+            });
+
+            console.log(foundItemIndex);
+            if (foundItemIndex !== -1) {
+                const tmpItems = [ ...state.items ]
+                tmpItems[foundItemIndex] = { ...tmpItems[foundItemIndex], quantity: tmpItems[foundItemIndex].quantity + 1 }
+
+                return {...state, items: tmpItems }
+            } else {
+                return {...state, items: [...state.items, action.item]};
+            }
+
         case REMOVE_PRODUCT_FROM_CART: 
             const old = [...state.items];
             old.splice(action.index, 1);

@@ -4,9 +4,11 @@ import NavBar from "./navBar/NavBar";
 import PerfomanceBar from "./perfomanceBar/PerfomanceBar";
 import { TypeAnimation } from "react-type-animation";
 import { createPayment } from "../../utils/hooks/usePayment";
+import { useNavigate } from "react-router-dom";
 
 const Header = (props:any) => {
 
+  const navigate  = useNavigate();
   return (
     <div className="header-wrapper">
       <div className="header">
@@ -47,7 +49,7 @@ const Header = (props:any) => {
                 id="header-content-left-arrow-button"
                 type={ButtonTypes.default}
                 handleClick={ () => {
-                  createPayment('1', 'web', 239);
+                  navigate('/products');
                 }}
               >
                 KUP WEBINAR

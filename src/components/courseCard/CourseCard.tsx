@@ -19,7 +19,7 @@ const CourseCard = (props:ICourseCardProps) => {
     const navigate = useNavigate();
 
     const [ availableDates, setAvailableDates ] = useState<Array<any>>([]);
-    const [ selectedCardDate, setSelectedCardDate ] = useState();
+    const [ selectedCardDate, setSelectedCardDate ] = useState<any>();
 
     useEffect(() => {
         const tmp = course.courseDates.map((date) => {
@@ -32,9 +32,13 @@ const CourseCard = (props:ICourseCardProps) => {
         setAvailableDates(tmp)
     }, [])
 
+    useEffect(() => {
+        setSelectedCardDate(availableDates?.[0])
+    }, [availableDates])
+
     const addToCart = (course:Course) => {
         if (selectedCardDate) {
-            dispatch(cartActions.addToCart({ course, date: selectedCardDate}));
+            dispatch(cartActions.addToCart({ course, date: selectedCardDate, quantity: 1}));
         }
         
     }
@@ -59,10 +63,18 @@ const CourseCard = (props:ICourseCardProps) => {
         }}>
                 <p>{ course.title }</p>
                 <div className='courseCard-separator'></div>
-                <span>{ course.shortDescription }</span>
+                <div>
+                    { course.cardPoints.map((point:any) => {
+                        return(
+                            <div className='courseCard-body-item' key={point.value}>
+                                <div className='courseCard-body-item-round'></div>
+                                <span className='courseCard-body-item-text'>{point.label}</span>
+                            </div>
+                        )
+                    }) }
+                </div>
             </div>
             <div className='courseCard-dates'>
-                <p>Terminy:</p>
                 <div>
                     <Dropdown value={selectedCardDate} onChange={chooseDate} className='courseCard-dates-dropdown'  placeholder="Wybierz termin" options={availableDates}/>
                 </div>
@@ -70,7 +82,7 @@ const CourseCard = (props:ICourseCardProps) => {
             <div className='courseCard-footer'>
                 { course.redeemedPrice ? (<div><p>{course.redeemedPrice} zł</p> <p style={{ textDecoration: 'line-through' }}>{ course.price } zł</p>  </div>) : <p>{course.price} zł</p> }
                 <div className={`courseCard-footer-button ${ selectedCardDate ? 'button-active' : 'button-disabled' }`} onClick={() => {addToCart(course)}}>
-                    Dodaj do koszyku
+                    Dodaj do koszyka
                 </div>
             </div>
         </div>

@@ -46,6 +46,7 @@
     }
 
     &-contact {
+      
         width: 90%;
         max-width: 1440px;
         margin: 10px auto;
@@ -80,10 +81,12 @@
 
         }
         &-wrapper {
+            min-height: 60vh;
             margin-top: 100px;
             display: flex;
             flex-direction: row;
             justify-content: space-around;
+            align-items: flex-start;
 
             @media only screen and (min-width: 361px) and (max-width: 480px) {
                 margin-top: 20px;

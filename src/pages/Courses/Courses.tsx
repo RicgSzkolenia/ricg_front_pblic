@@ -5,6 +5,7 @@ import CourseCard from "../../components/courseCard/CourseCard";
 import NavBar from "../../components/header/navBar/NavBar";
 import styled from "styled-components";
 import Footer from "../../components/footer/Footer";
+import Loader from "../../components/loader/Loader";
 
 const StyledCoursePage = styled.div`
     max-width: 1440px;
@@ -25,14 +26,15 @@ const CourseWrapper = styled.div`
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: space-evenly;
     align-items: center;
     min-height: 90vh;
     .courseCard {
-        transform: scale(0.95);
+        transform: scale(0.90);
         margin: 10px;
     }
-`
+`;
+
 
 const CoursesPage = () => {
     const [ courses, setCourses ] = useState<Array<Course>>([]);
@@ -49,6 +51,8 @@ const CoursesPage = () => {
             <NavBar/>
             <p className="courses-header">Dostepne kursy</p>
             <CourseWrapper>
+                { courses.length === 0 ?
+                (<Loader/>) : '' }
                 { courses.map((course, index) => {
                     return (
                         <CourseCard key={index}  course={course} />

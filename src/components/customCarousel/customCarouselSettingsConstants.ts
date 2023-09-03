@@ -30,16 +30,17 @@ const customOpinionCarouselSettings = {
   }
 
 const customCourseCarouselSettings = {
-    slidesToShow: 2,
+    slidesToShow: 3,
     arrows: false,
     autoplay: true,
     autoplaySpeed: 4800,
+    dots: true,
     responsive: [
       {
-        breakpoint: 1250,
+        breakpoint: 1150,
         settings: {
-          slidesToShow: 1,
-          slidesToScroll: 2,
+          slidesToShow: 2,
+          slidesToScroll: 1,
           initialSlide: 1,
         },
       },
@@ -47,8 +48,8 @@ const customCourseCarouselSettings = {
         breakpoint: 620,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 2,
-          initialSlide: 2,
+          slidesToScroll: 1,
+          initialSlide: 1,
         },
       },
       {

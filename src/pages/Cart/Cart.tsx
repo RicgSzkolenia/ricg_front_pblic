@@ -6,27 +6,69 @@ import './cart.scss'
 import HorizontalCourseCard from "../../components/horizontalCourseCard/HorizontalCourseCard"
 import { useEffect, useState } from "react"
 import { checkOutProductsFromCart } from "../../utils/hooks/usePayment"
+import Modal from "../../components/modal/Modal"
+import ContactInfoApi from "../../utils/apis/ContactInfoApi"
 
 const Cart = () => {
     
     const cartItems = useSelector((state:AppState) => state.cart.items);
     const [ cartSum, setCartSum ] = useState<number>(0)
+    const [ isModalOpen, setIsModalOpen ] = useState<boolean>(false);
+    const [ isAgreed, setIsAgreed ] = useState<boolean>(false);
+    const [ contactInfo, setContactInfo ] = useState<any>();
 
     const proceedToPayment = () => {
-        checkOutProductsFromCart(cartItems)
+        if  ( isAgreed ) {
+            checkOutProductsFromCart(cartItems)
+        }
+        
     }
 
+    const handleModalClose = () => {
+
+    }
+
+    useEffect(() => {
+        ContactInfoApi.getContactInfo().then((info:any) => {
+            setContactInfo(info);
+        })
+    }, [])
 
     useEffect(() => {
         const tmpSum:number = cartItems.reduce((acc, cur) => {
-            console.log(cur)
-            return acc + cur?.course?.price
+            return acc + ( (cur?.course?.redeemedPrice ?? cur?.course?.price) * cur.quantity )
         }, 0)
         setCartSum(tmpSum)
     }, [cartItems])
 
+    console.log(contactInfo);
     return (
         <div className="cart">
+            
+            { isModalOpen && <Modal close={handleModalClose}>
+              <div className='cart-modal'>
+                    <p className="cart-modal-header">RODO</p>
+                    <p className="cart-modal-body">
+                        Wyrażam zgodę na otrzymywanie od Recruitment 
+                        International Consulting Group Sp. z o.o. (RICG) 
+                        za pośrednictwem poczty e-mail zaproszeń, powiadomień 
+                        i informacji przeznaczonych dla członków społeczności 
+                        RICG, między innymi o otwartych spotkaniach, wydarzeniach,
+                         szkoleniach i ofertach pracy.
+                    </p>
+                    <div className="cart-modal-actions">
+                        <a className="cart-modal-actions-link" target="blank" href={contactInfo?.rodo?.data?.attributes?.url}>Regulamin RODO</a>
+                        <div className="cart-modal-actions-zgoda">
+                            <p>Tak, wyrażam zgodę</p>
+                            <input type="checkbox" onChange={() => { setIsAgreed(!isAgreed) }}></input>
+                        </div>
+                        <div onClick={proceedToPayment} className={`cart-modal-actions-button ${ isAgreed ? '' : 'button-disabled' }`}>
+                            Przejdz do platnosci
+                        </div>
+                    </div>
+              </div>
+            </Modal> }
+
             <NavBar/>
             <div className="cart-wrapper">
                 <div className="cart-wrapper-products">
@@ -47,8 +89,8 @@ const Cart = () => {
                         <p className="cart-wrapper-summary-sum-label">Kwota:</p>
                         <p className="cart-wrapper-summary-sum-value">{cartSum} zł</p>
                     </div>
-                    <div className={`cart-wrapper-summary-button ${ cartItems.length > 0 ? 'button-active' : 'button-disabled' }`} onClick={proceedToPayment}>   
-                        Przedz do płatności
+                    <div className={`cart-wrapper-summary-button ${ cartItems.length > 0 ? 'button-active' : 'button-disabled' }`} onClick={() => {if (cartItems.length > 0) setIsModalOpen(true)}}>   
+                        Przejdz do płatności
                     </div>
                 </div>
             </div>

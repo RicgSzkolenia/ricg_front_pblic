@@ -3,6 +3,8 @@ import ContactForm from "../../components/contactForm/Contactform"
 import "aos/dist/aos.css";
 import AOS from "aos";
 import { useEffect } from 'react';
+import NavBar from '../../components/header/navBar/NavBar';
+import Footer from '../../components/footer/Footer';
 const ContactPage = () => {
     
     useEffect(() => {
@@ -12,6 +14,7 @@ const ContactPage = () => {
 
     return (
            <div className="home-contact">
+            <NavBar/>
             <p
               className="home-course-title blueSecondaryHeader"
               data-aos={"fade-down"}
@@ -41,6 +44,8 @@ const ContactPage = () => {
                 <ContactForm />
               </div>
             </div>
+
+            <Footer/>
           </div>
     )
 }

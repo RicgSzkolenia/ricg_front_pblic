@@ -2,37 +2,47 @@ import styled from "styled-components";
 
 const StyledModal = styled.div<{}>`
     z-index: 9000000000000;
-    position: absolute;
+    position: fixed;
+    top: 0;
     left: 0;
-    right: 0;
-    margin: 0 auto;
-    width: 800px;
-    height: 500px;
-    background-color: #fff;
-    border-radius: 10px;
-    filter: drop-shadow(5px 5px 10px #000);
+    width: 100%;
+    height: 110vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.4);
+
+    .body {
+        width: 75%;
+        max-width: 800px;
+        min-width: 300px;
+        margin: 0 auto;
+        background-color: #fff;
+        border-radius: 10px;
+        filter: drop-shadow(5px 5px 10px #000);
+    }
 
     @media only screen and (max-width: 480px) {
-        overflow: hidden;
-        width: 350px;
-        height: 550px;
+        .body {
+            overflow: hidden;
+            width: 350px;
+            height: 550px;
+        }
+      
     }
 `
 
 const Modal = (props:any) => {
-
+    
     const handleClose = () => {
         props?.close?.()
     }
 
     return (
-        <StyledModal>
-            {/* <StyledModalHeader>
-                <StyledCloseButton onClick={handleClose}>
-                    <img src="./xmark-solid.svg"></img>
-                </StyledCloseButton>
-            </StyledModalHeader> */}
+        <StyledModal> 
+            <div className="body">
                 {props.children}
+            </div>
             
         </StyledModal>
     )

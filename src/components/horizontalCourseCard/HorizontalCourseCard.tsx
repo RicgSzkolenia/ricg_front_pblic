@@ -31,9 +31,10 @@ const HorizontalCourseCard = (props:any) => {
                 </div>
             </div>
             <div className='horizontal-card-wrapper-action'>
-                <p>{item.course.price} zł</p>
+                <p>{ item.quantity } x</p>
+                { item.course.redeemedPrice ? (<div><p>{item.course.redeemedPrice} zł</p> <p style={{ textDecoration: 'line-through' }}>{ item.course.price } zł</p>  </div>) : <p>{item.course.price} zł</p> }
                 <div className='horizontal-card-wrapper-action-button' onClick={() => {removeFromCart(index)}}>
-                    Usuń z koszyka
+                    Usuń z koszyku
                 </div>
             </div>
         </div>

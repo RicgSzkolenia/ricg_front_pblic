@@ -40,7 +40,7 @@ const PartnersSection = () => {
 
     return (
         <StyledPartnersSection  id="partners">
-            <p className="blueSecondaryHeader"> Naszi partnerzy</p>
+            <p className="blueSecondaryHeader"> To naszi partnerzy</p>
             <StyledPartners>
                 { partners.map((partner:any, index:number) => {
                     return(

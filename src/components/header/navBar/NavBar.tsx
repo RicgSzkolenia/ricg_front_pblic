@@ -24,7 +24,9 @@ const NavBar = (props:any) => {
 
     return (
         <div className="navbar">
-            <div className="navbar-logo">
+            <div className="navbar-logo" onClick={() => {
+                navigate('/');
+            }}>
                 <img  src={"/Group_logo.png"}></img>
             </div>
             <div className="navbar-burger" onClick={() => {
@@ -56,7 +58,9 @@ const NavBar = (props:any) => {
                 })}
                 <div className="navbar-menu-item navbarCart" onClick={goToCart}>
                     <img src="./cart.png"></img>
-                    <p>{cartItems?.length ?? '0'}</p>
+                    <p>{cartItems?.reduce((acc, cur) => {
+                        return acc + cur.quantity
+                    }, 0) ?? '0'}</p>
                 </div>
             </div>
         </div>
