@@ -4,23 +4,23 @@ import { colors } from "../../colors";
 
 
 const StyledCard = styled.div`
-    margin: 20px;
+    margin: 10px 20px;
     padding: 5px;
-    width: 220px;
-    height: 250px;
-    border: 4px solid ${colors.primaryColor};
+    width: 340px;
+    height: 230px;
+    border: 2px solid ${colors.primaryColor};
     border-radius: 15px;
     text-align: center;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    align-content: flex-start;
+    align-content: center;
     justify-content: center;
     transition: 0.3s ease-in-out !important;
-    background-color: #FFF9F9;
+
 
     &:hover {
-        transform: scale(1.05);
+        transform: scale(1.02);
     }
 
     @media only screen and (max-width: 480px) {

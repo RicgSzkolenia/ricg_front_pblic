@@ -2,26 +2,22 @@
 .home{
     overflow-x: hidden;
     &-course {
-
         &-title {
-
             @media only screen and (max-width: 480px) {
                 margin-top: 20px !important;
                 margin-bottom: 20px !important;
             }
-            margin-top: 50px !important;
-            margin-bottom: 40px;
             text-align: center;
             text-transform: uppercase;
         }
 
         &-types {
+            padding-bottom: 20px;
             @media only screen and (max-width: 480px) {
                margin: 0  auto;
             }
             max-width: 1000px;
             margin: 0 auto;
-            margin-top: 100px;
         }
 
     }
@@ -33,20 +29,18 @@
     &-reviews {
         width: 90%;
         max-width: 1440px;
-        margin: 100px auto !important;
+        margin: 0 auto;
 
         @media only screen and (min-width: 900px) {
-            margin: 180px auto!important;
         }
 
         &-title {
             text-align: center;
-            margin-bottom: 100px !important;
         }
     }
 
     &-contact {
-      
+        min-height: 85vh;
         width: 90%;
         max-width: 1440px;
         margin: 10px auto;

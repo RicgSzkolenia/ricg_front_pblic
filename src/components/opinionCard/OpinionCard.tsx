@@ -24,11 +24,14 @@ const OpinionCard = (props:IOpinionCardProps) => {
     }
 
     const sendNewOpinion = () => {
-        OpinionApi.createOpinion(newOpinion).then(()=>{
-            refreshOpinions();
-            setNewOpinion({ opinion: '', authorName: '', avatarLink: '' })
-        });
-      
+        if (newOpinion?.authorName && newOpinion.opinion) {
+            OpinionApi.createOpinion(newOpinion).then(()=>{
+                refreshOpinions();
+                setNewOpinion({ opinion: '', authorName: '', avatarLink: '' })
+            });
+          
+        }
+     
     }
 
     if ( type === OpinionCardType.add ) {
@@ -39,7 +42,7 @@ const OpinionCard = (props:IOpinionCardProps) => {
                 </div>
                 <div className='opinionCard-author'>
                    <input onChange={onChange} type='text' name='authorName' placeholder='Imie' value={newOpinion?.authorName}></input>
-                    { newOpinion?.authorName && newOpinion.opinion && <input type='submit' onClick={sendNewOpinion}></input>}
+                   <input type='submit' onClick={sendNewOpinion}></input>
                 </div>
             </div>
         )

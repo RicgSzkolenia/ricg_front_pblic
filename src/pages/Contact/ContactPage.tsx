@@ -13,8 +13,10 @@ const ContactPage = () => {
     }, [])
 
     return (
+          <div>
+          <NavBar/>
            <div className="home-contact">
-            <NavBar/>
+            
             <p
               className="home-course-title blueSecondaryHeader"
               data-aos={"fade-down"}
@@ -44,8 +46,8 @@ const ContactPage = () => {
                 <ContactForm />
               </div>
             </div>
-
-            <Footer/>
+          </div>
+          <Footer/>
           </div>
     )
 }

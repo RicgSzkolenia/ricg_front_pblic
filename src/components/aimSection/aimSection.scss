@@ -8,11 +8,9 @@
     color: #4B4B4B;
 
     @media only screen and (max-width: 480px) {
-        margin: 15px auto;
     }
 
     @media only screen and (max-width: 768px) {
-        margin: 15px auto;
     }
 
     &-header {
@@ -20,8 +18,7 @@
             position: relative !important;
             z-index: -1;
         }
-        margin-top: 5px !important;
-        margin-bottom: 20px !important;
+
         text-align: center;
     }
 
@@ -57,7 +54,7 @@
 
         img{
             height: 100px;
-            transform: scale(0.5);
+            transform: scale(0.65);
             @media only screen and (max-width: 480px) {
                 height: 100px;
             }

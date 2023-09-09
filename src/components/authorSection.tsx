@@ -25,8 +25,8 @@ const AuthorSection = () => {
     }, [])
 
     return (
-        <div>
-            <div className='blueSecondaryHeader imagetextSection-header' data-aos={'fade-down'}  data-aos-duration="1500" data-aos-delay="150">Nasz Zespół</div>
+        <div className="standart-center-section section-top-bottom-margin ">
+            <div className='blueSecondaryHeader imagetextSection-header section-header-top-bottom-margin'>Nasz Zespół</div>
             <Accordion slides={slides}/>
         </div>
     )

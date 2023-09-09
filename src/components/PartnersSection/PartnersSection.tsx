@@ -4,8 +4,8 @@ import styled from "styled-components";
 
 const StyledPartnersSection = styled.div`
     max-width: 1440px;
+    margin: 35px auto !important;
     width: 94%;
-    margin: 70px auto;
     p {
         text-align: center;
     }
@@ -39,8 +39,8 @@ const PartnersSection = () => {
     }, [])
 
     return (
-        <StyledPartnersSection  id="partners">
-            <p className="blueSecondaryHeader"> To naszi partnerzy</p>
+        <StyledPartnersSection  id="partners" className="section-top-bottom-margin section-top-bottom-margin">
+            <p className="blueSecondaryHeader section-header-top-bottom-margin">Partnerzy</p>
             <StyledPartners>
                 { partners.map((partner:any, index:number) => {
                     return(

@@ -14,8 +14,8 @@ const AimSection = () => {
     }, [])
 
     return (
-        <div className="aims">
-            <p className="blueSecondaryHeader aims-header" data-aos="fade-up"> Cele Webinaru </p>
+        <div className="aims section-top-bottom-margin ">
+            <p className="blueSecondaryHeader aims-header section-header-top-bottom-margin" data-aos="fade-up"> Cele Webinaru </p>
             <div className='aims-cardWrapper'>
             { aims.map((aim) => {
                     return(

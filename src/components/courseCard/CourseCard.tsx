@@ -2,6 +2,7 @@ import './courseCard.scss';
 import { Course } from '../../utils/models/Course';
 import Dropdown from 'react-dropdown';
 import moment from 'moment';
+import 'moment/locale/pl' 
 import { useNavigate } from 'react-router-dom';
 import cartActions from '../../store/actions/cartActions';
 import { useDispatch } from 'react-redux';
@@ -24,7 +25,7 @@ const CourseCard = (props:ICourseCardProps) => {
     useEffect(() => {
         const tmp = course.courseDates.map((date) => {
             return {
-                label: moment(date.date?.toString()).format('MMMM Do YYYY, HH:mm:ss'),
+                label: moment(date.date?.toString()).locale('pl').format('MMMM Do YYYY, HH:mm:ss'),
                 value: date.id
             }
         })
@@ -56,7 +57,7 @@ const CourseCard = (props:ICourseCardProps) => {
             navigate(`/product/${course.id}`)
         }}>
                 <p>{ course.category }</p>
-                <p>{ course.isOnline ? 'Online' : 'Offline'  }</p>
+                {/* <p>{ course.isOnline ? 'Online' : 'Offline'  }</p> */}
             </div>
             <div className='courseCard-body' onClick={() => {
             navigate(`/product/${course.id}`)
@@ -80,7 +81,7 @@ const CourseCard = (props:ICourseCardProps) => {
                 </div>
             </div>
             <div className='courseCard-footer'>
-                { course.redeemedPrice ? (<div><p>{course.redeemedPrice} zł</p> <p style={{ textDecoration: 'line-through' }}>{ course.price } zł</p>  </div>) : <p>{course.price} zł</p> }
+                { course.redeemedPrice ? (<div><p>{course.redeemedPrice} zł</p> <p style={{ textDecoration: 'line-through', fontSize: '16px' }}>{ course.price } zł</p>  </div>) : <p>{course.price} zł</p> }
                 <div className={`courseCard-footer-button ${ selectedCardDate ? 'button-active' : 'button-disabled' }`} onClick={() => {addToCart(course)}}>
                     Dodaj do koszyka
                 </div>

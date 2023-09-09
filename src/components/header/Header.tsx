@@ -1,18 +1,14 @@
 import Button, { ButtonTypes } from "../common/Button";
 import "./header.scss";
-import NavBar from "./navBar/NavBar";
 import PerfomanceBar from "./perfomanceBar/PerfomanceBar";
 import { TypeAnimation } from "react-type-animation";
-import { createPayment } from "../../utils/hooks/usePayment";
 import { useNavigate } from "react-router-dom";
 
 const Header = (props:any) => {
 
   const navigate  = useNavigate();
   return (
-    <div className="header-wrapper">
-      <div className="header">
-        <NavBar coursesCarouselRef={props?.coursesCarouselRef} contactRef={props?.contactRef}/>
+    <div className="header-wrapper section-top-bottom-margin">
         <div className="header-content">
           <div
             className="header-content-left"
@@ -32,11 +28,11 @@ const Header = (props:any) => {
             />
             <TypeAnimation
               sequence={[
-                1200,
+                1000,
                 `rynek pracy
                  bez tajemnic`
               ]}
-              speed={{type: "keyStrokeDelayInMs", value: 50}}
+              speed={{type: "keyStrokeDelayInMs", value: 20}}
               wrapper="p"
               cursor={true}
               repeat={0}
@@ -69,7 +65,6 @@ const Header = (props:any) => {
           </div>
         </div>
         <PerfomanceBar />
-      </div>
     </div>
   );
 };

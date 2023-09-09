@@ -68,8 +68,8 @@ const CarouselSection = (props:ICarosuelProps) => {
     }
 
     return(
-        <div className="carouselSection">
-            <p className="carouselSection-title blueSecondaryHeader">{title}</p>
+        <div className="carouselSection standart-center-section section-top-bottom-margin">
+            <p className="carouselSection-title blueSecondaryHeader section-header-top-bottom-margin">{title}</p>
             { isModalOpen && <Modal close={handleModalClose}>
               <div className='carouselSection-modal'>
                 <img src={ currentSlide.image }></img>
@@ -78,7 +78,7 @@ const CarouselSection = (props:ICarosuelProps) => {
                     {currentSlide.title}
                   </div>
                   <div className='carouselSection-modal-content-text'>
-                    {   parse(currentSlide.details || '')}
+                    {   parse(currentSlide?.details || '')}
                   </div>
                   <div className='carouselSection-modal-content-button'>
                       <Button type={ButtonTypes.default} handleClick={handleModalClose}>Zamknij</Button>
@@ -95,7 +95,13 @@ const CarouselSection = (props:ICarosuelProps) => {
                    }}>
                       <img src={slide.image}></img>
                       <div className='carouselSection-slide-text'>
-                          {slide.title}
+                          <div className='carouselSection-slide-text-header'>
+                            {slide.title}
+                          </div>
+                          <div className='carouselSection-slide-text-body'>
+                          {   parse(slide?.details || '')}
+                          </div>
+                        
                       </div>
                       
                    </div>

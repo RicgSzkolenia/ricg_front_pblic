@@ -4,7 +4,6 @@ body {
   cursor:  url('../public/roseIcons/cursor.svg'), auto;
   margin: 0;
   font-family: 'Source Sans Pro', sans-serif;
-
   .logo {
     img {
       cursor: pointer;
@@ -17,8 +16,9 @@ body {
     margin: 5px 5px;
     margin-top: 10px;
     font-family: 'Source Sans Pro', sans-serif;
-    font-weight: 700;
+    font-weight: 500;
     font-size: 75px;
+    line-height: 70px;
     color: $font_secondary_color;
     text-transform: uppercase;
 
@@ -34,9 +34,9 @@ body {
 
   .blueSecondaryHeader {
     margin: 5px ;
-    font-family: 'Source Sans Pro', sans-serif;
-    font-weight: 600;
-    font-size: 55px;
+    font-family: 'spartan', sans-serif;
+    font-weight: 500;
+    font-size: 32px;
     color: $font_header_color;
     text-transform: uppercase;
 
@@ -88,5 +88,20 @@ body {
 }
 
 .section {
-  margin: 70px auto;
+  margin: 50px auto;
+}
+
+.section-top-bottom-margin {
+  margin-top: 45px !important;
+  margin-bottom: 45px !important;
+}
+
+.section-header-top-bottom-margin {
+  margin-top: 15px !important;
+  margin-bottom: 35px !important;
+}
+
+
+.standart-center-section {
+  margin: 50px auto;
 }

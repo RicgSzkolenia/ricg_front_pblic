@@ -4,7 +4,7 @@ import { perfomanceItems } from "./perfomanceItems";
 
 const PerfomanceBar = () => {
     return (
-        <div className="perfomance-bar" data-aos="fade-up" data-aos-delay="300" data-aos-duration="2000">
+        <div className="perfomance-bar">
             {perfomanceItems.map((item, index) => {
                 return (
                     <div key={index} className='perfomance-bar-item'>

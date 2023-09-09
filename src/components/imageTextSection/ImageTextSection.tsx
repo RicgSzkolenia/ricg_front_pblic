@@ -17,18 +17,18 @@ const ImageTextSection = (props:IImagetextSectionProps) => {
 
     return (
         <div className='imagetextSection'>
-            <div className='blueSecondaryHeader imagetextSection-header' data-aos={'fade-down'}  data-aos-duration="1500" data-aos-delay="150">{title}</div>
+            <div className='blueSecondaryHeader imagetextSection-header section-header-top-bottom-margin '>{title}</div>
             <div className={`imagetextSection-wrapper ${ reverse ? 'imagetextSection-reverseWrapper' : '' }`}>
                 <div className='imagetextSection-wrapper-text' style={{ whiteSpace: "pre-line" }}>
                     <div className='blackSecondaryHeader'>{subTitle}</div>
-                    <p className='blackMainText' data-aos={!reverse ? 'fade-right' : 'fade-left'} data-aos-duration="1500"  data-aos-delay="150">
+                    <p className='blackMainText'>
                         {parse(text || '')}
                     </p>
-                    <div className='imagetextSection-button' data-aos={'fade-up'}  data-aos-duration="1500" data-aos-delay="150">
+                    <div className='imagetextSection-button'>
                        { buttonName && buttonAction && <Button type={ButtonTypes.default} handleClick={()=> {buttonAction?.()}} >{buttonName}</Button>}
                     </div>
                 </div>
-            <div className='imagetextSection-wrapper-image' data-aos={reverse ? 'fade-right' : 'fade-left'}  data-aos-duration="1500" data-aos-delay="150">
+            <div className='imagetextSection-wrapper-image'>
                     <img src={imageLink}/>
                 </div>
             </div>

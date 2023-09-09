@@ -8,13 +8,15 @@ import Footer from "../../components/footer/Footer";
 import Loader from "../../components/loader/Loader";
 
 const StyledCoursePage = styled.div`
-    max-width: 1440px;
     width: 100%;
     margin: 0 auto;
     min-height: 80vh;
+    padding-top: 90px;
 
     .courses-header {
-        margin-left: 1%;
+        margin: 0 auto;
+        padding-left: 25px;
+        max-width: 1250px;
         font-size: 45px;
         color: #E3746D;
 
@@ -22,15 +24,15 @@ const StyledCoursePage = styled.div`
 `;
 
 const CourseWrapper = styled.div`
-   
+    margin: 0 auto;
+    max-width: 1250px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     min-height: 90vh;
     .courseCard {
-        transform: scale(0.90);
         margin: 10px;
     }
 `;
@@ -47,8 +49,10 @@ const CoursesPage = () => {
     }, [])
 
     return(
+        <div>
+        <NavBar/>
         <StyledCoursePage>
-            <NavBar/>
+      
             <p className="courses-header">Dostepne kursy</p>
             <CourseWrapper>
                 { courses.length === 0 ?
@@ -61,6 +65,7 @@ const CoursesPage = () => {
             </CourseWrapper>
             <Footer></Footer>
         </StyledCoursePage>
+        </div>
     )
 }
 

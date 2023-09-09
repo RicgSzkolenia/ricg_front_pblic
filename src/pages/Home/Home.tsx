@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-
 import "aos/dist/aos.css";
 import AOS from "aos";
 import AimSection from "../../components/aimSection/AimSection";
@@ -19,6 +18,7 @@ import TiktokVidsSection from "../../components/tiktokVids/TikTokVidsSection";
 import PartnersSection from "../../components/PartnersSection/PartnersSection";
 import AuthorSection from "../../components/authorSection";
 import OpinionSection from "../../components/opinionSection/OpinionSections";
+import NavBar from "../../components/header/navBar/NavBar";
 
 const Home = () => {
   const coursesCarouselRef = useRef<any>(null);
@@ -60,6 +60,7 @@ const Home = () => {
         <Preloader />
       ) : (
         <div className="home">
+          <NavBar coursesCarouselRef={coursesCarouselRef} contactRef={contactRef}/>
           <Header contactref={contactRef} coursesCarouselRef={coursesCarouselRef} />
           <AimSection />
           { imageTextBlocks.map((block) => {
@@ -78,28 +79,27 @@ const Home = () => {
           })}
           <AuthorSection/>
           <CarouselSection title="Co wyróżnia nasz webinar?" />
-          <div
-            id="courses"
-            className="home-course-title"
-            data-aos={"fade-down"}
-            data-aos-duration="1500"
-            data-aos-delay="150">
-            <p ref={coursesCarouselRef} className=" blueSecondaryHeader">Zapraszamy na Webinar!</p>
+          <div className="section-top-bottom-margin">
+            <div
+              id="courses"
+              className="home-course-title">
+              <p ref={coursesCarouselRef} className=" blueSecondaryHeader section-header-top-bottom-margin">Zapraszamy na Online Webinar!</p>
+            </div>
+            <div className="home-course-types section-top-bottom-margin ">
+              <CustomCarousel settings={customCarouselSettingsConstants.customCourseCarouselSettings}>
+                {courses.map((course, index) => {
+                  return (
+                    <CourseCard
+                      key={index}
+                      course={course}
+                    />
+                  );
+                })}
+              </CustomCarousel>
+            </div>   
           </div>
-          <div className="home-course-types">
-            <CustomCarousel settings={customCarouselSettingsConstants.customCourseCarouselSettings}>
-              {courses.map((course, index) => {
-                return (
-                  <CourseCard
-                    key={index}
-                    course={course}
-                  />
-                );
-              })}
-            </CustomCarousel>
-          </div>
-          <PartnersSection/>
           <TiktokVidsSection/>
+          <PartnersSection/>
           <OpinionSection/>
           <Footer />
         </div>

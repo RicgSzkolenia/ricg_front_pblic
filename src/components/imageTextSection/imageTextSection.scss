@@ -11,15 +11,13 @@
 
     &-header {
         @media only screen and (min-width: 900px) {
-            margin-bottom: 50px !important;
         }
-        margin-bottom: 10px !important;
         text-align: center;
     }
 
     &-reverseWrapper {
         flex-direction: row-reverse !important;
-
+        background-color: $seventhColor;
         @media only screen and (max-width: 480px) {
             flex-direction: column-reverse !important;
             align-items: center;
@@ -33,7 +31,7 @@
     }
 
     &-button  {
-        margin-top: 20px;
+        margin-top: 30px;
 
         @media only screen and (max-width: 480px) {
             display: none;
@@ -46,7 +44,6 @@
     &-wrapper {
         border-radius: 20px;
         padding: 35px 5px;
-        background-color: $seventhColor;
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;

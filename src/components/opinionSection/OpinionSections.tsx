@@ -20,13 +20,9 @@ const OpinionSection = () => {
 
     return (
         <div
-            className="home-reviews"
-            data-aos={"fade-down"}
-            data-aos-duration="1500"
-            data-aos-delay="150"
-          >
-            <p className="home-reviews-title blueSecondaryHeader">
-              Opinie O Kursie
+            className="home-reviews section-top-bottom-margin ">
+            <p className="home-reviews-title blueSecondaryHeader section-header-top-bottom-marginpCard">
+              Opinie
             </p>
             <CustomCarousel
               settings={customCarouselSettingsConstants.customOpinionCarouselSettings}

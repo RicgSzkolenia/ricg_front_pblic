@@ -4,10 +4,10 @@ const StyledButton = styled.div`
     min-width: 85px;
     max-width: 250px;
     height: 35px;
-    background-color: #954580;
+    background-color: #9c5b89;
     color: #fff;
     cursor: pointer;
-    padding: 0 15px;
+    padding: 0 25px;
     text-align: center;
     line-height: 35px;
     margin: 5px;

@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 const SpinnerWrapper = styled.div`
     max-width: 1440px;
+    height: 80vh;
     margin: 0 auto;
-    position: absolute;
     display: flex;
     align-items: center;
     justify-content: center;

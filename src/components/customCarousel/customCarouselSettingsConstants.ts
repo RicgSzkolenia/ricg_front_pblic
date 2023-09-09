@@ -1,21 +1,26 @@
 const customOpinionCarouselSettings = {
     arrows: false,
     autoplay: true,
-    autoplaySpeed: 2800,
+    slidesToShow: 3,
+    infinite: false,
+    rows: 1,
     responsive: [
       {
         breakpoint: 1250,
         settings: {
+          rows: 1,
+          slidesToShow: 3,
           slidesToScroll: 1,
-          initialSlide: 2,
+          initialSlide: 1,
         },
       },
       {
-        breakpoint: 620,
+        breakpoint: 800,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 2,
           slidesToScroll: 1,
           initialSlide: 2,
+          rows: 1,
         },
       },
       {
@@ -30,10 +35,10 @@ const customOpinionCarouselSettings = {
   }
 
 const customCourseCarouselSettings = {
-    slidesToShow: 3,
+    slidesToShow: 2,
     arrows: false,
-    autoplay: true,
-    autoplaySpeed: 4800,
+    // autoplay: true,
+    // autoplaySpeed: 4800,
     dots: true,
     responsive: [
       {
@@ -45,7 +50,7 @@ const customCourseCarouselSettings = {
         },
       },
       {
-        breakpoint: 620,
+        breakpoint: 800,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,

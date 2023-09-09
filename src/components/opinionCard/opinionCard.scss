@@ -1,4 +1,5 @@
 @import '../../variables.scss';
+
 .opinionCard {
     overflow: hidden;
     position: relative;
@@ -8,6 +9,7 @@
     border-radius: 20px;
     padding: 0 20px;
     background-color: $fifthColor;
+    
     @media only screen and (max-width: 480px) {
       width: 290px;
     }

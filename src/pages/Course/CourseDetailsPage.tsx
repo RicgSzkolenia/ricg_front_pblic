@@ -13,6 +13,10 @@ import CustomCarousel from "../../components/customCarousel/CustomCarousel";
 import customCarouselSettingsConstants from "../../components/customCarousel/customCarouselSettingsConstants";
 import CourseCard from "../../components/courseCard/CourseCard";
 import Loader from "../../components/loader/Loader";
+import { Author } from "../../utils/models/Author";
+import AuthorApi from "../../utils/apis/AuthorApi";
+import Accordion from "../../components/accordion/Accordion";
+import AuthorSection from "../../components/authorSection";
 
 const CourseDetailsPage = () => {
 
@@ -22,6 +26,7 @@ const CourseDetailsPage = () => {
     const [ selectedDate, setSelectedDate ] = useState();
     const [ availableDates, setAvailableDates ] = useState<Array<any>>([]);
     const [courses, setCourses] = useState<Array<Course>>([]);
+    const [ author, setAuthor ] = useState<Author>();
     
     const chooseDate = (date:any) => {
         setSelectedDate(date)
@@ -35,6 +40,14 @@ const CourseDetailsPage = () => {
     }
 
     useEffect(() => {
+        AuthorApi.getAllAuthors().then((authors:Array<Author>) => {
+            const filteredAuthor = authors.filter((author:Author)=> {
+                const courseIdArray = author?.courses?.map((course) => course.id)
+                return courseIdArray?.includes(Number(params.id));
+            })
+            setAuthor(filteredAuthor[0])
+        })
+
         CourseApi.getAllCourses().then((courses) => {
             setCourses(courses)
         })
@@ -49,7 +62,6 @@ const CourseDetailsPage = () => {
             })
 
             setAvailableDates(tmp);
-            console.log(course.points);
         })
     }, [])
 
@@ -85,6 +97,14 @@ const CourseDetailsPage = () => {
 
                         </div>
                     </div>
+                    <div className="standart-center-section">
+                        <p className="details-wrapper-description-header">Autor</p>
+                        <Accordion slides={[ {
+                                title: author?.name + ' ' +  author?.surname,
+                                text: author?.description,
+                                image: author?.image
+                        } ]}/>
+                    </div>
                     <div className="details-wrapper-description">
                         <p className="details-wrapper-description-header">Opis</p>
                         <p className="details-wrapper-description-body">
@@ -110,6 +130,7 @@ const CourseDetailsPage = () => {
                             }) }
                         </div>
                     </div>
+                    
                     <div className="home-course-types">
                         <p className="details-wrapper-description-header">Inne kursy</p>
                         <CustomCarousel settings={customCarouselSettingsConstants.customCourseCarouselSettings}>

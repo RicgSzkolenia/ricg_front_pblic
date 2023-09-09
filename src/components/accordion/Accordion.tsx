@@ -21,14 +21,14 @@ const Accordion = (props:any) => {
         <div className='accordion'>
             { props.slides?.map((slide:Slide, index:number) => {
                 return (
-                    <div className={`accordion-section ${ activeSlideIndex === index ? 'active' : '' }`} onClick={() => {
+                    <div key={index} className={`accordion-section ${ activeSlideIndex === index ? 'active' : '' }`} onClick={() => {
                         handleClick(index)
                     }}>
                         <div className="accordion-section-title">
                             <p>{ slide.title }</p>
                         </div>
                         <div className="accordion-section-content">
-                          <div className="accordion-section-content-text">{  parse(slide.text || '') }</div>
+                          <div className="accordion-section-content-text blackMainText">{  parse(slide.text || '') }</div>
                           <div className="accordion-section-content-image"> <img src={ slide.image }></img>  </div>
                         </div>
                     </div>

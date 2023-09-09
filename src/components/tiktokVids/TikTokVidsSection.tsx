@@ -6,7 +6,6 @@ import VideoApi from "../../utils/apis/VideoApi"
 import styled from "styled-components"
 
 const StyledVidsBody = styled.div`
-    transform: scale(0.75);
     width: 90%;
     margin: 0 auto;
     .slick-slide {
@@ -32,8 +31,8 @@ const TiktokVidsSection = (props:any) => {
     }, [])
 
     return (
-        <div className="section">
-            <div className='blueSecondaryHeader imagetextSection-header' data-aos={'fade-down'}  data-aos-duration="1500" data-aos-delay="150">Nasze Tik Toki</div>
+        <div className="section-top-bottom-margin ">
+            <div className='blueSecondaryHeader imagetextSection-header section-header-top-bottom-margin'>Tik Toki</div>
             <StyledVidsBody>
                 <Slider {...settings}>
                     { videos?.map((video, index) => {
