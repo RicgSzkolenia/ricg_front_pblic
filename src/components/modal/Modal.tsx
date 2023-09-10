@@ -6,7 +6,7 @@ const StyledModal = styled.div<{}>`
     top: 0;
     left: 0;
     width: 100%;
-    height: 110vh;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -26,7 +26,7 @@ const StyledModal = styled.div<{}>`
         .body {
             overflow: hidden;
             width: 350px;
-            height: 550px;
+            height: 450px;
         }
       
     }

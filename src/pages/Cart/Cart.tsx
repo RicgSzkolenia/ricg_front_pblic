@@ -25,7 +25,7 @@ const Cart = () => {
     }
 
     const handleModalClose = () => {
-
+        setIsModalOpen(false);
     }
 
     useEffect(() => {
@@ -41,7 +41,6 @@ const Cart = () => {
         setCartSum(tmpSum)
     }, [cartItems])
 
-    console.log(contactInfo);
     return (
         <div className="cart">
             
@@ -64,6 +63,9 @@ const Cart = () => {
                         </div>
                         <div onClick={proceedToPayment} className={`cart-modal-actions-button ${ isAgreed ? '' : 'button-disabled' }`}>
                             Przejdz do platnosci
+                        </div>
+                        <div onClick={handleModalClose} className="cart-modal-actions-button">
+                           Zamknij
                         </div>
                     </div>
               </div>

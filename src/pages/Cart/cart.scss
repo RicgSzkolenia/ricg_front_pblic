@@ -12,7 +12,7 @@
         @media only screen and (max-width: 750px) {
             flex-direction: column-reverse;
             justify-content: flex-end;
-            margin: 20px auto;
+            margin: 40px auto;
         }
 
 
@@ -35,13 +35,13 @@
                 margin-top: 10px;
             }
             width: 30%;
-            border: 2px solid #FE7062;
+            border: 2px solid #eeeded;
             border-radius: 20px;
             height: 190px;
             margin-top:  60px;
             padding: 10px;
             font-size: 26px;
-            color: #B64689;
+            color: #4B4B4B;
 
             &-sum {
                 margin: 10px 0;
