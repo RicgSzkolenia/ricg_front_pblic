@@ -21,7 +21,7 @@ const OpinionSection = () => {
     return (
         <div
             className="home-reviews section-top-bottom-margin ">
-            <p className="home-reviews-title blueSecondaryHeader section-header-top-bottom-marginpCard">
+            <p className="home-reviews-title blueSecondaryHeader section-header-top-bottom-margin">
               Opinie
             </p>
             <CustomCarousel

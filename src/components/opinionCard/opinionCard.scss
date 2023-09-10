@@ -50,18 +50,20 @@
     &-author {
       display: flex;
       align-items: center;
-      justify-content: space-evenly;
+      justify-content: flex-start;
       height: 20px;
       margin-top: 15px;
       width: 100%;
       text-align: right;
       color: #fff;
-      font-size: 18px;
+      font-size: 28px;
+      font-weight: 600;
       font-family: 'Source Sans Pro', sans-serif;
       
       input {
         cursor: pointer;
-        padding: 0 10px;
+        padding: 10px 10px;
+        margin: 0 10px;
         border-radius: 10px;
         height: 30px;
         border: 0;

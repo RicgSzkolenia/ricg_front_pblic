@@ -49,12 +49,13 @@ const OpinionCard = (props:IOpinionCardProps) => {
     } else {
         return (
             <div className='opinionCard'>
+                  <div className='opinionCard-author'>
+                    <p>{opinion?.authorName}</p>
+                </div>
                 <div className='opinionCard-text'>
                     <p>{opinion?.opinion}</p>
                 </div>
-                <div className='opinionCard-author'>
-                    <p>{opinion?.authorName}</p>
-                </div>
+              
             </div>
         )
     }

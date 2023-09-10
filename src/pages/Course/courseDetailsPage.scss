@@ -10,23 +10,12 @@
     margin: 10px auto;
 
     &-header {
+        text-align: center;
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: center;
         max-width: 1440px;
         margin: 10px auto;
-        width: 95%;
-        @media only screen and (max-width: 821px) {
-            flex-direction: column;
-        }
-
-        img {
-            border-radius: 20px;
-            max-width: 40%;
-            @media only screen and (max-width: 821px) {
-                max-width: 98%;
-            }
-        }
 
         &-sum {
             @media only screen and (max-width: 821px) {
@@ -38,8 +27,9 @@
             &-header {
                 display: flex;
                 flex-direction: row;
-                justify-content: space-between;
-
+                justify-content: center;
+                margin-bottom: 15px;
+                font-size: 18px;
                 p {
                     text-transform: uppercase;
                     color: #B64689;
@@ -51,7 +41,8 @@
                 display: flex;
                 flex-direction: column;
                 color: #B64689;
-                font-size: 26px;
+                font-size: 32px;
+
                 @media only screen and (max-width: 480px) {
                     width: 98%;
                 }
@@ -59,17 +50,40 @@
                 &-dates {
                     color: #B64689;
                     margin: 20px 0;
-                    font-size: 20px;
+                    font-size: 18px;
+
+                    .Dropdown-control {
+                        font-size: 16px;
+                        margin: 5px 0px;
+                        border-radius: 10px;
+                    }
+        
+                    .Dropdown-menu {
+                        border-radius: 10px;
+                        font-size: 14px;
+                    }
+
+                    .Dropdown-option {
+                        font-size: 12px;
+                    }
                 }
 
                 &-footer {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
                     p {
-                        display: inline-block;
                         color: #7D7D7D;
+                        font-size: 20px;
+                        text-transform: lowercase;
                     }
 
                     .courseCard-footer-button{
+                        width: 250px;
+                        height: 30px;
                         margin-top: 15px;
+
                     }
                 }
             }
@@ -78,8 +92,30 @@
     }
 
     &-description {
+        &-wrapper {
+            margin: 0 auto;
+            max-width: 1440px;
+            width: 90%;
+            display: flex; 
+            align-items: flex-start; 
+            justify-content: space-evenly;
+            p {
+                margin: 0 40px;
+                font-size: 22px;
+            }
+
+            img {
+                border-radius: 20px;
+                max-width: 35%;
+                @media only screen and (max-width: 821px) {
+                    max-width: 98%;
+                }
+            }
+
+        }
         &-header {
-            margin: 15px auto;
+            margin: 25px auto !important;
+            margin-top: 80px !important;
             text-align: center;
             font-size: 36px;
             text-transform: uppercase;
@@ -88,16 +124,14 @@
         }
 
         &-body {
-            width: 75%;
-            margin: 10px auto;
-            text-align: center;
+            margin: 0px auto;
         }
     }
 
     &-points {
         padding: 10px;
         &-wrapper {
-         width: 80%;   
+         width: 90%;   
          margin: 10px auto;
          border-radius: 20px;
          min-height: 20vh;
@@ -105,19 +139,20 @@
 
          &-item {
             text-align: center;
-          
+            margin: 20px 0;
             &-iterator {
                 text-align: center;
-                font-size: 44px;
+                font-size: 34px;
                 font-weight: 700;
                 color: #B64689;
+                font-family: 'Spartan';
             }
 
             &-header {
-                margin: 10px 0;
-                font-weight: 300;
+                font-weight: 400;
                 font-size: 28px;
                 color: #FE7062;
+
             }
 
             &-body {

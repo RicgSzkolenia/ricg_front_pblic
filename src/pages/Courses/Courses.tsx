@@ -16,7 +16,7 @@ const StyledCoursePage = styled.div`
     .courses-header {
         margin: 0 auto;
         padding-left: 25px;
-        max-width: 1250px;
+        max-width: 1280px;
         font-size: 45px;
         color: #E3746D;
 
@@ -26,11 +26,25 @@ const StyledCoursePage = styled.div`
 const CourseWrapper = styled.div`
     margin: 0 auto;
     max-width: 1250px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
+    // display: flex;
+    // flex-direction: row;
+    // flex-wrap: wrap;
+    // justify-content: space-evenly;
+    // align-items: center;
+
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: center;
+
+    @media only screen and (max-width: 768px) {
+        grid-template-columns: auto;
+    }
+
+    @media only screen and (min-width: 769px) and (max-width: 1150px) {
+        grid-template-columns: auto auto;
+    }
+
+
     min-height: 90vh;
     .courseCard {
         margin: 10px;
@@ -53,7 +67,7 @@ const CoursesPage = () => {
         <NavBar/>
         <StyledCoursePage>
       
-            <p className="courses-header">Dostepne kursy</p>
+            <p className="carouselSection-title blueSecondaryHeader section-header-top-bottom-margin">Dostępne Webinary</p>
             <CourseWrapper>
                 { courses.length === 0 ?
                 (<Loader/>) : '' }

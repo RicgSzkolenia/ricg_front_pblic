@@ -73,13 +73,11 @@ const CourseDetailsPage = () => {
             { !course ? <Loader/> : (
                 <div className="details-wrapper">
                     <div className="details-wrapper-header">
-                        <img src={course?.image}></img>
                         <div className="details-wrapper-header-sum">
                             <div className="details-wrapper-header-sum-header">
                                 <p>{course?.category}</p>
-                                <p>{ course?.isOnline ? 'Online' : 'Offline'  }</p>
                             </div>
-                            <div className="details-wrapper-header-sum-body">
+                            <div className="details-wrapper-header-sum-body blueSecondaryHeader">
                                 <p>{course?.title}</p>
                                 <div className='details-wrapper-header-sum-body-dates'>
                                     <p>Terminy:</p>
@@ -97,28 +95,23 @@ const CourseDetailsPage = () => {
 
                         </div>
                     </div>
-                    <div className="standart-center-section">
-                        <p className="details-wrapper-description-header">Autor</p>
-                        <Accordion slides={[ {
-                                title: author?.name + ' ' +  author?.surname,
-                                text: author?.description,
-                                image: author?.image
-                        } ]}/>
-                    </div>
                     <div className="details-wrapper-description">
-                        <p className="details-wrapper-description-header">Opis</p>
-                        <p className="details-wrapper-description-body">
-                            { course?.shortDescription }
-                        </p>
+                        <p className="details-wrapper-description-header blueSecondaryHeader">Opis</p>
+                        <div className="details-wrapper-description-wrapper">
+                            <p className="details-wrapper-description-body blackMainText">
+                                { course?.shortDescription }
+                            </p>
+                            <img src={course?.image}></img>   
+                        </div>
                     </div>
                     <div className="details-wrapper-points">
-                        <p className="details-wrapper-description-header">czego się nauczysz na webinarze?</p>
+                        <p className="details-wrapper-description-header blueSecondaryHeader section-header-top-bottom-margin">czego się nauczysz na webinarze?</p>
                         <div className="details-wrapper-points-wrapper">
                             { course?.points.map((point:any, index:number) => {
                                 const { label, value } = point;
                                 return (
                                     <div className="details-wrapper-points-wrapper-item" key={index}>
-                                        <p className="details-wrapper-points-wrapper-item-iterator">{index + 1}</p>
+                                        {/* <p className="details-wrapper-points-wrapper-item-iterator">{index + 1}</p> */}
                                         <div className="details-wrapper-points-wrapper-item-header">
                                             {label}
                                         </div>
@@ -130,9 +123,17 @@ const CourseDetailsPage = () => {
                             }) }
                         </div>
                     </div>
+                    <div className="standart-center-section">
+                        <p className="details-wrapper-description-header blueSecondaryHeader section-header-top-bottom-margin">Autor</p>
+                        <Accordion slides={[ {
+                                title: author?.name + ' ' +  author?.surname,
+                                text: author?.description,
+                                image: author?.image
+                        } ]}/>
+                    </div>
                     
                     <div className="home-course-types">
-                        <p className="details-wrapper-description-header">Inne kursy</p>
+                        <p className="details-wrapper-description-header blueSecondaryHeader section-header-top-bottom-margin">Inne Webinary</p>
                         <CustomCarousel settings={customCarouselSettingsConstants.customCourseCarouselSettings}>
                         {courses.map((course, index) => {
                             return (

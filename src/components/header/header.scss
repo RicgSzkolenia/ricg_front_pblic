@@ -11,12 +11,16 @@
         margin-bottom: 40px !important;
         overflow: hidden;
         width: 100%;
+        
+        @media only screen and (max-width: 480px) {
+            margin-top: 20px !important;
+        }
 
     }
 
 
     @media only screen and (max-width: 480px) {
-        width: 100%;
+        width: 90%;
     }
 
     &-content {
@@ -51,7 +55,8 @@
             width: 50%;
 
             @media only screen and (max-width: 480px) {
-                width: 100%;
+                width: 95%;
+                margin: 0 auto;
                 margin-top: 10px;
             }
 

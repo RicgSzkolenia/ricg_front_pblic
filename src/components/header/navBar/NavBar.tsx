@@ -57,7 +57,7 @@ const NavBar = (props:any) => {
                         )
                 })}
                 <div className="navbar-menu-item navbarCart" onClick={goToCart}>
-                    <img src="./cart.png"></img>
+                    <img src="./cart.png" alt="Cart"></img>
                     <p>{cartItems?.reduce((acc, cur) => {
                         return acc + cur.quantity
                     }, 0) ?? '0'}</p>

@@ -7,6 +7,7 @@ import styled from "styled-components"
 
 const StyledVidsBody = styled.div`
     width: 90%;
+    max-width: 1440px;
     margin: 0 auto;
     .slick-slide {
         display: flex !important;

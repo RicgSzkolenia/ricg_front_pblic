@@ -46,29 +46,6 @@ interface ICourse {
     link: string;
 }
 
-export const courses:Array<ICourse> = [
-    {
-        title: 'Grupowy online kurs',
-        type: 'Online',
-        points: ['Dlaczego warto poddać się testom osobowościowym i kompetencyjnym',
-                    'Dlaczego nie wyszło- kandydat a rynek pracy blaski i cienie',
-                    'Strategia, analityczne myślenie, własny PR i marketing vs rynek pracy',
-                    'Dlaczego warto posiadać LinkedIn' ],
-        price: 239,
-        link: ''
-    },
-    {
-        title: 'Grupowy online kurs',
-        type: 'Online',
-        points: ['Dlaczego warto poddać się testom osobowościowym i kompetencyjnym',
-                    'Dlaczego nie wyszło- kandydat a rynek pracy blaski i cienie',
-                    'Strategia, analityczne myślenie, własny PR i marketing vs rynek pracy',
-                    'Dlaczego warto posiadać LinkedIn' ],
-        price: 239,
-        link: ''
-    }
-]
-
 interface Opinion {
     avatarLink: string,
     opinion: string
