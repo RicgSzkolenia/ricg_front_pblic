@@ -11,6 +11,7 @@ const StyledModal = styled.div<{}>`
     align-items: center;
     justify-content: center;
     background-color: rgba(0, 0, 0, 0.4);
+    padding: 20px 10px; 
 
     .body {
         width: 75%;
@@ -24,9 +25,9 @@ const StyledModal = styled.div<{}>`
 
     @media only screen and (max-width: 480px) {
         .body {
+            padding: 20px 10px;
             overflow: hidden;
             width: 350px;
-            height: 450px;
         }
       
     }

@@ -7,17 +7,11 @@ const StyledCard = styled.div`
     margin: 10px 20px;
     padding: 10px;
     width: 340px;
-    height: 230px;
+    height: 220px;
     border: 2px solid ${colors.primaryColor};
     border-radius: 15px;
     text-align: center;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: center;
     transition: 0.3s ease-in-out !important;
-
 
     &:hover {
         transform: scale(1.02);

@@ -60,7 +60,7 @@ const Header = (props:any) => {
           >
             <img
               src={"/group_header.png"}
-              style={{ width: "80%", height: "auto" }}
+              style={{ width: "80%", height: "auto", maxWidth: 450 }}
             ></img>
           </div>
         </div>

@@ -18,7 +18,8 @@
         align-items: stretch;
         background: #9c5b89;
         cursor: pointer;
-        transition: all .7s ease;
+        transition: all .3s ease;
+
         
         &:last-of-type {
             border-radius: 0px 20px 20px 0px;
@@ -41,7 +42,8 @@
 
         
         &:hover {
-            background: darken(#9c5b89, 3);
+
+            background-color: #6149F5;
         }
 
         &-active {
@@ -66,8 +68,9 @@
             justify-content: center;
             margin: 0;
             padding: 0;
-            text-align: center;
+            text-align: center; 
 
+           
             @media only screen and (max-width: 900px) {
                 height: 7vh;
                 width: 100%;
@@ -75,10 +78,10 @@
               }
 
             p {
+
                 font-size: 26px;
-                font-weight: 700;
+                font-weight: 600;
                 color: #fff;
-                margin: 0;
                 transform: rotate(-90deg);
 
                 @media only screen and (max-width: 900px) {
@@ -111,18 +114,20 @@
     }
 
     .accordion-section-title {
+       
         align-items: center;
         justify-content: center;
         width: 7%;
+
         @media only screen and (max-width: 900px) {
-            height: 5vh;
+            height: 6vh;
             width: 100%;
           
         }
 
         p {
             font-size: 30px;
-            color: #E3746D;
+            color: #9c5b89;
         }
        
      }

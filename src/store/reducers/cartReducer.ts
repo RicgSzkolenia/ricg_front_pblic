@@ -1,6 +1,6 @@
 import moment from "moment";
 import { Course } from "../../utils/models/Course";
-import { ADD_PRODUCT_TO_CART, REMOVE_PRODUCT_FROM_CART } from "../actions/cartActions";
+import { ADD_PRODUCT_TO_CART, CHANGE_ITEM_QUANTITY, REMOVE_PRODUCT_FROM_CART } from "../actions/cartActions";
 
 interface cartReducerInitialState {
     items: Array<{course: Course, date: any, quantity: number}>
@@ -33,6 +33,16 @@ const cartReducer = (state = initialState, action:any) => {
             const old = [...state.items];
             old.splice(action.index, 1);
             return { ...state, items: [...old] }
+        case CHANGE_ITEM_QUANTITY: 
+            console.log(action, state.items);
+            const itemIndex = state.items.findIndex((item) => {
+                return item.date.value === action.item.date.value && item.course.id === action.item.course.id;
+            } )
+
+            const tmpItems = [ ...state.items ];
+            tmpItems[itemIndex] = action.item;
+
+            return {...state, items: [...tmpItems]}
         default:
             return state
     }

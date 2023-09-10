@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import cartActions from '../../store/actions/cartActions';
 import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
+import Modal from '../modal/Modal';
 
 interface ICourseCardProps {
    course: Course;
@@ -21,6 +22,7 @@ const CourseCard = (props:ICourseCardProps) => {
 
     const [ availableDates, setAvailableDates ] = useState<Array<any>>([]);
     const [ selectedCardDate, setSelectedCardDate ] = useState<any>();
+    const [ isModalOpen, setIsModalOpen ] = useState<boolean>(false);
 
     useEffect(() => {
         const tmp = course.courseDates.map((date) => {
@@ -40,6 +42,7 @@ const CourseCard = (props:ICourseCardProps) => {
     const addToCart = (course:Course) => {
         if (selectedCardDate) {
             dispatch(cartActions.addToCart({ course, date: selectedCardDate, quantity: 1}));
+            setIsModalOpen(true);
         }
         
     }
@@ -48,8 +51,36 @@ const CourseCard = (props:ICourseCardProps) => {
         setSelectedCardDate(date)
     }
 
+    const handleModalClose = () => {
+        setIsModalOpen(false);
+    }
+
+    const goToCart = () => {
+        navigate('/cart')
+    }
+
     return (
+        
         <div key={key} className="courseCard" >
+             { isModalOpen && <Modal close={handleModalClose}>
+              <div className='cart-modal'>
+                    <p className="cart-modal-header">Dodano do koszyka!</p>
+                    <p className="cart-modal-body">
+                      Dodales do koszyka webinar: { course.title }
+                    </p>
+                    <div className="cart-modal-actions">
+                    <div className="cart-modal-actions-buttons" >
+                        <div onClick={goToCart} className="cart-modal-actions-button">
+                            Przejdz do koszyka
+                            </div>
+                            <div onClick={handleModalClose} className="cart-modal-actions-button">
+                                Kontynuj Zakupy
+                            </div>
+                        </div>
+                    </div>
+              </div>
+            </Modal> }
+
             <img onClick={() => {
             navigate(`/product/${course.id}`)
         }} src={course.image}></img>

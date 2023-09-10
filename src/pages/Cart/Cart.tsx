@@ -61,11 +61,13 @@ const Cart = () => {
                             <p>Tak, wyrażam zgodę</p>
                             <input type="checkbox" onChange={() => { setIsAgreed(!isAgreed) }}></input>
                         </div>
-                        <div onClick={proceedToPayment} className={`cart-modal-actions-button ${ isAgreed ? '' : 'button-disabled' }`}>
-                            Przejdz do platnosci
-                        </div>
-                        <div onClick={handleModalClose} className="cart-modal-actions-button">
-                           Zamknij
+                        <div className="cart-modal-actions-buttons">
+                            <div onClick={proceedToPayment} className={`cart-modal-actions-button ${ isAgreed ? '' : 'button-disabled' }`}>
+                                Przejdz do platnosci
+                            </div>
+                            <div onClick={handleModalClose} className="cart-modal-actions-button">
+                                Zamknij
+                            </div>
                         </div>
                     </div>
               </div>
@@ -91,7 +93,7 @@ const Cart = () => {
                         <p className="cart-wrapper-summary-sum-label">Kwota:</p>
                         <p className="cart-wrapper-summary-sum-value">{cartSum} zł</p>
                     </div>
-                    <div className={`cart-wrapper-summary-button ${ cartItems.length > 0 ? 'button-active' : 'button-disabled' }`} onClick={() => {if (cartItems.length > 0) setIsModalOpen(true)}}>   
+                    <div className={`cart-wrapper-summary-button ${cartItems.every((item) => item.quantity) && cartItems.length > 0 && cartSum > 0 ? 'button-active' : 'button-disabled' }`} onClick={() => {if (cartItems.length > 0) setIsModalOpen(true)}}>   
                         Przejdz do płatności
                     </div>
                 </div>

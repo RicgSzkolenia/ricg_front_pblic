@@ -70,22 +70,7 @@ const CarouselSection = (props:ICarosuelProps) => {
     return(
         <div className="carouselSection standart-center-section section-top-bottom-margin">
             <p className="carouselSection-title blueSecondaryHeader section-header-top-bottom-margin">{title}</p>
-            { isModalOpen && <Modal close={handleModalClose}>
-              <div className='carouselSection-modal'>
-                <img src={ currentSlide.image }></img>
-                <div className='carouselSection-modal-content'>
-                  <div className='carouselSection-modal-content-header'>
-                    {currentSlide.title}
-                  </div>
-                  <div className='carouselSection-modal-content-text'>
-                    {   parse(currentSlide?.details || '')}
-                  </div>
-                  <div className='carouselSection-modal-content-button'>
-                      <Button type={ButtonTypes.default} handleClick={handleModalClose}>Zamknij</Button>
-                  </div>
-                </div>
-              </div>
-            </Modal> }
+
             <Slider {...settings}>
                {[...percItems || []].map((slide, index) => {
                 return (
