@@ -49,6 +49,16 @@
         transition: 3s ease-in-out;
         width: 20px;
         height: 20px;
+
+        &::after {
+            content: '';
+            display: block;
+            width: 10px;
+            height: 10px;
+            border-radius: 5px;
+            position: absolute;
+            background-color: rgb(149, 69, 128);
+        }
         @media only screen and (min-width: 480px) {
             display: none;
         }

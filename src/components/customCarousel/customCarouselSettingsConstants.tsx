@@ -1,3 +1,5 @@
+import CustomCarouselArrow from '../carouselSection/CustomCarouselArrow';
+
 const customOpinionCarouselSettings = {
     arrows: false,
     autoplay: true,
@@ -36,10 +38,10 @@ const customOpinionCarouselSettings = {
 
 const customCourseCarouselSettings = {
     slidesToShow: 2,
-    arrows: false,
-    // autoplay: true,
-    // autoplaySpeed: 4800,
     dots: true,
+    arrows: true,
+    nextArrow: <CustomCarouselArrow/>,
+    prevArrow: <CustomCarouselArrow reverse={true} />,
     responsive: [
       {
         breakpoint: 1150,

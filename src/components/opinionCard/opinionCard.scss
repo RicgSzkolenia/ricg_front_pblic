@@ -3,12 +3,12 @@
 .opinionCard {
     overflow: hidden;
     position: relative;
-    width: 345px;
-    height: 220px;
+    width: 370px;
+    height: 190px;
     margin: 10px auto;
     border-radius: 20px;
     padding: 0 20px;
-    background-color: $fifthColor;
+    background-color: #eeeded;
     
     @media only screen and (max-width: 480px) {
       width: 290px;
@@ -25,8 +25,8 @@
     &-text {
         font-family:"Source Sans Pro", serif;  
         margin-top: 18px;
-        height: 150px;
-        color: #fff;
+        height: 100px;
+        color: #29282a;
         p {
             font-size: 18px;
             font-family: 'Source Sans Pro', sans-serif;
@@ -40,7 +40,7 @@
             border: 0;
             border-radius: 10px;
             resize: none;
-            height: 150px;
+            height: 100px;
             width: 100%;
             margin: 0px auto;
          }
@@ -50,12 +50,12 @@
     &-author {
       display: flex;
       align-items: center;
-      justify-content: flex-start;
+      justify-content: space-between;
       height: 20px;
       margin-top: 15px;
       width: 100%;
       text-align: right;
-      color: #fff;
+      color: rgb(156, 91, 137);
       font-size: 28px;
       font-weight: 600;
       font-family: 'Source Sans Pro', sans-serif;
@@ -63,7 +63,7 @@
       input {
         cursor: pointer;
         padding: 10px 10px;
-        margin: 0 10px;
+        margin: 0 0px;
         border-radius: 10px;
         height: 30px;
         border: 0;

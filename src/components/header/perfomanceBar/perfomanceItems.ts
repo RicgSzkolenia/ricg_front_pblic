@@ -20,7 +20,7 @@ export const perfomanceItems:Array<PerfomanceItem> = [
     {
         prefix: '+',
         count: 2950,
-        title: 'Projektów rekrutacyjnych',
+        title: 'Indywidualnych projektów rekrutacyjnych',
         suffix: 'K'
     },
     {

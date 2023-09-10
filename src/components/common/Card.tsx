@@ -5,7 +5,7 @@ import { colors } from "../../colors";
 
 const StyledCard = styled.div`
     margin: 10px 20px;
-    padding: 5px;
+    padding: 10px;
     width: 340px;
     height: 230px;
     border: 2px solid ${colors.primaryColor};

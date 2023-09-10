@@ -23,7 +23,7 @@ import NavBar from "../../components/header/navBar/NavBar";
 const Home = () => {
   const coursesCarouselRef = useRef<any>(null);
   const contactRef = useRef<any>(null);
-  const [preloader, setPreloader] = useState<boolean>(false);
+  const [preloader, setPreloader] = useState<boolean>(true);
   const [courses, setCourses] = useState<Array<Course>>([]);
   const [ authorCourseBlock, setAuthorCourseBlock ] = useState<ImageTextBlock>();
   const [ imageTextBlocks, setImageTextBlocks ] = useState<Array<ImageTextBlock>>([]);

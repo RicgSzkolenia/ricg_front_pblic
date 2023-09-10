@@ -1,6 +1,7 @@
 @import '../../../variables.scss';
 
 .perfomance-bar {
+    padding: 0 30px;
     max-width: 1440px;
     margin: 50px auto;
     display: flex;
@@ -11,11 +12,10 @@
 
     @media only screen and (max-width: 480px) {
         margin-top: 10px;
-        width: 100%;
-        justify-content: center;
         margin-bottom: 10px;
+        justify-content: center;
+        flex-wrap: wrap;
         position: relative !important;
-        z-index: -1;
     }
 
     @media only screen and (min-width: 481px) and  (max-width: 820px){
@@ -26,19 +26,22 @@
     }
     &-item {
         text-align: center;
-        width: 270px;
         margin:10px;
+
+        @media only screen and (max-width: 480px) {
+            width: 40%;
+        }
 
         &-count{
             font-weight: 500;
             color: $orangeColor;
-            text-align: center;
+            text-align: left;
             margin: 0 auto;
             display: block;
             font-size: 50px;
 
             @media only screen and (max-width: 480px) {
-                font-size: 25px;
+                font-size: 30px;
             }
             @media only screen and (min-width: 481px) and  (max-width: 820px){
                 font-size: 34px;
@@ -48,13 +51,13 @@
         p {
 
             @media only screen and (max-width: 480px) {
-                font-size: 9px;
-                text-align: center;
+                font-size: 14px;
+                text-align: left;
             }
 
             @media only screen and (min-width: 481px) and  (max-width: 820px){
-                font-size: 14px;
-                text-align: center;
+                font-size: 16px;
+                text-align: left;
             }
             font-weight: 500;
             font-size: 16px;

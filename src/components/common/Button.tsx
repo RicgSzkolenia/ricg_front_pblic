@@ -28,8 +28,8 @@ const StyledButton = styled.div`
     @media only screen and (min-width: 377px) and (max-width: 480px) {
         font-size: 14px;
         width: 150px;
-        height: 25px !important;
-        line-height: 25px !important;
+        height: 30px !important;
+        line-height: 30px !important;
 
     }
 
