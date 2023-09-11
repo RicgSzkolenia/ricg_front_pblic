@@ -63,7 +63,7 @@ const Cart = () => {
                         </div>
                         <div className="cart-modal-actions-buttons">
                             <div onClick={proceedToPayment} className={`cart-modal-actions-button ${ isAgreed ? '' : 'button-disabled' }`}>
-                                Przejdz do platnosci
+                                Przejdz do platności
                             </div>
                             <div onClick={handleModalClose} className="cart-modal-actions-button">
                                 Zamknij
