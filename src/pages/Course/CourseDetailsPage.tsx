@@ -16,7 +16,7 @@ import Loader from "../../components/loader/Loader";
 import { Author } from "../../utils/models/Author";
 import AuthorApi from "../../utils/apis/AuthorApi";
 import Accordion from "../../components/accordion/Accordion";
-import AuthorSection from "../../components/authorSection";
+import AuthorSection from "../../components/authorSection/authorSection";
 
 const CourseDetailsPage = () => {
 

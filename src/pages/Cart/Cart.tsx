@@ -14,11 +14,12 @@ const Cart = () => {
     const cartItems = useSelector((state:AppState) => state.cart.items);
     const [ cartSum, setCartSum ] = useState<number>(0)
     const [ isModalOpen, setIsModalOpen ] = useState<boolean>(false);
-    const [ isAgreed, setIsAgreed ] = useState<boolean>(false);
+    const [ isAgreedRodo, setIsAgreedRodo ] = useState<boolean>(false);
+    const [ isAgreedReg, setIsAgreedReg ] = useState<boolean>(false);
     const [ contactInfo, setContactInfo ] = useState<any>();
 
     const proceedToPayment = () => {
-        if  ( isAgreed ) {
+        if  ( isAgreedRodo && isAgreedReg ) {
             checkOutProductsFromCart(cartItems)
         }
         
@@ -56,13 +57,16 @@ const Cart = () => {
                          szkoleniach i ofertach pracy.
                     </p>
                     <div className="cart-modal-actions">
-                        <a className="cart-modal-actions-link" target="blank" href={contactInfo?.rodo?.data?.attributes?.url}>Regulamin RODO</a>
                         <div className="cart-modal-actions-zgoda">
-                            <p>Tak, wyrażam zgodę</p>
-                            <input type="checkbox" onChange={() => { setIsAgreed(!isAgreed) }}></input>
+                            <p>Tak, wyrażam zgodę z <a className="cart-modal-actions-link" target="blank" href={contactInfo?.regulation?.data?.attributes?.url}>Regulaminem</a></p>
+                            <input type="checkbox" onChange={() => { setIsAgreedReg(true) }}></input>
+                        </div>
+                        <div className="cart-modal-actions-zgoda">
+                            <p>Tak, wyrażam zgodę z  <a className="cart-modal-actions-link" target="blank" href={contactInfo?.rodo?.data?.attributes?.url}>Regulaminem RODO</a></p>
+                            <input type="checkbox" onChange={() => { setIsAgreedRodo(true) }}></input>
                         </div>
                         <div className="cart-modal-actions-buttons">
-                            <div onClick={proceedToPayment} className={`cart-modal-actions-button ${ isAgreed ? '' : 'button-disabled' }`}>
+                            <div onClick={proceedToPayment} className={`cart-modal-actions-button ${ isAgreedReg && isAgreedRodo ? '' : 'button-disabled' }`}>
                                 Przejdz do platności
                             </div>
                             <div onClick={handleModalClose} className="cart-modal-actions-button">

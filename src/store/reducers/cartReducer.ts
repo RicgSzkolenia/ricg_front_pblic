@@ -19,7 +19,6 @@ const cartReducer = (state = initialState, action:any) => {
                 return isSameCourseId && isSameDate;
             });
 
-            console.log(foundItemIndex);
             if (foundItemIndex !== -1) {
                 const tmpItems = [ ...state.items ]
                 tmpItems[foundItemIndex] = { ...tmpItems[foundItemIndex], quantity: tmpItems[foundItemIndex].quantity + 1 }

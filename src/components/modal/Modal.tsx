@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const StyledModal = styled.div<{}>`
-    z-index: 9000000000000;
+    z-index: 9000000000000000000000000000000;
     position: fixed;
     top: 0;
     left: 0;

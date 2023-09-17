@@ -12,10 +12,12 @@ import Modal from '../modal/Modal';
 interface ICourseCardProps {
    course: Course;
    key: number;
+   isOuterModal?:boolean;
+   onModalOpen?:(course:Course) => void
 }
 
 const CourseCard = (props:ICourseCardProps) => {
-    const { course, key } = props;
+    const { course, key, isOuterModal, onModalOpen } = props;
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -41,9 +43,15 @@ const CourseCard = (props:ICourseCardProps) => {
 
     const addToCart = (course:Course) => {
         if (selectedCardDate) {
+            if (!isOuterModal) {
+                setIsModalOpen(true);
+            } else {
+                onModalOpen?.(course)
+            }
             dispatch(cartActions.addToCart({ course, date: selectedCardDate, quantity: 1}));
-            setIsModalOpen(true);
+           
         }
+      
         
     }
 
@@ -62,7 +70,7 @@ const CourseCard = (props:ICourseCardProps) => {
     return (
         
         <div key={key} className="courseCard" >
-             { isModalOpen && <Modal close={handleModalClose}>
+             { !isOuterModal && isModalOpen && <Modal close={handleModalClose}>
               <div className='cart-modal'>
                     <p className="cart-modal-header">Dodano do koszyka!</p>
                     <p className="cart-modal-body">
@@ -113,7 +121,9 @@ const CourseCard = (props:ICourseCardProps) => {
             </div>
             <div className='courseCard-footer'>
                 { course.redeemedPrice ? (<div><p>{course.redeemedPrice} zł</p> <p style={{ textDecoration: 'line-through', fontSize: '16px' }}>{ course.price } zł</p>  </div>) : <p>{course.price} zł</p> }
-                <div className={`courseCard-footer-button ${ selectedCardDate ? 'button-active' : 'button-disabled' }`} onClick={() => {addToCart(course)}}>
+                <div className={`courseCard-footer-button ${ selectedCardDate ? 'button-active' : 'button-disabled' }`} onClick={() => {
+                    addToCart(course)
+                    }}>
                     Dodaj do koszyka
                 </div>
             </div>

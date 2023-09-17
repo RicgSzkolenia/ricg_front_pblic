@@ -16,18 +16,25 @@ import imageTextSectionApi from "../../utils/apis/ImageTextSectionApi";
 import customCarouselSettingsConstants from "../../components/customCarousel/customCarouselSettingsConstants";
 import TiktokVidsSection from "../../components/tiktokVids/TikTokVidsSection";
 import PartnersSection from "../../components/PartnersSection/PartnersSection";
-import AuthorSection from "../../components/authorSection";
+import AuthorSection from "../../components/authorSection/authorSection";
 import OpinionSection from "../../components/opinionSection/OpinionSections";
 import NavBar from "../../components/header/navBar/NavBar";
+import Modal from "../../components/modal/Modal";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate();
   const coursesCarouselRef = useRef<any>(null);
   const contactRef = useRef<any>(null);
-  const [preloader, setPreloader] = useState<boolean>(true);
+
+
+  const [preloader, setPreloader] = useState<boolean>(false);
   const [courses, setCourses] = useState<Array<Course>>([]);
   const [ authorCourseBlock, setAuthorCourseBlock ] = useState<ImageTextBlock>();
   const [ imageTextBlocks, setImageTextBlocks ] = useState<Array<ImageTextBlock>>([]);
- 
+  const [ isModalOpen, setIsModalOpen ] = useState<boolean>(false);
+  const [ course, setCourse ] = useState<Course>();
+
 
   const executeScroll = () => coursesCarouselRef.current.scrollIntoView();
 
@@ -54,12 +61,43 @@ const Home = () => {
 
   }, []);
 
+  const goToCart = () => {
+    navigate('/cart')
+  }
+
+  const openModal = (course:Course) => {
+    setIsModalOpen(true)
+    setCourse(course)
+  }
+
+  const handleModalClose = () => {
+    setIsModalOpen(false)
+  }
+
   return (
     <>
       {preloader ? (
         <Preloader />
       ) : (
         <div className="home">
+            { isModalOpen && <Modal close={handleModalClose} onOpen={openModal}>
+              <div className='cart-modal'>
+                    <p className="cart-modal-header">Dodano do koszyka!</p>
+                    <p className="cart-modal-body">
+                      Dodales do koszyka webinar: { course?.title }
+                    </p>
+                    <div className="cart-modal-actions">
+                    <div className="cart-modal-actions-buttons" >
+                        <div onClick={goToCart} className="cart-modal-actions-button">
+                            Przejdz do koszyka
+                            </div>
+                            <div onClick={handleModalClose} className="cart-modal-actions-button">
+                                Kontynuj Zakupy
+                            </div>
+                        </div>
+                    </div>
+              </div>
+            </Modal> }
           <NavBar coursesCarouselRef={coursesCarouselRef} contactRef={contactRef}/>
           <Header contactref={contactRef} coursesCarouselRef={coursesCarouselRef} />
           <AimSection />
@@ -90,6 +128,8 @@ const Home = () => {
                 {courses.map((course, index) => {
                   return (
                     <CourseCard
+                      onModalOpen={openModal}
+                      isOuterModal={true}
                       key={index}
                       course={course}
                     />
