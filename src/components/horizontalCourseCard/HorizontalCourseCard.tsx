@@ -37,7 +37,7 @@ const HorizontalCourseCard = (props:any) => {
                 <input  min="1" type='number' onChange={changeQuanity} value={item.quantity}></input>
                 { item.course.redeemedPrice ? (<div><p>{item.course.redeemedPrice} zł</p> <p style={{ textDecoration: 'line-through' }}>{ item.course.price } zł</p>  </div>) : <p>{item.course.price} zł</p> }
                 <div className='horizontal-card-wrapper-action-button' onClick={() => {removeFromCart(index)}}>
-                    Usuń z koszyku
+                    Usuń z koszyka
                 </div>
             </div>
         </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Home from './pages/Home/Home';
 import { Route,  BrowserRouter as Router, Routes, Navigate } from 'react-router-dom';
 import Header from './components/header/Header';
@@ -13,6 +13,7 @@ import CourseDetailsPage from './pages/Course/CourseDetailsPage';
 import CertificatePresentationPage from './pages/Certificate/CertificatePresentation';
 import ContactPage from './pages/Contact/ContactPage';
 import Cart from './pages/Cart/Cart';
+import ReactGA from "react-ga4";
 
 function App() {
 
@@ -21,6 +22,13 @@ function App() {
     req.headers["Authorization"] = `bearer ${authToken}`
     return req;
 });
+
+  useEffect(() => {
+      ReactGA.send({
+        hitType: 'pageview',
+        page: window.location.pathname
+      })
+  }, [])
 
   return (
     <>

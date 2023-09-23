@@ -6,6 +6,7 @@ import NavBar from "../../components/header/navBar/NavBar";
 import styled from "styled-components";
 import Footer from "../../components/footer/Footer";
 import Loader from "../../components/loader/Loader";
+import ReactGa from 'react-ga';
 
 const StyledCoursePage = styled.div`
     width: 100%;
@@ -44,10 +45,13 @@ const CourseWrapper = styled.div`
         grid-template-columns: auto auto;
     }
 
-
     min-height: 90vh;
     .courseCard {
         margin: 10px;
+
+        @media screen and (max-resolution:  124dpi)  {
+            transform: scale(0.75);
+        }
     }
 `;
 
@@ -57,6 +61,8 @@ const CoursesPage = () => {
 
 
     useEffect(() => {
+        ReactGa.initialize(process.env.REACT_APP_GOOGLE_ANALYTICS || '')
+        ReactGa.pageview('/about/courses');
         CourseApi.getAllCourses().then((courses) => {
             setCourses(courses);
         })
