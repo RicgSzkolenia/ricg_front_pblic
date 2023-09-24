@@ -8,6 +8,8 @@ import { useEffect, useState } from "react"
 import { checkOutProductsFromCart } from "../../utils/hooks/usePayment"
 import Modal from "../../components/modal/Modal"
 import ContactInfoApi from "../../utils/apis/ContactInfoApi"
+import ReactGA from "react-ga4";
+import { title } from "process"
 
 const Cart = () => {
     
@@ -33,6 +35,17 @@ const Cart = () => {
         ContactInfoApi.getContactInfo().then((info:any) => {
             setContactInfo(info);
         })
+
+        console.log(window.location.pathname)
+        ReactGA.send({
+          hitType: 'pageview',
+          page: window.location.pathname,
+          title: 'cart',
+          items: [
+            ...cartItems
+          ]
+        })
+
     }, [])
 
     useEffect(() => {

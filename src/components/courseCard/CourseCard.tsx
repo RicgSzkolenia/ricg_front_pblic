@@ -8,6 +8,7 @@ import cartActions from '../../store/actions/cartActions';
 import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import Modal from '../modal/Modal';
+import ReactGA4 from 'react-ga4';
 
 interface ICourseCardProps {
    course: Course;
@@ -36,6 +37,22 @@ const CourseCard = (props:ICourseCardProps) => {
 
         setAvailableDates(tmp)
     }, [])
+    const TrackGoogleAnalyticsEvent = (
+        category:any,
+        event_name:any,
+        label:any,
+        data:any
+    ) => {
+        console.log("GA event:", category, ":", event_name, ":", label);
+    
+        let event_params = {
+            category,
+            label,
+            ...data
+        };
+        // Send GA4 Event
+        ReactGA4.event(event_name, event_params);
+    };
 
     useEffect(() => {
         setSelectedCardDate(availableDates?.[0])
@@ -43,6 +60,7 @@ const CourseCard = (props:ICourseCardProps) => {
 
     const addToCart = (course:Course) => {
         if (selectedCardDate) {
+            TrackGoogleAnalyticsEvent('add_to_cart', 'add_to_cart', window.location.pathname + window.location.search,  { id: 1234, username: "john" })
             if (!isOuterModal) {
                 setIsModalOpen(true);
             } else {

@@ -6,7 +6,7 @@ import NavBar from "../../components/header/navBar/NavBar";
 import styled from "styled-components";
 import Footer from "../../components/footer/Footer";
 import Loader from "../../components/loader/Loader";
-import ReactGa from 'react-ga';
+import ReactGA from 'react-ga4';
 
 const StyledCoursePage = styled.div`
     width: 100%;
@@ -61,11 +61,17 @@ const CoursesPage = () => {
 
 
     useEffect(() => {
-        ReactGa.initialize(process.env.REACT_APP_GOOGLE_ANALYTICS || '')
-        ReactGa.pageview('/about/courses');
+
         CourseApi.getAllCourses().then((courses) => {
             setCourses(courses);
         })
+
+        ReactGA.send({
+            hitType: 'pageview',
+            page: window.location.pathname,
+            title: 'Courses'
+        })
+
     }, [])
 
     return(

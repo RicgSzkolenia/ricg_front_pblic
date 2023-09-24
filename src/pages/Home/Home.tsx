@@ -21,6 +21,7 @@ import OpinionSection from "../../components/opinionSection/OpinionSections";
 import NavBar from "../../components/header/navBar/NavBar";
 import Modal from "../../components/modal/Modal";
 import { useNavigate } from "react-router-dom";
+import ReactGA from "react-ga4";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -57,6 +58,12 @@ const Home = () => {
 
     imageTextSectionApi.getCourseAuthorBlock().then((block:ImageTextBlock) => {
       setAuthorCourseBlock(block);
+    })
+
+    ReactGA.send({
+      hitType: 'pageview',
+      page: window.location.pathname,
+      title: `Home`
     })
 
   }, []);

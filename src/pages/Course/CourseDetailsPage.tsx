@@ -17,6 +17,7 @@ import { Author } from "../../utils/models/Author";
 import AuthorApi from "../../utils/apis/AuthorApi";
 import Accordion from "../../components/accordion/Accordion";
 import AuthorSection from "../../components/authorSection/authorSection";
+import ReactGA from 'react-ga4';
 
 const CourseDetailsPage = () => {
 
@@ -60,9 +61,15 @@ const CourseDetailsPage = () => {
                     value: date.id
                 }
             })
-
+            ReactGA.send({
+                hitType: 'pageview',
+                page: window.location.pathname,
+                title: `Course details - ${course?.title}`
+              })
             setAvailableDates(tmp);
         })
+
+     
     }, [])
 
 
