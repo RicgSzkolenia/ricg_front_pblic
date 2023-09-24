@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { AppState } from "../../../store/store";
+import { trackGoogleAnalyticsEvent } from "../../../utils/hooks/useAnalytics";
 
 const NavBar = (props:any) => {
 
@@ -38,7 +39,7 @@ const NavBar = (props:any) => {
                 { menuItems.filter((item) => item.parent ? item.parent === location.pathname : true).map((item, index) => {
                         return(
                             <div  key={index} className={`navbar-menu-item  ${ item.url === activeNavBarItem ? 'navbar-active' : '' }`} onClick={() => {
-                               
+                                trackGoogleAnalyticsEvent('social', item?.title ?? item.url, item.url, { item: JSON.stringify(item) })
                                 if (item?.element) {
                                     const element = document.getElementById(item.element);
                                     if (element)  element.scrollIntoView({ behavior: 'smooth' });

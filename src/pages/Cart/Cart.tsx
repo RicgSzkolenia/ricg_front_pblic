@@ -9,7 +9,7 @@ import { checkOutProductsFromCart } from "../../utils/hooks/usePayment"
 import Modal from "../../components/modal/Modal"
 import ContactInfoApi from "../../utils/apis/ContactInfoApi"
 import ReactGA from "react-ga4";
-import { title } from "process"
+import { trackGoogleAnalyticsEvent } from "../../utils/hooks/useAnalytics"
 
 const Cart = () => {
     
@@ -22,6 +22,7 @@ const Cart = () => {
 
     const proceedToPayment = () => {
         if  ( isAgreedRodo && isAgreedReg ) {
+            trackGoogleAnalyticsEvent('begin_checkout', 'begin_checkout', window.location.pathname + window.location.search, { cartItems: JSON.stringify(cartItems) } )
             checkOutProductsFromCart(cartItems)
         }
         

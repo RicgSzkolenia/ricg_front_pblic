@@ -14,6 +14,7 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
+ReactGA.initialize(process.env.REACT_APP_GOOGLE_ANALYTICS || '');
 
 
 // For GET requests

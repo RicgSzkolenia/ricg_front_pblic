@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
 import './horizontalCourseCard.scss';
 import cartActions from '../../store/actions/cartActions';
+import { trackGoogleAnalyticsEvent } from '../../utils/hooks/useAnalytics';
 
 const HorizontalCourseCard = (props:any) => {
     const { item, index } = props;
@@ -11,6 +12,7 @@ const HorizontalCourseCard = (props:any) => {
     }
 
     const removeFromCart = (index: any) => {
+        trackGoogleAnalyticsEvent('remove_from_cart', 'remove_from_cart', 'remove_from_cart', {item: JSON.stringify(item)})
         dispatch(cartActions.removeItemFromCart(index))
     }
     

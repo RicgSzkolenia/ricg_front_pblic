@@ -22,8 +22,7 @@ const StyledPartners = styled.div`
 const StyledBrandWrapper = styled.div`
     margin: 30px;
     img {
-        height: 75px;
-        max-width: 350px;
+        max-width: 100px;
     }
 
 

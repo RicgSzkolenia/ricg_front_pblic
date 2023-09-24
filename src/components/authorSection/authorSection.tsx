@@ -32,7 +32,6 @@ const AuthorSection = () => {
     return (
         <div className=" authorSection standart-center-section section-top-bottom-margin ">
             <div className='blueSecondaryHeader imagetextSection-header section-header-top-bottom-margin'>Nasz Zespół</div>
-            {/* <Accordion slides={slides}/> */}
             <div className="authorSection-wrapper">
             { authors.map((author) => {
                     return(

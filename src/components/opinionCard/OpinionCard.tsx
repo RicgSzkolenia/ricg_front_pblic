@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Opinion } from '../../utils/models/Opinion';
 import './opinionCard.scss';
 import OpinionApi from '../../utils/apis/OpinionApi';
+import { trackGoogleAnalyticsEvent } from '../../utils/hooks/useAnalytics';
 
 export enum OpinionCardType {
     add = 'ADD',
@@ -26,6 +27,7 @@ const OpinionCard = (props:IOpinionCardProps) => {
     const sendNewOpinion = () => {
         if (newOpinion?.authorName && newOpinion.opinion) {
             OpinionApi.createOpinion(newOpinion).then(()=>{
+                trackGoogleAnalyticsEvent('sent_opinion', 'sent_opinion', 'sent_opinion', { opinion: JSON.stringify(newOpinion) })
                 refreshOpinions();
                 setNewOpinion({ opinion: '', authorName: '', avatarLink: '' })
             });

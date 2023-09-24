@@ -5,11 +5,19 @@ import AOS from "aos";
 import { useEffect } from 'react';
 import NavBar from '../../components/header/navBar/NavBar';
 import Footer from '../../components/footer/Footer';
+import ReactGA from 'react-ga4';
+
 const ContactPage = () => {
     
     useEffect(() => {
         AOS.init();
         AOS.refresh();
+
+        ReactGA.send({
+          hitType: 'pageview',
+          page: window.location.pathname,
+          title: 'contact us',
+        })
     }, [])
 
     return (

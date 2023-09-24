@@ -15,9 +15,9 @@ import CourseCard from "../../components/courseCard/CourseCard";
 import Loader from "../../components/loader/Loader";
 import { Author } from "../../utils/models/Author";
 import AuthorApi from "../../utils/apis/AuthorApi";
-import Accordion from "../../components/accordion/Accordion";
 import AuthorSection from "../../components/authorSection/authorSection";
 import ReactGA from 'react-ga4';
+import AuthorCard from "../../components/authorCard/AuthorCard";
 
 const CourseDetailsPage = () => {
 
@@ -132,11 +132,7 @@ const CourseDetailsPage = () => {
                     </div>
                     <div className="standart-center-section">
                         <p className="details-wrapper-description-header blueSecondaryHeader section-header-top-bottom-margin">Autor</p>
-                        <Accordion slides={[ {
-                                title: author?.name + ' ' +  author?.surname,
-                                text: author?.description,
-                                image: author?.image
-                        } ]}/>
+                        <AuthorCard author={author} />
                     </div>
                     
                     <div className="home-course-types">

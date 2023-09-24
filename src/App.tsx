@@ -13,10 +13,12 @@ import CourseDetailsPage from './pages/Course/CourseDetailsPage';
 import CertificatePresentationPage from './pages/Certificate/CertificatePresentation';
 import ContactPage from './pages/Contact/ContactPage';
 import Cart from './pages/Cart/Cart';
-import ReactGA from "react-ga4";
 
 function App() {
-  ReactGA.initialize(process.env.REACT_APP_GOOGLE_ANALYTICS || '');
+  console.log(process.env.REACT_APP_GOOGLE_ANALYTICS);
+ 
+
+ 
   axios.interceptors.request.use((req) => {
     const authToken = process.env.REACT_APP_API_TOKEN;
     req.headers["Authorization"] = `bearer ${authToken}`

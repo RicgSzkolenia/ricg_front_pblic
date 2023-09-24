@@ -4,6 +4,7 @@ import { Field, Form, Formik } from "formik";
 import styled from 'styled-components';
 import * as Yup from 'yup';
 import axios from 'axios';
+import { trackGoogleAnalyticsEvent } from '../../utils/hooks/useAnalytics';
 
 export const StyledButton = styled.button`
     border: 0;
@@ -80,6 +81,7 @@ const ContactForm = () => {
     })
 
     const handleSubmit = async (values:FormFields) => {
+        trackGoogleAnalyticsEvent('contact_form_submited', 'contact_form_submited', 'contact_form_submited', {formData:  JSON.stringify(values) });
         axios.post(`${process.env.REACT_APP_BASE_URL}/contact-requests`, {data: {...values}}).then(() => {
             setMessage('Wyslano')
         })
