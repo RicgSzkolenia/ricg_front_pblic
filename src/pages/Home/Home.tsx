@@ -96,7 +96,7 @@ const Home = () => {
                     <div className="cart-modal-actions">
                     <div className="cart-modal-actions-buttons" >
                         <div onClick={goToCart} className="cart-modal-actions-button">
-                            Przejdz do koszyka
+                            Przejdź do koszyka
                             </div>
                             <div onClick={handleModalClose} className="cart-modal-actions-button">
                                 Kontynuj Zakupy

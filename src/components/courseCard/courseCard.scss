@@ -6,8 +6,18 @@
     border: 3px solid #eeeded;
     border-radius: 40px;
     margin-top: 20px;
+
+    @media screen and (max-resolution:  124dpi)  {
+        height: 480px;
+        width: 290px;
+    }
     
     img {
+        @media screen and (max-resolution:  124dpi)  {
+            min-height: 20%;
+            max-height: 20%;
+        }
+        object-fit: cover;
         min-height: 30%;
         max-height: 30%;
         width: 100%;
@@ -23,11 +33,18 @@
         width: 90%;
         margin: 10px auto;
         color: #B64689;
+        @media screen and (max-resolution:  124dpi)  {
+            font-size: 12px;
+        }
+      
     }
 
     &-separator {
         width: 99%;
         margin: 20px 0;
+        @media screen and (max-resolution:  124dpi)  {
+            margin: 10px 0;
+        }
         height: 2px;
         background-color: #eeeded;
     }
@@ -39,11 +56,19 @@
         position: relative;
         overflow: hidden;
 
+        @media screen and (max-resolution:  124dpi)  {
+            height: 235px;
+        }
+
         p { 
             color: #9c5b89;
             font-weight: 700;
             font-size: 19px;
             width: 90%;
+
+            @media screen and (max-resolution:  124dpi)  {
+                font-size: 15px;
+            }
         }
 
         &-item {
@@ -58,6 +83,12 @@
                 width: 10px !important;
                 height: 10px;
                 background-color: #9c5b89;
+
+                @media screen and (max-resolution:  124dpi)  {
+                    border-radius: 4px;
+                    width: 8px !important;
+                    height: 8px;
+                }
             } 
 
             &-text{
@@ -68,6 +99,10 @@
                     font-size: 16px !important;
                     line-height: 16px !important;
                     font-weight: normal !important;
+
+                    @media screen and (max-resolution:  124dpi)  {
+                        font-size: 12px !important;
+                    }
             }
             
         }
@@ -80,8 +115,15 @@
         text-transform: uppercase;
         color: #B64689;
         font-size: 12px;
+        
+        @media screen and (max-resolution:  124dpi)  {
+            margin: 10px auto;
+        }
 
         &-dropdown {
+            @media screen and (max-resolution:  124dpi)  {
+              transform: scale(0.9);
+            }
             .Dropdown-control {
                 margin: 5px 0px;
                 border-radius: 10px;
@@ -99,6 +141,11 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+
+        @media screen and (max-resolution:  124dpi)  {
+            margin: 5px auto;
+            transform: scale(0.8);
+          }
 
         p {
             font-size: 22px;

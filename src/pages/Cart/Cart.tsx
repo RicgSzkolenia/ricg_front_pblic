@@ -81,7 +81,7 @@ const Cart = () => {
                         </div>
                         <div className="cart-modal-actions-buttons">
                             <div onClick={proceedToPayment} className={`cart-modal-actions-button ${ isAgreedReg && isAgreedRodo ? '' : 'button-disabled' }`}>
-                                Przejdz do platności
+                                Przejdź do platności
                             </div>
                             <div onClick={handleModalClose} className="cart-modal-actions-button">
                                 Zamknij
@@ -112,7 +112,7 @@ const Cart = () => {
                         <p className="cart-wrapper-summary-sum-value">{cartSum} zł</p>
                     </div>
                     <div className={`cart-wrapper-summary-button ${cartItems.every((item) => item.quantity) && cartItems.length > 0 && cartSum > 0 ? 'button-active' : 'button-disabled' }`} onClick={() => {if (cartItems.length > 0) setIsModalOpen(true)}}>   
-                        Przejdz do płatności
+                        Przejdź do płatności
                     </div>
                 </div>
             </div>

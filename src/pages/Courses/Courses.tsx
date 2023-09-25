@@ -20,7 +20,6 @@ const StyledCoursePage = styled.div`
         max-width: 1280px;
         font-size: 45px;
         color: #E3746D;
-
     }
 `;
 
@@ -49,9 +48,7 @@ const CourseWrapper = styled.div`
     .courseCard {
         margin: 10px;
 
-        @media screen and (max-resolution:  124dpi)  {
-            transform: scale(0.75);
-        }
+       
     }
 `;
 

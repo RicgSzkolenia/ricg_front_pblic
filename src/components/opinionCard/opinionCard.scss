@@ -3,7 +3,7 @@
 .opinionCard {
     overflow: hidden;
     position: relative;
-    width: 370px;
+    width: 310px;
     height: 190px;
     margin: 10px auto;
     border-radius: 20px;
@@ -62,12 +62,16 @@
       
       input {
         cursor: pointer;
-        padding: 10px 10px;
+        padding: 0px 10px;
         margin: 0 0px;
         border-radius: 10px;
         height: 30px;
         border: 0;
-        width: 40%;
+        width: 45%;
+        line-height: 30px;
+        &[type="submit"] {
+          background-color: lightgrey;
+        }
       }
     }
 }

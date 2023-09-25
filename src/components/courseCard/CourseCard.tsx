@@ -8,7 +8,6 @@ import cartActions from '../../store/actions/cartActions';
 import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import Modal from '../modal/Modal';
-import ReactGA4 from 'react-ga4';
 import { trackGoogleAnalyticsEvent } from '../../utils/hooks/useAnalytics';
 
 interface ICourseCardProps {
