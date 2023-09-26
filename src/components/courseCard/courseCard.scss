@@ -7,13 +7,13 @@
     border-radius: 40px;
     margin-top: 20px;
 
-    @media screen and (max-resolution:  124dpi)  {
+    @media screen and (max-resolution:  142dpi)  {
         height: 450px;
         width: 290px;
     }
     
     img {
-        @media screen and (max-resolution:  124dpi)  {
+        @media screen and (max-resolution: 142dpi)  {
             min-height: 19%;
             max-height: 19%;
         }
@@ -33,7 +33,7 @@
         width: 90%;
         margin: 10px auto;
         color: #B64689;
-        @media screen and (max-resolution:  124dpi)  {
+        @media screen and (max-resolution: 142dpi)  {
             font-size: 12px;
             margin: 2px auto;
         }
@@ -43,7 +43,7 @@
     &-separator {
         width: 99%;
         margin: 20px 0;
-        @media screen and (max-resolution:  124dpi)  {
+        @media screen and (max-resolution:  142dpi)  {
             margin: 10px 0;
         }
         height: 2px;
@@ -57,7 +57,7 @@
         position: relative;
         overflow: hidden;
 
-        @media screen and (max-resolution:  124dpi)  {
+        @media screen and (max-resolution:  142dpi)  {
             height: 220px;
             margin: 5px auto;
         }
@@ -68,7 +68,7 @@
             font-size: 19px;
             width: 90%;
 
-            @media screen and (max-resolution:  124dpi)  {
+            @media screen and (max-resolution:  142dpi)  {
                 font-size: 15px;
             }
         }
@@ -80,7 +80,7 @@
             justify-content: space-between;
             align-items: flex-start;
 
-            @media screen and (max-resolution:  124dpi)  {
+            @media screen and (max-resolution:  142dpi)  {
                 margin: 5px 0;
             }
 
@@ -91,7 +91,7 @@
                 height: 10px;
                 background-color: #9c5b89;
 
-                @media screen and (max-resolution:  124dpi)  {
+                @media screen and (max-resolution:  142dpi)  {
                     border-radius: 3px;
                     width: 6px !important;
                     height: 6px;
@@ -108,7 +108,7 @@
                     line-height: 16px !important;
                     font-weight: normal !important;
 
-                    @media screen and (max-resolution:  124dpi)  {
+                    @media screen and (max-resolution:  142dpi)  {
                         font-size: 12px !important;
                     }
             }
@@ -124,12 +124,12 @@
         color: #B64689;
         font-size: 12px;
         
-        @media screen and (max-resolution:  124dpi)  {
+        @media screen and (max-resolution:  142dpi)  {
             margin: 0px auto;
         }
 
         &-dropdown {
-            @media screen and (max-resolution:  124dpi)  {
+            @media screen and (max-resolution:  142dpi)  {
               transform: scale(0.8);
             }
             .Dropdown-control {
@@ -150,7 +150,7 @@
         justify-content: space-between;
         align-items: center;
 
-        @media screen and (max-resolution:  124dpi)  {
+        @media screen and (max-resolution:  142dpi)  {
             margin: 5px auto;
             transform: scale(0.8);
           }

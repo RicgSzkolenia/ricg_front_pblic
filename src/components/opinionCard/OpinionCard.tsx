@@ -40,7 +40,7 @@ const OpinionCard = (props:IOpinionCardProps) => {
         return (
             <div className='opinionCard'>
                 <div className='opinionCard-text'>
-                    <textarea onChange={onChange} name='opinion' placeholder='Jezeli masz opinie na temat naszych webinarow, prosimy podziel sie zebysmy mogli ulepszyszyc ich jakosc' value={newOpinion?.opinion}></textarea>
+                    <textarea onChange={onChange} name='opinion' placeholder='Jeżeli masz opinie na temat naszych webinarów, prosimy podziel się żebyśmy mogli ulepszyć ich jakość' value={newOpinion?.opinion}></textarea>
                 </div>
                 <div className='opinionCard-author'>
                    <input onChange={onChange} type='text' name='authorName' placeholder='Imie' value={newOpinion?.authorName}></input>
