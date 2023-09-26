@@ -26,22 +26,12 @@ const StyledCoursePage = styled.div`
 const CourseWrapper = styled.div`
     margin: 0 auto;
     max-width: 1250px;
-    // display: flex;
-    // flex-direction: row;
-    // flex-wrap: wrap;
-    // justify-content: space-evenly;
-    // align-items: center;
-
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: auto auto;
     justify-content: center;
 
-    @media only screen and (max-width: 768px) {
+    @media only screen and (max-width: 920px) {
         grid-template-columns: auto;
-    }
-
-    @media only screen and (min-width: 769px) and (max-width: 1150px) {
-        grid-template-columns: auto auto;
     }
 
     min-height: 90vh;

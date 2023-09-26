@@ -97,7 +97,7 @@ const CourseCard = (props:ICourseCardProps) => {
             <div className='courseCard-header' onClick={() => {
             navigate(`/product/${course.id}`)
         }}>
-                <p>{ course.category }</p>
+                {/* <p>{ course.category }</p> */}
                 {/* <p>{ course.isOnline ? 'Online' : 'Offline'  }</p> */}
             </div>
             <div className='courseCard-body' onClick={() => {
