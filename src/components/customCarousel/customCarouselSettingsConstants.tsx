@@ -37,7 +37,7 @@ const customOpinionCarouselSettings = {
   }
 
 const customCourseCarouselSettings = {
-    slidesToShow: 2,
+    slidesToShow: 1,
     dots: true,
     arrows: true,
     nextArrow: <CustomCarouselArrow/>,
@@ -46,7 +46,7 @@ const customCourseCarouselSettings = {
       {
         breakpoint: 1150,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 1,
           slidesToScroll: 1,
           initialSlide: 1,
         },
