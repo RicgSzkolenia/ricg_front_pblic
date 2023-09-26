@@ -52,7 +52,7 @@ const customCourseCarouselSettings = {
         },
       },
       {
-        breakpoint: 800,
+        breakpoint: 950,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
