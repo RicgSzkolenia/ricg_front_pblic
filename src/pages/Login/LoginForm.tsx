@@ -41,7 +41,7 @@ const Login = () => {
         AuthApi.loginRequest(values.email, values.password).then((res:any) => {
             dispatch(authActions.setUser(res.data.user, res.data.jwt ))
             if (res.data.jwt) {
-                navigate('/upload')
+                navigate('/repup')
             }
         }).catch((e) => {
             console.log(e);

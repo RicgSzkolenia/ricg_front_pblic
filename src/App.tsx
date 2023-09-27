@@ -37,7 +37,7 @@ function App() {
           <Route path='/contact' element={<ContactPage/>}/>
           <Route path='/cart' element={<Cart/>} />
           <Route element={<ProtectedRoute/>}>
-            <Route path='/upload' element={<FileUpload/>}/>
+            <Route path='/repup' element={<FileUpload/>}/>
           </Route>
        
         </Routes>
