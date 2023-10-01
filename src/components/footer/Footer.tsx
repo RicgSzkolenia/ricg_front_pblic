@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import ContactInfoApi from "../../utils/apis/ContactInfoApi";
 
 const StyledFooter = styled.div`
-    height: 150px;
+    height: 170px;
     width: 100%;
     background-color: ${colors.thirdColor};
     padding-top: 15px;
@@ -65,6 +65,9 @@ const Footer = () => {
                 </div>
                 <div>
                     <a target="_blank" href={contactInfo?.regulation?.data?.attributes?.url}>Regulamin</a>
+                </div>
+                <div>
+                    Created by JolyCodes
                 </div>
             </StyledContactWrapper>
         </StyledFooter>
