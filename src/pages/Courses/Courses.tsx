@@ -8,6 +8,7 @@ import Footer from "../../components/footer/Footer";
 import Loader from "../../components/loader/Loader";
 import ReactGA from 'react-ga4';
 import Dropdown from 'react-dropdown';
+import ReactPaginate from 'react-paginate';
 
 const StyledCoursePage = styled.div`
     width: 100%;
@@ -26,6 +27,29 @@ const StyledCoursePage = styled.div`
     .courses-category {
         width: 300px;
         margin: 10px auto;
+    }
+
+    .pagination {
+
+        margin: 15px auto;
+        display: flex;
+        list-style: none;
+        outline: none;
+        
+
+        li {
+            height: 30px;
+            width: 30px;
+            border-radius: 15px;
+            margin: 5px;
+            text-align: center;
+            line-height: 30px;
+        }
+
+        .selected {
+            background-color: rgb(156, 91, 137);
+            color: #fff;
+        }
     }
 `;
 
@@ -48,6 +72,13 @@ const CourseWrapper = styled.div`
     }
 `;
 
+const PaginationWrapper = styled.div`
+    width: 100%;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+`
+
 
 const CoursesPage = () => {
     
@@ -55,8 +86,11 @@ const CoursesPage = () => {
     const [ filteredCourses, setFilteredCourses ] = useState<Array<Course>>([]);
     const [ categoties, setCategories ] = useState<Array<{ label: string, value: string }>>([]);
     const [ selectedCategory, setSelectedCategory ] = useState<any>();
-
-
+    const [ currentPageCourses, setCurrentPageCourses] = useState<Array<Course>>([]);
+    const [ currentPage, setCurrentPage ] = useState<number>(0);
+    const [ numberOfPages, setNumberOfPages ] = useState<number>(0);
+    const [ numberOfItemsPerPage ] = useState<number>(4)
+    
 
     const handleSelectCategoryFiltering = (category: any) => {
         setSelectedCategory(category);
@@ -68,6 +102,11 @@ const CoursesPage = () => {
         setFilteredCourses(filteredCourses)
     }
 
+    const handlePageSelection = (params:any) => {
+        setCurrentPage(params.selected);
+        setCurrentPageCourses(courses.slice(params.selected * numberOfItemsPerPage, (params.selected * numberOfItemsPerPage) + numberOfItemsPerPage ))
+    }
+
     useEffect(() => {
 
         CourseApi.getAllCourses().then((courses) => {
@@ -75,6 +114,10 @@ const CoursesPage = () => {
             setCategories(categoryNames.map((name, index) => { return { label: name, value: index.toString() } }));
             setCourses(courses?.sort((a, b) => b.priority - a.priority));
             setFilteredCourses(courses?.sort((a, b) => b.priority - a.priority))
+
+            const tmpNumberOfPages = courses.length / numberOfItemsPerPage;
+            setNumberOfPages(tmpNumberOfPages)
+            setCurrentPageCourses(courses.slice(0, numberOfItemsPerPage));
         })
 
         ReactGA.send({
@@ -94,7 +137,7 @@ const CoursesPage = () => {
             <CourseWrapper>
                 { courses.length === 0 ?
                 (<Loader/>) : '' }
-                { filteredCourses.map((course, index) => {
+                { ( (selectedCategory?.label === 'Wszystkie' || !selectedCategory) ? currentPageCourses : filteredCourses).map((course, index) => {
                     return (
                         <div key={index}>
                             <CourseCard key={index}  course={course} />
@@ -103,6 +146,18 @@ const CoursesPage = () => {
                     )
                 }) }
             </CourseWrapper>
+            {(selectedCategory?.label === 'Wszystkie' || !selectedCategory) && numberOfPages > 1 &&<PaginationWrapper>
+                <ReactPaginate
+                    breakLabel="..."
+                    nextLabel=">"
+                    onPageChange={handlePageSelection}
+                    pageRangeDisplayed={5}
+                    pageCount={numberOfPages}
+                    previousLabel="<"
+                    renderOnZeroPageCount={null}
+                    containerClassName={"pagination"}
+                />
+            </PaginationWrapper>}
             <Footer></Footer>
         </StyledCoursePage>
         </div>
