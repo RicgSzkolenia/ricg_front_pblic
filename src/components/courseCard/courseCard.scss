@@ -9,11 +9,6 @@
     margin-top: 20px;
     transition: 0.3s ease-in-out;
 
-    &:hover{
-        transform: scale(1.01);
-    }
-
-
     @media only screen and (min-width:601px) and (max-width: 1150px) {
         width: 450px;
         height: 510px;
