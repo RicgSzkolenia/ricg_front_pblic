@@ -13,11 +13,9 @@ import CourseDetailsPage from './pages/Course/CourseDetailsPage';
 import CertificatePresentationPage from './pages/Certificate/CertificatePresentation';
 import ContactPage from './pages/Contact/ContactPage';
 import Cart from './pages/Cart/Cart';
+import PaymentStatus from './pages/PaymentStatus/PaymentStatus';
 
 function App() {
-  console.log(process.env.REACT_APP_GOOGLE_ANALYTICS);
- 
-
  
   axios.interceptors.request.use((req) => {
     const authToken = process.env.REACT_APP_API_TOKEN;
@@ -36,6 +34,7 @@ function App() {
           <Route path='/check/:id' element={<CertificatePresentationPage/>} />
           <Route path='/contact' element={<ContactPage/>}/>
           <Route path='/cart' element={<Cart/>} />
+          <Route path='/status/payment' element={<PaymentStatus/>}/>
           <Route element={<ProtectedRoute/>}>
             <Route path='/repup' element={<FileUpload/>}/>
           </Route>
