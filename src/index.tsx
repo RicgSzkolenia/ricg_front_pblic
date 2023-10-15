@@ -34,7 +34,7 @@ axios.interceptors.response.use(
   (res) => {
      // Add configurations here
      if (res.status === 201 || res.status === 200) {
-        console.log('Posted Successfully');
+      //   console.log('Posted Successfully');
      }
      return res;
   },

@@ -1,0 +1,43 @@
+.datesWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 1440px;
+    margin: 20px auto;
+    &-card {
+        margin: 20px;
+        cursor: pointer;
+        min-width: 375px;
+        max-width: 600px;
+        width: 90%;
+        padding: 20px;
+        border-radius: 20px;
+        border: 2px solid #eeeded;
+
+        &-date {
+            font-size: 22px;
+            font-weight: 700;
+            color: #B64689;
+            margin: 5px 0;
+        }
+
+        &-courseName {
+            color: #FE7062;
+            margin-bottom: 20px;
+            font-size: 26px;
+        }
+
+        &-header {
+            font-size: 24px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        &-client {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+    }
+}

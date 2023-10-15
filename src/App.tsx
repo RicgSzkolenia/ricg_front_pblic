@@ -14,6 +14,7 @@ import CertificatePresentationPage from './pages/Certificate/CertificatePresenta
 import ContactPage from './pages/Contact/ContactPage';
 import Cart from './pages/Cart/Cart';
 import PaymentStatus from './pages/PaymentStatus/PaymentStatus';
+import StatsPage from './pages/Admin/StatsPage/StatsPage';
 
 function App() {
  
@@ -35,8 +36,12 @@ function App() {
           <Route path='/contact' element={<ContactPage/>}/>
           <Route path='/cart' element={<Cart/>} />
           <Route path='/status/payment' element={<PaymentStatus/>}/>
+          <Route path='/dates/:id'/>
+          <Route path='/dates/participants'/>
+          <Route path='/dates/participants/:id'/>
           <Route element={<ProtectedRoute/>}>
             <Route path='/repup' element={<FileUpload/>}/>
+            <Route path='/stats' element={<StatsPage/>}/>
           </Route>
        
         </Routes>

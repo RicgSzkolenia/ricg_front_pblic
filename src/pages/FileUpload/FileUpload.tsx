@@ -11,7 +11,7 @@ import parse from 'parse-duration';
 import CourseApi from "../../utils/apis/CourseApi";
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
-import { Course } from "../../utils/models/Course";
+
 
 const StyledFileUpload = styled.div`
     height: 90vh;
@@ -34,6 +34,19 @@ const StyledUploadWrapper = styled.div`
     
     img {
         width: 150px;
+    }
+
+    .stats-btn {
+        background-color: #9c5b89;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 15px; 
+        cursor: pointer;
+
+        &:hover {
+            transform: scale(1.02);
+            background-color: #6149F5;
+        }
     }
 `
 
@@ -115,6 +128,8 @@ const FileUpload = () => {
         })
     }, [])
 
+
+
     return(
             <StyledFileUpload>
                 <img
@@ -123,6 +138,7 @@ const FileUpload = () => {
                 ></img>
                 <StyledUploadWrapper>
                     <img src='https://res.cloudinary.com/dtb1fvbps/image/upload/v1686685604/logo_White_F_8df86b15c6.svg'/>
+                    <div onClick={() => {navigate('/stats')}} className="stats-btn">Statystyka Zamowien</div>
                     <p className="blueMainText">Webinar Participants Upload</p>
                     { fileData ? (
                         <StyledUploadedFile>  
