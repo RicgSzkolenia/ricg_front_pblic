@@ -91,17 +91,23 @@ const FileUpload = () => {
                 const title:string = data?.[2]?.[1];
                 
                 const webinarStartTime:string = data?.[3]?.[1];
-                const webinarEndTime:string = data?.[4]?.[1];
-                
-                
-                const webinarDuration:number = parse(data.find((row:any) => row[0].includes('Czas trwania spotkania'))?.[1], 'm') || 1;
-                const graduates:Array<Graduate> = data.slice(participantsStartIndex, participantsEndIndex).map((graduateFields:any) => {
+                                
+                const webinarDuration:number = parse(data?.[8]?.[0].split('\t')?.[1]?.replaceAll('godz.', 'h')?.replaceAll('min', 'm')) || 1 ;
+                let graduates:Array<Graduate> = data.slice(participantsStartIndex, participantsEndIndex).map((graduateFields:any) => {
                     return Graduate.createGraduateFromArray(graduateFields, webinarDuration);
-                })
+                }).filter((graduate:Graduate) => graduate.role?.toLowerCase() !== 'organizator' )
+
+                if (!graduates.every((graduate) => graduate.email !== '')) {
+                    alert('Nie kazdy uczesnik posiada email, sprawdz raport')
+                }
+
+                graduates = graduates.filter((graduate:Graduate) => graduate.email !== '');
 
                 const preparedFileData = { rawData: JSON.stringify(data), participants: graduates, webinarDate: moment(webinarStartTime, dateFormat).toDate(), title, duration: webinarDuration.toString()};
                 setFileData(preparedFileData);
                 setFileName(file.name);
+
+               
             },
         });
     }
