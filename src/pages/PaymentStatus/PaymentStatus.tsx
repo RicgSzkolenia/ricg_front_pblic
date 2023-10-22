@@ -20,7 +20,7 @@ const PaymentStatus = () => {
                    { isSuccess? 'Płatność zaakceptowana' : 'Płatność nieudana' } 
                 </div>
                 <div className='paymentStatus-card-body'>
-                    {isSuccess ? 'Dziękujemy za zakup naszego webinaru. Wszystkie dodatkowe informacje są wysłane na mail podany przy płantości':
+                    {isSuccess ? 'Dziękujemy za zakup naszego webinaru. Wszystkie dodatkowe informacje są wysłane na mail podany przy płatności':
                     'Zakup nieopłacony. Środki nie zostały pobrane z Twojego konta. Zakup czeka na Twoją płatność' } 
                 </div>
                 <div onClick={()=>{

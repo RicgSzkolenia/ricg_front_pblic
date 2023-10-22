@@ -1,5 +1,7 @@
 @import '../../variables.scss';
 .home{
+
+    
     overflow: hidden;
     &-course {
         &-title {
@@ -88,4 +90,12 @@
         }
     }
 
+}
+
+.cookieConsent {
+    left: 0 !important;
+    right: 0 !important;
+    width: 98% !important;
+    border-radius: 20px !important;
+    margin: 10px auto !important;       
 }

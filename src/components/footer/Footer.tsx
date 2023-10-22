@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { colors } from "../../colors";
 import { useEffect, useState } from "react";
 import ContactInfoApi from "../../utils/apis/ContactInfoApi";
+import CookieConsent from "react-cookie-consent";
 
 const StyledFooter = styled.div`
     height: 170px;
@@ -70,6 +71,18 @@ const Footer = () => {
                     Created by JolyCodes
                 </div>
             </StyledContactWrapper>
+            <CookieConsent
+              containerClasses="cookieConsent"
+              location="bottom"
+              buttonText="Accept"
+              cookieName="myAwesomeCookieName"
+              style={{ borderRadius: 10, background: "rgb(156, 91, 137)"}}
+              buttonStyle={{ width: 100, color: "#fff", borderRadius: 10, background: "#E3746D", fontSize: "16px" }}
+              expires={150}
+            >
+              This website uses cookies to enhance the user experience.
+              <a style={{marginLeft: 10, color: "#fff"}} href={contactInfo?.cookies?.data?.attributes?.url}>Polityka Cookie</a>
+          </CookieConsent>
         </StyledFooter>
     )
 }

@@ -18,7 +18,7 @@ export class Graduate {
         
         const trimmedName = name?.replaceAll(/[0-9]/g, '')?.replaceAll('/', '') || '';
         const trimmedSurname = surname?.replaceAll(/[0-9]/g, '')?.replaceAll('/', '') || '';
-        const duration:number =  parse(dutation.replaceAll('godz.', 'h').replaceAll('min', 'm')) || 1;
+        const duration:number =  parse(dutation?.replaceAll('godz.', 'h').replaceAll('min', 'm')) || 1;
         const coverage = Math.ceil(( duration / webinarDuration ) * 100);
 
         const status = coverage > 85 ? GraduationStatus.Completed : GraduationStatus.Failed
