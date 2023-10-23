@@ -37,7 +37,6 @@ const Cart = () => {
             setContactInfo(info);
         })
 
-        console.log(window.location.pathname)
         ReactGA.send({
           hitType: 'pageview',
           page: window.location.pathname,

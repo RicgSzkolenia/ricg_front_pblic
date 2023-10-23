@@ -33,7 +33,6 @@ const cartReducer = (state = initialState, action:any) => {
             old.splice(action.index, 1);
             return { ...state, items: [...old] }
         case CHANGE_ITEM_QUANTITY: 
-            console.log(action, state.items);
             const itemIndex = state.items.findIndex((item) => {
                 return item.date.value === action.item.date.value && item.course.id === action.item.course.id;
             } )

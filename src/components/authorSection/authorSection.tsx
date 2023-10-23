@@ -21,7 +21,6 @@ const AuthorSection = () => {
                     title: author.name + ' ' +  author.surname,
                     text: author.description,
                     image: author.image
-    
                 }
             })
 
@@ -33,15 +32,14 @@ const AuthorSection = () => {
         <div className=" authorSection standart-center-section section-top-bottom-margin ">
             <div className='blueSecondaryHeader imagetextSection-header section-header-top-bottom-margin'>Nasz Zespół</div>
             <div className="authorSection-wrapper">
-            { authors.map((author) => {
+            { authors.map((author, index: number) => {
                     return(
-                        <AuthorCard author={author} />
+                        <div key={index}>
+                            <AuthorCard author={author} />
+                        </div>
                     )
                 }) }
             </div>
-            {/* <CustomCarousel> */}
-              
-            {/* </CustomCarousel> */}
         </div>
     )
 }

@@ -6,7 +6,6 @@ export const trackGoogleAnalyticsEvent = (
     label:any,
     data:any
 ) => {
-    console.log("GA event:", category, ":", event_name, ":", label);
 
     let event_params = {
         category,
