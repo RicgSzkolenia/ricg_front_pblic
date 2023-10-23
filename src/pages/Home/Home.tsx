@@ -1,6 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-import "aos/dist/aos.css";
-import AOS from "aos";
 import AimSection from "../../components/aimSection/AimSection";
 import CarouselSection from "../../components/carouselSection/CarouselSection";
 import Header from "../../components/header/Header";
@@ -44,10 +42,8 @@ const Home = () => {
   useEffect(() => {
     // animations
     setTimeout(() => setPreloader(false), 3020);
-    AOS.init();
-    AOS.refresh();
-
-    // fetching data
+ 
+     // fetching data
     courseApi.getAllCourses().then((courses) => {
       setCourses(courses)
     })

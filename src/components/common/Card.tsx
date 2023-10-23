@@ -1,4 +1,3 @@
-import { ReactNode } from "react";
 import styled from "styled-components";
 import { colors } from "../../colors";
 
@@ -53,7 +52,7 @@ interface ICardProps {
 const Card = ({children, className}:any) => {
 
     return (
-        <StyledCard data-aos="flip-up" data-aos-duration="2000" className={className}>
+        <StyledCard className={className}>
             {children}
         </StyledCard>
     )

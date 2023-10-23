@@ -12,9 +12,6 @@ const Header = (props:any) => {
         <div className="header-content">
           <div
             className="header-content-left"
-            data-aos="fade-right"
-            data-aos-duration="1500"
-            data-aos-delay="300"
           >
             <TypeAnimation
               sequence={[
@@ -54,9 +51,6 @@ const Header = (props:any) => {
           </div>
           <div
             className="header-content-right"
-            data-aos="fade-left"
-            data-aos-duration="1500"
-            data-aos-delay="300"
           >
             <img
               src={"/group_header.png"}
