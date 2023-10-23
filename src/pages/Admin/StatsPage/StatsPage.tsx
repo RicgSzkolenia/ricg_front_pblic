@@ -23,7 +23,6 @@ const StatsPage = () => {
     return(
         <div className="datesWrapper">
            { orders?.map(([groupPath, groupedOrders]: [ groupPath:string, groupedOrders: Array<Order> ], groupIndex) => {
-                console.log(groupPath.split('_'), groupedOrders);
                 const date = moment(groupPath.split('_')?.[0]).format('hh:mm DD-MM-yyyy');
                 const courseName = groupedOrders?.[0].rawProducts.productTitle;
                 return (

@@ -144,7 +144,7 @@ const FileUpload = () => {
                 ></img>
                 <StyledUploadWrapper>
                     <img src='https://res.cloudinary.com/dtb1fvbps/image/upload/v1686685604/logo_White_F_8df86b15c6.svg'/>
-                    <div onClick={() => {navigate('/stats')}} className="stats-btn">Statystyka Zamowien</div>
+                    <div onClick={() => {navigate('/stats')}} className="stats-btn">Statystyki zamówień</div>
                     <p className="blueMainText">Webinar Participants Upload</p>
                     { fileData ? (
                         <StyledUploadedFile>  

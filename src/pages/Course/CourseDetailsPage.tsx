@@ -15,7 +15,6 @@ import CourseCard from "../../components/courseCard/CourseCard";
 import Loader from "../../components/loader/Loader";
 import { Author } from "../../utils/models/Author";
 import AuthorApi from "../../utils/apis/AuthorApi";
-import AuthorSection from "../../components/authorSection/authorSection";
 import ReactGA from 'react-ga4';
 import AuthorCard from "../../components/authorCard/AuthorCard";
 
@@ -105,10 +104,10 @@ const CourseDetailsPage = () => {
                     <div className="details-wrapper-description">
                         <p className="details-wrapper-description-header blueSecondaryHeader">Opis</p>
                         <div className="details-wrapper-description-wrapper">
+                            <img src={course?.image}></img>   
                             <p className="details-wrapper-description-body blackMainText">
                                 { course?.shortDescription }
                             </p>
-                            <img src={course?.image}></img>   
                         </div>
                     </div>
                     <div className="details-wrapper-points">
