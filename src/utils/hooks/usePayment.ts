@@ -15,7 +15,6 @@ export const createPayment = async (id: string, title: string, price: number) =>
           })
 
       } catch(err) {
-        console.log(err);
       }
 }
 
@@ -33,6 +32,5 @@ export const checkOutProductsFromCart = async (items:Array<any>) => {
     })
 
   } catch (err) {
-    console.error(err);
   }
 }

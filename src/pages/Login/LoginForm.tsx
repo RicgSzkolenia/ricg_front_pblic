@@ -44,7 +44,6 @@ const Login = () => {
                 navigate('/repup')
             }
         }).catch((e) => {
-            console.log(e);
             setMessage(e.response.data.error.message)
         })
     }

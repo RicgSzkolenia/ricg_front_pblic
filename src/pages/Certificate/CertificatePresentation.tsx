@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import * as React from 'react';
 import { useParams } from "react-router-dom";
-import { Base64 } from "js-base64";
 import { Viewer } from '@react-pdf-viewer/core';
 import '@react-pdf-viewer/core/lib/styles/index.css';
 import CertificateApi from "../../utils/apis/CertificateApi";
