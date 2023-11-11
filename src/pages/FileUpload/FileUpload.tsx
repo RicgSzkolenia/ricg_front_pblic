@@ -11,6 +11,7 @@ import parse from 'parse-duration';
 import CourseApi from "../../utils/apis/CourseApi";
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
+import NavBar from "../../components/header/navBar/NavBar";
 
 
 const StyledFileUpload = styled.div`
@@ -92,22 +93,32 @@ const FileUpload = () => {
                 
                 const webinarStartTime:string = data?.[3]?.[1];
                                 
-                const webinarDuration:number = parse(data?.[8]?.[0].split('\t')?.[1]?.replaceAll('godz.', 'h')?.replaceAll('min', 'm')) || 1 ;
-                let graduates:Array<Graduate> = data.slice(participantsStartIndex, participantsEndIndex).map((graduateFields:any) => {
-                    return Graduate.createGraduateFromArray(graduateFields, webinarDuration);
-                }).filter((graduate:Graduate) => graduate.role?.toLowerCase() !== 'organizator' )
+                const webinarDuration:number = parse(data?.[8]?.[1]?.split('\t')?.[0]?.replaceAll('godz.', 'h')?.replaceAll('min', 'm')) || 1 ;
+                const webinarEndTime: string | any = moment(data?.[7]?.[1]).format('DD-MM-yyyy hh:mm:ss');
+                const graduates:Array<Graduate> = data.slice(participantsStartIndex, participantsEndIndex).map((graduateFields:any) => {
+                    return Graduate.createGraduateFromArray(graduateFields, webinarDuration, webinarEndTime);
+                }).filter((graduate:Graduate) => graduate.email).filter((graduate:Graduate) => graduate.email !== '' || graduate.name !== '' || graduate.surname !== '' )
+                .filter((graduate:Graduate) => graduate.status !== 'FAILED').filter((graduate:Graduate) => graduate.role?.toLowerCase() !== 'organizator');
 
                 if (!graduates.every((graduate) => graduate.email !== '')) {
                     alert('Nie kazdy uczesnik posiada email, sprawdz raport')
                 }
 
-                graduates = graduates.filter((graduate:Graduate) => graduate.email !== '');
+                const graduatesEmails:Array<string> = [];
 
-                const preparedFileData = { rawData: JSON.stringify(data), participants: graduates, webinarDate: moment(webinarStartTime, dateFormat).toDate(), title, duration: webinarDuration.toString()};
+                const uniqGraduates = graduates?.filter((graduate) => {
+                    if(!graduatesEmails.includes(graduate.email)){
+                        graduatesEmails.push(graduate.email);
+                        return true
+                    } else {
+                        return false;
+                    }
+                })
+                console.log(graduates, uniqGraduates);
+
+                const preparedFileData = { rawData: JSON.stringify(data), participants: uniqGraduates, webinarDate: moment(webinarStartTime, dateFormat).toDate(), title, duration: webinarDuration.toString()};
                 setFileData(preparedFileData);
                 setFileName(file.name);
-
-               
             },
         });
     }
@@ -138,6 +149,7 @@ const FileUpload = () => {
 
     return(
             <StyledFileUpload>
+                <NavBar/>
                 <img
                 src={"/GroupnewColor.svg"}
                 style={{ width: "30%", height: "auto" }}

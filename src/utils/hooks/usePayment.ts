@@ -21,7 +21,7 @@ export const createPayment = async (id: string, title: string, price: number) =>
 
 export const checkOutProductsFromCart = async (items:Array<any>) => {
   try {
-    const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY_LIVE || '');
+    const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY_TEST || '');
     const stripe = await stripePromise;
 
     const res = await axios.post(`${process.env.REACT_APP_BASE_URL}/orders`, {

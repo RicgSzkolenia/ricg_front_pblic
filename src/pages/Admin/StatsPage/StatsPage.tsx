@@ -4,6 +4,7 @@ import moment from "moment";
 import OrderApi from '../../../utils/apis/OrderApi';
 import { Order } from '../../../utils/models/Order';
 import { groupBy } from 'lodash';
+import NavBar from '../../../components/header/navBar/NavBar';
 
 const StatsPage = () => {
 
@@ -22,6 +23,7 @@ const StatsPage = () => {
 
     return(
         <div className="datesWrapper">
+            <NavBar/>
            { orders?.map(([groupPath, groupedOrders]: [ groupPath:string, groupedOrders: Array<Order> ], groupIndex) => {
                 const date = moment(groupPath.split('_')?.[0]).format('hh:mm DD-MM-yyyy');
                 const courseName = groupedOrders?.[0].rawProducts.productTitle;
