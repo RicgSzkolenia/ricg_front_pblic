@@ -35,7 +35,7 @@ export class Graduate {
         const trimmedName = name?.replaceAll(/[0-9]/g, '')?.replaceAll('/', '') || '';
         const trimmedSurname = surname?.replaceAll(/[0-9]/g, '')?.replaceAll('/', '') || '';
       
-        const status = coverage > 80 ? GraduationStatus.Completed : GraduationStatus.Failed
+        const status = coverage > 70 ? GraduationStatus.Completed : GraduationStatus.Failed
         console.log(studentName, coverage);
         return  new Graduate(studentRegName || trimmedName, studentRegSurname || trimmedSurname, studentEmail || studentId || studentRegEmail, studentRole || 'Uczestnik', status);
     }
