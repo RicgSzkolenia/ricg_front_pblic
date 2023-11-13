@@ -42,39 +42,3 @@ export class Graduate {
 
    
 }
-
-
-// "Paulina Łączek-Ciećwierz"
-// 1
-// : 
-// "10/11/23, 9:27:43"
-// 2
-// : 
-// "10/11/23, 10:27:30"
-// 3
-// : 
-// "59 min 46 s"
-// 4
-// : 
-// "p.laczek@ricg.eu"
-// 5
-// : 
-// "p.laczek@ricg.eu"
-// 6
-// : 
-// "Uczestnik"
-// 7
-// : 
-// "Paulina"
-// 8
-// : 
-// "Łączek"
-// 9
-// : 
-// "p.laczek@ricg.eu"
-// 10
-// : 
-// "10/11/23, 9:24:48"
-// 11
-// : 
-// "Zarejestrowano"

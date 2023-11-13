@@ -27,7 +27,7 @@ const Home = () => {
   const contactRef = useRef<any>(null);
 
 
-  const [preloader, setPreloader] = useState<boolean>(false);
+  const [preloader, setPreloader] = useState<boolean>(true);
   const [courses, setCourses] = useState<Array<Course>>([]);
   const [ authorCourseBlock, setAuthorCourseBlock ] = useState<ImageTextBlock>();
   const [ imageTextBlocks, setImageTextBlocks ] = useState<Array<ImageTextBlock>>([]);
@@ -41,7 +41,7 @@ const Home = () => {
 
   useEffect(() => {
     // animations
-    setTimeout(() => setPreloader(false), 3020);
+    setTimeout(() => setPreloader(false), 2980);
  
      // fetching data
     courseApi.getAllCourses().then((courses) => {
