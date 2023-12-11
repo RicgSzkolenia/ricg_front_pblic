@@ -12,6 +12,8 @@ import CourseApi from "../../utils/apis/CourseApi";
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 import NavBar from "../../components/header/navBar/NavBar";
+import { CourseDate } from "../../utils/models/CourseDate";
+import { CoursePartDate } from "../../utils/models/CoursePartDate";
 
 
 const StyledFileUpload = styled.div`
@@ -21,6 +23,19 @@ const StyledFileUpload = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
+
+    .Dropdown-control {
+        width: 450px;
+        border-radius: 10px;
+
+    }
+
+
+    .Dropdown-menu {
+        margin-top: 5px;
+        border-radius: 15px;
+        
+    }
 `
 
 const StyledUploadWrapper = styled.div`
@@ -71,15 +86,49 @@ const StyledUploadedFile = styled.div`
 
 const FileUpload = () => {
 
+    const [courseDates, setCourseDates] = useState<Array<CourseDate>>();
+
     const [fileData, setFileData ] = useState<any>();
     const [ fileName, setFileName ] = useState();
-    const [ options, setOptions ] = useState<Array<any>>([]);
-    const [ isSending, setIsSubmiting ] = useState<boolean>(false);
+    
+    const [ selectedCourseDate, setSelectedCourseDate ] = useState<CourseDate>();
+    const [ selectedCoursePartDate, setSelectedCoursepartDate ] = useState<CoursePartDate>();
+
+    const [ courseDateOptions, setCourseDateOptions ] = useState<Array<{ value: string, label: string }>>();
+    const [ coursePartDateOptions, setCoursePartDateOptions ] = useState<Array<{ value: string, label: string }>>();
+
+    const [disabled, setDisabled] = useState<boolean>(true);
     
     const navigate = useNavigate();
+    
+    const handleSubmit = () => {
+        if (fileData) {
+            WebinarReportApi.createWebinarReport(fileData, selectedCourseDate, selectedCoursePartDate).then(() => {
+                navigate('/');
+            })
+        }
+    } 
 
+    const handleFileDelete = () => {
+        setFileData(undefined);
+        setFileName(undefined);
+    }
 
-    const getData = (file:any) => {
+    const selectWebinarName = (e:any) => {
+        const selectedCourseDate = courseDates?.find((courseDate) => {return courseDate.id === e.value });
+        const partsDatesSelectedOptions = selectedCourseDate?.courseDateParts.map((coursePart, index:number) => {
+            return { value: coursePart.id || `${index}`, label: coursePart.date }
+        })
+        setCoursePartDateOptions(partsDatesSelectedOptions || []);
+       setSelectedCourseDate(selectedCourseDate)
+    }
+
+    const selectWebinarPart = (e:any) => {
+        setSelectedCoursepartDate(selectedCourseDate?.courseDateParts.find((part) => part.id === e.value))
+    }
+
+    const handleFileUpload = (file:any) => {
+
         Papa.parse(file, {
             header: false,
             skipEmptyLines: true,
@@ -99,13 +148,13 @@ const FileUpload = () => {
                     return Graduate.createGraduateFromArray(graduateFields, webinarDuration, webinarEndTime);
                 }).filter((graduate:Graduate) => graduate.email).filter((graduate:Graduate) => graduate.email !== '' || graduate.name !== '' || graduate.surname !== '' )
                 .filter((graduate:Graduate) => graduate.status !== 'FAILED').filter((graduate:Graduate) => graduate.role?.toLowerCase() !== 'organizator');
-
+    
                 if (!graduates.every((graduate) => graduate.email !== '')) {
                     alert('Nie kazdy uczesnik posiada email, sprawdz raport')
                 }
-
+    
                 const graduatesEmails:Array<string> = [];
-
+    
                 const uniqGraduates = graduates?.filter((graduate) => {
                     if(!graduatesEmails.includes(graduate.email)){
                         graduatesEmails.push(graduate.email);
@@ -115,38 +164,71 @@ const FileUpload = () => {
                     }
                 })
                 console.log(graduates, uniqGraduates);
-
+    
                 const preparedFileData = { rawData: JSON.stringify(data), participants: uniqGraduates, webinarDate: moment(webinarStartTime, dateFormat).toDate(), title, duration: webinarDuration.toString()};
                 setFileData(preparedFileData);
                 setFileName(file.name);
             },
         });
-    }
-    
-    const handleSubmit = () => {
-        if (fileData) {
-            WebinarReportApi.createWebinarReport(fileData).then(() => {
-                navigate('/');
-            })
-        }
-    } 
 
-    const handleFileDelete = () => {
-        setFileData(undefined);
-        setFileName(undefined);
+
+
     }
 
     useEffect(() => {
-        CourseApi.getAllCourses().then((courses) => {
-            const tmpOptions = courses.map((course) => { 
-                return { value: course.id as string || '', label: course.title }
-             })
-             setOptions(tmpOptions)
-        })
+        if ((selectedCourseDate?.courseDateParts.length || 0) > 0) {
+            Promise.all(selectedCourseDate?.courseDateParts?.map((part) => {
+                const fetchedpart = CourseApi.getCoursePartDateById(part.id || '');
+                return fetchedpart;
+            }) || []).then((res:any) => {
+                const fetchedParts = res.map((res:any) => res?.data?.data);
+                const reportedParts = fetchedParts.filter((coursePartDate:any) => {
+                    return !(coursePartDate?.attributes?.course_report?.data);
+                }).map((part:any) => { console.log(part) });
+
+                console.log(reportedParts);
+                const updatedWithNamesParts = coursePartDateOptions?.map((partDateOption) => {
+                    const fetchedPart = fetchedParts.find((part:any) => part?.id === partDateOption?.value)
+                    const newLabel = partDateOption?.label + ' ' + fetchedPart?.attributes?.course_parts?.data?.[0]?.attributes?.header;
+                    console.log(newLabel);
+                    return { value: partDateOption.value, label: newLabel }
+                })
+                
+                setCoursePartDateOptions(updatedWithNamesParts);
+            })
+        }
+      
+    }, [selectedCourseDate])
+    
+
+    useEffect(() => {
+        const isFileDataSelected = !!fileData;
+        const isSelectedCourseDate = !!selectedCourseDate
+        const isPartOfParts = (selectedCourseDate?.courseDateParts?.length || 0) > 0;
+        if ( isPartOfParts ) {
+            return setDisabled(!(isFileDataSelected && isSelectedCourseDate && !!selectedCoursePartDate));
+        } else {
+            return setDisabled(!(isFileDataSelected && isSelectedCourseDate));
+        }
+
+    }, [selectedCourseDate, selectedCoursePartDate, fileData])
+
+    useEffect(() => {
+       CourseApi.getAllCourseDates().then((res) => {
+        console.log(res);
+        setCourseDates(res);
+        const courseDateOptions = res.map((courseDate, index) => {
+            return {
+                value: courseDate?.id || `${index}`,
+                label: moment(courseDate.date).format('DD-MM-yyyy hh:mm') + ' ' + courseDate.course?.title 
+            }
+        }) || []
+        setCourseDateOptions(courseDateOptions)
+       })
     }, [])
 
 
-
+    
     return(
             <StyledFileUpload>
                 <NavBar/>
@@ -163,11 +245,13 @@ const FileUpload = () => {
                             <p>{fileName}</p>      
                             <img src="./xmark-solid.svg" onClick={handleFileDelete}/>
                         </StyledUploadedFile>) 
-                        : <CustomDropzone getData={getData}/>
+                        : <CustomDropzone getData={handleFileUpload}/>
                     }    
-                    <Dropdown onChange={(e) => {setFileData({...fileData, courseId: e.value, courseName: e.label}) }} options={options} placeholder="Wybierz typ webinaru" />
-                    {  fileData && fileData.courseId ?  <Button type={ButtonTypes.default} handleClick={handleSubmit}>Wyślij</Button> : '' }
+                    <Dropdown onChange={selectWebinarName} options={courseDateOptions || []} placeholder="Wyberz Webinar" />
+                    { (selectedCourseDate?.courseDateParts?.length || 0) > 0 && <Dropdown onChange={selectWebinarPart} options={coursePartDateOptions || []} placeholder="Wyberz Czesc Webinaru" />}
                   
+
+                    <Button disabled={disabled} type={ButtonTypes.default} handleClick={handleSubmit}>Wyślij</Button>
                 </StyledUploadWrapper>
             </StyledFileUpload>
     )

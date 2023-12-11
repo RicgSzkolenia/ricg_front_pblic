@@ -140,6 +140,28 @@
         }
     }
 
+    &-parts {
+        
+        &-wrapper {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            flex-wrap: wrap;
+            &-item {
+                text-align: center;
+                margin: 10px;
+                padding: 10px;
+                min-width: 320px;
+                width: 28%;
+                border-radius: 20px;
+                border: 2px solid #B64689;
+                p {
+                    margin: 10px 0;
+                }
+            }
+        }
+    }
+
     &-points {
         padding: 10px;
         &-wrapper {

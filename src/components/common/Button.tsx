@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
-const StyledButton = styled.div`
+const StyledButton = styled.div<{ disabled: boolean }>`
     min-width: 85px;
     max-width: 250px;
     height: 35px;
-    background-color: #9c5b89;
+    background-color: ${(props) => props.disabled ? '#565656' : "#9c5b89" };
     color: #fff;
-    cursor: pointer;
+    cursor:  ${(props) => props.disabled ? '' : "pointer" };
     padding: 0 25px;
     text-align: center;
     line-height: 35px;
@@ -15,8 +15,8 @@ const StyledButton = styled.div`
     font-size: 20px;
     transition: 0.3s ease-in-out;
     &:hover {
-        transform: scale(1.06);
-        background-color: #6149F5;
+        transform: ${(props) => props.disabled ? '' : "scale(1.06)" } ;
+        background-color: ${(props) => props.disabled ? '#565656' : "#6149F5" };
     }
     @media only screen and (max-width: 376px) {
         font-size: 14px;
@@ -55,16 +55,21 @@ interface ButtonProps {
     children?: any;
     className?: string;
     id?:string;
+    disabled?:boolean 
 }
 
 const Button = (props: ButtonProps) => {
-    const  { type = ButtonTypes.default, handleClick, className, id} = props;
+    const  { type = ButtonTypes.default, handleClick, className, id, disabled} = props;
 
     const onClick = () => {
-        handleClick?.();
+        if ( !disabled ) {
+            handleClick?.();
+        }
+        
     }
+
     return (
-        <StyledButton id={id ?? ''} className={className ?? ''} onClick={onClick} >{props.children}</StyledButton>
+        <StyledButton disabled={disabled || false} id={id ?? ''} className={className ?? ''} onClick={onClick} >{props.children}</StyledButton>
     )
 }
 

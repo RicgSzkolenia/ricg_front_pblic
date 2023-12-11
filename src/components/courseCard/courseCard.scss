@@ -140,6 +140,10 @@
         text-transform: uppercase;
         color: #B64689;
         font-size: 12px;
+
+        p {
+            font-size: 20px;
+        }
         
         &-dropdown {
 
@@ -155,7 +159,7 @@
     }
 
     &-footer {
-        width: 90%;
+        width: 95%;
         margin: 10px auto;
         display: flex;
         justify-content: space-between;

@@ -17,13 +17,14 @@ import { Author } from "../../utils/models/Author";
 import AuthorApi from "../../utils/apis/AuthorApi";
 import ReactGA from 'react-ga4';
 import AuthorCard from "../../components/authorCard/AuthorCard";
+import { CoursePartDate } from "../../utils/models/CoursePartDate";
 
 const CourseDetailsPage = () => {
 
     const params =  useParams();
     const dispatch = useDispatch();
     const [ course, setCourse ] = useState<Course>();
-    const [ selectedDate, setSelectedDate ] = useState();
+    const [ selectedDate, setSelectedDate ] = useState<any>();
     const [ availableDates, setAvailableDates ] = useState<Array<any>>([]);
     const [courses, setCourses] = useState<Array<Course>>([]);
     const [ author, setAuthor ] = useState<Author>();
@@ -71,7 +72,34 @@ const CourseDetailsPage = () => {
      
     }, [])
 
+    useEffect(() => {
 
+        if (selectedDate) {
+            CourseApi.getCourseDateById(selectedDate.value).then((res:any) => {
+                const partIds:Array<string> = res.attributes?.course_part_dates?.data?.map((part:any) => {
+                    return part.id;
+                })
+
+                Promise.all(partIds.map((id) => {
+                    return  CourseApi.getCoursePartDateById(id)
+                })).then((res) => {
+                    const fetchedCourseDates = res.map((res:any) => res?.data?.data);
+                    const populatedParts = course?.parts.map((oldPart) => {
+                        const newPart = fetchedCourseDates.find((part) => part.attributes.course_parts?.data?.[0]?.id === oldPart.id)
+                        return { ...oldPart, date: newPart.attributes.date }
+                     })
+
+                     if( course ) {
+                        const populatedCourse = {...course, parts: populatedParts|| []}
+                        setCourse(populatedCourse)
+                     }
+                    
+                })
+               
+            })
+        }
+        
+    }, [selectedDate])
 
     return(
         <div className="details-body">
@@ -110,6 +138,28 @@ const CourseDetailsPage = () => {
                             </p>
                         </div>
                     </div>
+                    { course.parts.length > 0 && (
+                        <div className="details-wrapper-parts">
+                            <p className="details-wrapper-description-header blueSecondaryHeader">Harmonogram</p>
+                            <div  className="details-wrapper-parts-wrapper">
+                                { course.parts.map((part) => {
+                                    const { header, description } = part.attributes;
+
+                                    return (
+                                        <div className="details-wrapper-parts-wrapper-item">
+                                            <p className="details-wrapper-points-wrapper-item-header">{header}</p>
+                                            <p className="blackMainText">
+                                               { part?.date && <b> { moment(part?.date).format('DD-MM-yyyy hh:mm') }</b>}
+                                            </p>
+                                            <p className="blackMainText">
+                                                { description }
+                                            </p>
+                                        </div>
+                                    ) 
+                                    }) }
+                            </div>
+                        </div>
+                    ) }
                     <div className="details-wrapper-points">
                         <p className="details-wrapper-description-header blueSecondaryHeader section-header-top-bottom-margin">czego się nauczysz na webinarze?</p>
                         <div className="details-wrapper-points-wrapper">

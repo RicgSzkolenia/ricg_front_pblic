@@ -39,9 +39,9 @@ function App() {
           <Route path='/dates/:id'/>
           <Route path='/dates/participants'/>
           <Route path='/dates/participants/:id'/>
-        
+          <Route path='/repup' element={<FileUpload/>}/>
           <Route element={<ProtectedRoute/>}>
-            <Route path='/repup' element={<FileUpload/>}/>
+      
             <Route path='/stats' element={<StatsPage/>}/>
           </Route>
        

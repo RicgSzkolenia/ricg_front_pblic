@@ -117,9 +117,13 @@ const CourseCard = (props:ICourseCardProps) => {
                 </div>
             </div>
             <div className='courseCard-dates'>
-                <div>
+                { availableDates && availableDates.length === 0 ? (  <div>
+                    <p>Wkrótce</p>
+                </div>) : (  <div>
                     <Dropdown value={selectedCardDate} onChange={chooseDate} className='courseCard-dates-dropdown'  placeholder="Wybierz termin" options={availableDates}/>
-                </div>
+                </div>) }
+              
+              
             </div>
             <div className='courseCard-footer'>
                 { course.redeemedPrice ? (<div><p>{course.redeemedPrice} zł</p> <p style={{ textDecoration: 'line-through', fontSize: '16px' }}>{ course.price } zł</p>  </div>) : <p>{course.price} zł</p> }
