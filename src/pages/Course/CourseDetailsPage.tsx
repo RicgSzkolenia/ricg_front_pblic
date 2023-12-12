@@ -85,7 +85,6 @@ const CourseDetailsPage = () => {
                     const fetchedCourseDates = res.map((res:any) => res?.data?.data);
                     const populatedParts = course?.parts.map((oldPart) => {
                         const newPart = fetchedCourseDates.find((part) => part.attributes.course_parts?.data?.[0]?.id === oldPart.id)
-                        console.log(fetchedCourseDates, oldPart);
                         return { ...oldPart, date: newPart?.attributes?.date }
                      })
 
