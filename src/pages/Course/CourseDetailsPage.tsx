@@ -17,7 +17,6 @@ import { Author } from "../../utils/models/Author";
 import AuthorApi from "../../utils/apis/AuthorApi";
 import ReactGA from 'react-ga4';
 import AuthorCard from "../../components/authorCard/AuthorCard";
-import { CoursePartDate } from "../../utils/models/CoursePartDate";
 
 const CourseDetailsPage = () => {
 
@@ -86,7 +85,8 @@ const CourseDetailsPage = () => {
                     const fetchedCourseDates = res.map((res:any) => res?.data?.data);
                     const populatedParts = course?.parts.map((oldPart) => {
                         const newPart = fetchedCourseDates.find((part) => part.attributes.course_parts?.data?.[0]?.id === oldPart.id)
-                        return { ...oldPart, date: newPart.attributes.date }
+                        console.log(fetchedCourseDates, oldPart);
+                        return { ...oldPart, date: newPart?.attributes?.date }
                      })
 
                      if( course ) {
@@ -144,12 +144,11 @@ const CourseDetailsPage = () => {
                             <div  className="details-wrapper-parts-wrapper">
                                 { course.parts.map((part) => {
                                     const { header, description } = part.attributes;
-
                                     return (
                                         <div className="details-wrapper-parts-wrapper-item">
                                             <p className="details-wrapper-points-wrapper-item-header">{header}</p>
                                             <p className="blackMainText">
-                                               { part?.date && <b> { moment(part?.date).format('DD-MM-yyyy hh:mm') }</b>}
+                                               { <b> { moment(part?.date).format('DD-MM-yyyy hh:mm') }</b>}
                                             </p>
                                             <p className="blackMainText">
                                                 { description }

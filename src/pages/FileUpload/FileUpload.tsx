@@ -145,10 +145,12 @@ const FileUpload = () => {
                 const webinarDuration:number = parse(data?.[8]?.[1]?.split('\t')?.[0]?.replaceAll('godz.', 'h')?.replaceAll('min', 'm')) || 1 ;
                 const webinarEndTime: string | any = moment(data?.[7]?.[1]).format('DD-MM-yyyy hh:mm:ss');
                 const graduates:Array<Graduate> = data.slice(participantsStartIndex, participantsEndIndex).map((graduateFields:any) => {
+                    console.log('Graduate: ', graduateFields)
                     return Graduate.createGraduateFromArray(graduateFields, webinarDuration, webinarEndTime);
                 }).filter((graduate:Graduate) => graduate.email).filter((graduate:Graduate) => graduate.email !== '' || graduate.name !== '' || graduate.surname !== '' )
                 .filter((graduate:Graduate) => graduate.status !== 'FAILED').filter((graduate:Graduate) => graduate.role?.toLowerCase() !== 'organizator');
     
+                console.log('Uczestniki: ', graduates);
                 if (!graduates.every((graduate) => graduate.email !== '')) {
                     alert('Nie kazdy uczesnik posiada email, sprawdz raport')
                 }
@@ -178,16 +180,17 @@ const FileUpload = () => {
     useEffect(() => {
         if ((selectedCourseDate?.courseDateParts.length || 0) > 0) {
             Promise.all(selectedCourseDate?.courseDateParts?.map((part) => {
+                console.log('Part: ', part);
                 const fetchedpart = CourseApi.getCoursePartDateById(part.id || '');
                 return fetchedpart;
             }) || []).then((res:any) => {
                 const fetchedParts = res.map((res:any) => res?.data?.data);
-                const reportedParts = fetchedParts.filter((coursePartDate:any) => {
+                const reportedPartsIds = fetchedParts.filter((coursePartDate:any) => {
                     return !(coursePartDate?.attributes?.course_report?.data);
-                }).map((part:any) => { console.log(part) });
+                }).map((part:any) => part?.id);
 
-                console.log(reportedParts);
-                const updatedWithNamesParts = coursePartDateOptions?.map((partDateOption) => {
+                console.log('reported', reportedPartsIds);
+                const updatedWithNamesParts = coursePartDateOptions?.filter((option) => reportedPartsIds.includes(option.value) )?.map((partDateOption) => {
                     const fetchedPart = fetchedParts.find((part:any) => part?.id === partDateOption?.value)
                     const newLabel = partDateOption?.label + ' ' + fetchedPart?.attributes?.course_parts?.data?.[0]?.attributes?.header;
                     console.log(newLabel);
@@ -248,7 +251,7 @@ const FileUpload = () => {
                         : <CustomDropzone getData={handleFileUpload}/>
                     }    
                     <Dropdown onChange={selectWebinarName} options={courseDateOptions || []} placeholder="Wyberz Webinar" />
-                    { (selectedCourseDate?.courseDateParts?.length || 0) > 0 && <Dropdown onChange={selectWebinarPart} options={coursePartDateOptions || []} placeholder="Wyberz Czesc Webinaru" />}
+                    { (selectedCourseDate?.courseDateParts?.length || 0) > 0 && <Dropdown onChange={selectWebinarPart} options={coursePartDateOptions || []} placeholder="Wybierz Czesc Webinaru" />}
                   
 
                     <Button disabled={disabled} type={ButtonTypes.default} handleClick={handleSubmit}>Wyślij</Button>

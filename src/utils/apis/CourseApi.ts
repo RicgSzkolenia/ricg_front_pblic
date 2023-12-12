@@ -40,7 +40,7 @@ const getAllCoursePartDates = async():Promise<Array<CoursePartDate>> => {
 }
 
 const getCoursePartDateById = async(id:string): Promise<CoursePartDate> => {
-    return await axios.get(`${process.env.REACT_APP_BASE_URL}/coursepartdates/${id}?populate=*`);
+    return await axios.get(`${process.env.REACT_APP_BASE_URL}/coursepartdates/${id}/?populate=*`);
 }
 
 
