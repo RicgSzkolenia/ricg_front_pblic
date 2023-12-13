@@ -85,7 +85,12 @@ const CourseDetailsPage = () => {
                     const fetchedCourseDates = res.map((res:any) => res?.data?.data);
                     const populatedParts = course?.parts.map((oldPart) => {
                         const newPart = fetchedCourseDates.find((part) => part.attributes.course_parts?.data?.[0]?.id === oldPart.id)
-                        return { ...oldPart, date: newPart?.attributes?.date }
+                        if (newPart?.attributes?.date ) {
+                            return { ...oldPart, date: newPart?.attributes?.date }
+                        } else {
+                            return {...oldPart}
+                        }
+                     
                      })
 
                      if( course ) {
@@ -147,7 +152,7 @@ const CourseDetailsPage = () => {
                                         <div className="details-wrapper-parts-wrapper-item">
                                             <p className="details-wrapper-points-wrapper-item-header">{header}</p>
                                             <p className="blackMainText">
-                                               { <b> { moment(part?.date).format('DD-MM-yyyy hh:mm') }</b>}
+                                               { part?.date && <b> { moment(part?.date).format('DD-MM-yyyy hh:mm') }</b>}
                                             </p>
                                             <p className="blackMainText">
                                                 { description }
