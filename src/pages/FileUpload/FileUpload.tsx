@@ -137,7 +137,7 @@ const FileUpload = () => {
                 const dateFormat = 'DD/MM/YYYY-hh:mm:ss';
                 const data = results.data
                 const participantsStartIndex = data.findIndex((row:any) => row[0].includes('Uczestnicy')) + 2;
-                const participantsEndIndex = data.findIndex((row:any) => row[0].includes('Działania podczas spotkania')) - 1
+                const participantsEndIndex = data.findIndex((row:any) => row[0].includes('Działania podczas spotkania'));
                 const title:string = data?.[2]?.[1];
                 
                 const webinarStartTime:string = data?.[3]?.[1];
@@ -145,7 +145,10 @@ const FileUpload = () => {
                 const webinarDuration:number = parse(data?.[8]?.[1]?.split('\t')?.[0]?.replaceAll('godz.', 'h')?.replaceAll('min', 'm')) || 1 ;
                 const webinarEndTime: string | any = moment(data?.[7]?.[1]).format('DD-MM-yyyy hh:mm:ss');
                 const graduates:Array<Graduate> = data.slice(participantsStartIndex, participantsEndIndex).map((graduateFields:any) => {
-                    return Graduate.createGraduateFromArray(graduateFields, webinarDuration, webinarEndTime);
+                    // console.log(graduateFields);
+                    const graduate = Graduate.createGraduateFromArray(graduateFields, webinarDuration, webinarEndTime);
+                    console.log('Created gradiuate from fields: ', graduate, graduateFields);
+                    return graduate
                 }).filter((graduate:Graduate) => graduate.email).filter((graduate:Graduate) => graduate.email !== '' || graduate.name !== '' || graduate.surname !== '' )
                 .filter((graduate:Graduate) => graduate.status !== 'FAILED').filter((graduate:Graduate) => graduate.role?.toLowerCase() !== 'organizator');
     
@@ -163,7 +166,7 @@ const FileUpload = () => {
                         return false;
                     }
                 })
-
+                console.log(uniqGraduates);
                 const preparedFileData = { rawData: JSON.stringify(data), participants: uniqGraduates, webinarDate: moment(webinarStartTime, dateFormat).toDate(), title, duration: webinarDuration.toString()};
                 setFileData(preparedFileData);
                 setFileName(file.name);
@@ -228,10 +231,6 @@ const FileUpload = () => {
     return(
             <StyledFileUpload>
                 <NavBar/>
-                <img
-                src={"/GroupnewColor.svg"}
-                style={{ width: "30%", height: "auto" }}
-                ></img>
                 <StyledUploadWrapper>
                     <img src='https://res.cloudinary.com/dtb1fvbps/image/upload/v1686685604/logo_White_F_8df86b15c6.svg'/>
                     <div onClick={() => {navigate('/stats')}} className="stats-btn">Statystyki zamówień</div>
