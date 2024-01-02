@@ -38,7 +38,6 @@ export class Graduate {
         if (!studentEmail && !studentId && !studentRegEmail) {
             console.log('No email', studentEmail, studentId, studentRegEmail);
             const newFields = fields?.[2]?.split('\t');
-            console.log('New fields: ', newFields);
 
             const status = coverage > 70 ? GraduationStatus.Completed : GraduationStatus.Failed
             return  new Graduate(studentRegName || trimmedName, studentRegSurname || trimmedSurname, newFields?.[2] || newFields?.[3], studentRole || 'Uczestnik', status);
