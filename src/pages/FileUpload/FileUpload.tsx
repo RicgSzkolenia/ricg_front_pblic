@@ -141,16 +141,24 @@ const FileUpload = () => {
                 const title:string = data?.[2]?.[1];
                 
                 const webinarStartTime:string = data?.[3]?.[1];
-                                
-                const webinarDuration:number = parse(data?.[8]?.[1]?.split('\t')?.[0]?.replaceAll('godz.', 'h')?.replaceAll('min', 'm')) || 1 ;
+                let webinarDuration:number;
+                if (data?.[8]?.[1]) {
+                    webinarDuration = parse(data?.[8]?.[1]?.split('\t')?.[0]?.replaceAll('godz.', 'h')?.replaceAll('min', 'm')) || 1 ;
+                } else {
+                    webinarDuration = parse(data?.[8]?.[0]?.split('\t')?.[1]?.replaceAll('godz.', 'h')?.replaceAll('min', 'm')) || 1;
+                }
+              
                 const webinarEndTime: string | any = moment(data?.[7]?.[1]).format('DD-MM-yyyy hh:mm:ss');
                 const graduates:Array<Graduate> = data.slice(participantsStartIndex, participantsEndIndex).map((graduateFields:any) => {
-                    // console.log(graduateFields);
                     const graduate = Graduate.createGraduateFromArray(graduateFields, webinarDuration, webinarEndTime);
-                    console.log('Created gradiuate from fields: ', graduate, graduateFields);
                     return graduate
                 }).filter((graduate:Graduate) => graduate.email).filter((graduate:Graduate) => graduate.email !== '' || graduate.name !== '' || graduate.surname !== '' )
-                .filter((graduate:Graduate) => graduate.status !== 'FAILED').filter((graduate:Graduate) => graduate.role?.toLowerCase() !== 'organizator');
+                .filter((graduate:Graduate) => {
+                    if (graduate.status === 'FAILED')
+                        console.log('Failed: ', graduate);
+
+                    return graduate.status !== 'FAILED'
+                }).filter((graduate:Graduate) => graduate.role?.toLowerCase() !== 'organizator');
     
                 if (!graduates.every((graduate) => graduate.email !== '')) {
                     alert('Nie kazdy uczesnik posiada email, sprawdz raport')

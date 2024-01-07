@@ -152,7 +152,7 @@ const CourseDetailsPage = () => {
                                         <div className="details-wrapper-parts-wrapper-item">
                                             <p className="details-wrapper-points-wrapper-item-header">{header}</p>
                                             <p className="blackMainText">
-                                               { part?.date && <b> { moment(part?.date).format('DD-MM-yyyy hh:mm') }</b>}
+                                               { part?.date && <b> { moment(part?.date).format('DD-MM-yyyy HH:mm') }</b>}
                                             </p>
                                             <p className="blackMainText">
                                                 { description }
