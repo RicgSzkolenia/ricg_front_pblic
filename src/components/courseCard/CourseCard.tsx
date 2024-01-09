@@ -30,7 +30,7 @@ const CourseCard = (props:ICourseCardProps) => {
     useEffect(() => {
         const tmp = course.courseDates.map((date) => {
             return {
-                label: moment(date.date?.toString()).locale('pl').format('MMMM Do YYYY, HH:mm:ss'),
+                label: date.isDateIndividual ? 'Indywidualny termin' : moment(date.date?.toString()).locale('pl').format('MMMM Do YYYY, HH:mm:ss'),
                 value: date.id
             }
         })

@@ -5,7 +5,8 @@ export class Course  {
         const dates = json.attributes?.course_dates?.data.map((date:any) => {
             return {
                 id: date?.id,
-                date: date?.attributes?.date
+                date: date?.attributes?.date,
+                isDateIndividual: date?.attributes?.isDateIndividual
             }
         })
         

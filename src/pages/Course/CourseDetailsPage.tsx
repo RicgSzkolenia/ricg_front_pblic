@@ -55,16 +55,19 @@ const CourseDetailsPage = () => {
         CourseApi.getCourseById(params.id || '1').then((course:Course) => {
             setCourse(course);
             const tmp = course.courseDates.map((date) => {
+
                 return {
-                    label: moment(date.date?.toString()).format('MMMM Do YYYY, HH:mm:ss'),
+                    label: date.isDateIndividual ? 'Individualny Termin' : moment(date.date?.toString()).format('MMMM Do YYYY, HH:mm:ss'),
                     value: date.id
                 }
-            })
+                
+            }).filter((date) => date)
             ReactGA.send({
                 hitType: 'pageview',
                 page: window.location.pathname,
                 title: `Course details - ${course?.title}`
               })
+
             setAvailableDates(tmp);
         })
 
