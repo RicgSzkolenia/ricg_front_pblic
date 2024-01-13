@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import CourseApi from "../../utils/apis/CourseApi";
 import { Course } from "../../utils/models/Course";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import NavBar from "../../components/header/navBar/NavBar";
 import Footer from "../../components/footer/Footer";
 import './courseDetailsPage.scss'
@@ -17,6 +17,9 @@ import { Author } from "../../utils/models/Author";
 import AuthorApi from "../../utils/apis/AuthorApi";
 import ReactGA from 'react-ga4';
 import AuthorCard from "../../components/authorCard/AuthorCard";
+import { trackGoogleAnalyticsEvent } from '../../utils/hooks/useAnalytics';
+import Modal from "../../components/modal/Modal";
+
 
 const CourseDetailsPage = () => {
 
@@ -27,17 +30,28 @@ const CourseDetailsPage = () => {
     const [ availableDates, setAvailableDates ] = useState<Array<any>>([]);
     const [courses, setCourses] = useState<Array<Course>>([]);
     const [ author, setAuthor ] = useState<Author>();
-    
+    const [ isModalOpen, setIsModalOpen ] = useState<boolean>(false);
+
+    const navigate = useNavigate();
+
     const chooseDate = (date:any) => {
         setSelectedDate(date)
     }
 
     const addToCart = (course:Course) => {
         if (selectedDate) {
+            trackGoogleAnalyticsEvent('add_to_cart', 'add_to_cart', window.location.pathname + window.location.search,  { ...course })
+            setIsModalOpen(true);
             dispatch(cartActions.addToCart({ course, date: selectedDate, quantity: 1}));
+           
         }
         
     }
+
+    const goToCart = () => {
+        navigate('/cart')
+    }
+
 
     useEffect(() => {
         AuthorApi.getAllAuthors().then((authors:Array<Author>) => {
@@ -107,9 +121,30 @@ const CourseDetailsPage = () => {
         }
         
     }, [selectedDate])
+    const handleModalClose = () => {
+        setIsModalOpen(false);
+    }
 
     return(
         <div className="details-body">
+            { isModalOpen && <Modal close={handleModalClose}>
+            <div className='cart-modal'>
+                    <p className="cart-modal-header">Dodano do koszyka!</p>
+                    <p className="cart-modal-body">
+                      Dodales do koszyka webinar: { course?.title }
+                    </p>
+                    <div className="cart-modal-actions">
+                    <div className="cart-modal-actions-buttons" >
+                        <div onClick={goToCart} className="cart-modal-actions-button">
+                                Przejdź do koszyka
+                            </div>
+                            <div onClick={handleModalClose} className="cart-modal-actions-button">
+                                Kontynuj Zakupy
+                            </div>
+                        </div>
+                    </div>
+              </div>
+                </Modal>}
             <NavBar/>
             { !course ? <Loader/> : (
                 <div className="details-wrapper">
@@ -127,7 +162,7 @@ const CourseDetailsPage = () => {
                                     </div>
                                 </div>
                                 <div className='details-wrapper-header-sum-body-footer'>
-                                    { course?.redeemedPrice ? (<div><p>{course?.redeemedPrice} zł</p> <p style={{ textDecoration: 'line-through' }}>{ course.price } zł</p>  </div>) : <p>{course?.price} zł</p> }
+                                { course.redeemedPrice ? (<div><p style={{ fontSize: 12 }}>{Math.ceil(course.redeemedPrice/ 1.23)} zł netto</p><p>{course.redeemedPrice} zł</p> <p style={{ textDecoration: 'line-through', fontSize: '16px' }}>{ course.price } zł</p>  </div>) : <p><p style={{ fontSize: 12 }}>{Math.ceil(course.price/ 1.23)} zł netto</p>{course.price} zł</p> }
                                     <div className={`courseCard-footer-button ${ selectedDate ? 'button-active' : 'button-disabled' }`} onClick={() => {addToCart(course!)}}>
                                         Dodaj do koszyka
                                     </div>

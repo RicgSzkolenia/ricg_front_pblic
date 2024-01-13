@@ -126,7 +126,7 @@ const CourseCard = (props:ICourseCardProps) => {
               
             </div>
             <div className='courseCard-footer'>
-                { course.redeemedPrice ? (<div><p>{course.redeemedPrice} zł</p> <p style={{ textDecoration: 'line-through', fontSize: '16px' }}>{ course.price } zł</p>  </div>) : <p>{course.price} zł</p> }
+                { course.redeemedPrice ? (<div><p style={{ fontSize: 12 }}>{Math.ceil(course.redeemedPrice/ 1.23)} zł netto</p><p>{course.redeemedPrice} zł</p> <p style={{ textDecoration: 'line-through', fontSize: '16px' }}>{ course.price } zł</p>  </div>) : <p><p style={{ fontSize: 12 }}>{Math.ceil(course.price/ 1.23)} zł netto</p>{course.price} zł</p> }
                 <div className={`courseCard-footer-button ${ selectedCardDate ? 'button-active' : 'button-disabled' }`} onClick={() => {
                     addToCart(course)
                     }}>
