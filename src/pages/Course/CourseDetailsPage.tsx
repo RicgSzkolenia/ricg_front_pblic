@@ -162,7 +162,7 @@ const CourseDetailsPage = () => {
                                     </div>
                                 </div>
                                 <div className='details-wrapper-header-sum-body-footer'>
-                                { course.redeemedPrice ? (<div><p style={{ fontSize: 12 }}>{Math.ceil(course.redeemedPrice/ 1.23)} zł netto</p><p>{course.redeemedPrice} zł</p> <p style={{ textDecoration: 'line-through', fontSize: '16px' }}>{ course.price } zł</p>  </div>) : <p><p style={{ fontSize: 12 }}>{Math.ceil(course.price/ 1.23)} zł netto</p>{course.price} zł</p> }
+                                { course.redeemedPrice ? (<div><p>{course.redeemedPrice} zł</p> <p style={{ fontSize: 12 }}>{Math.ceil(course.redeemedPrice/ 1.23)} zł netto</p><p style={{ textDecoration: 'line-through', fontSize: '16px' }}>{ course.price } zł</p>  </div>) : <p><p >{Math.ceil(course.price)} zł</p><p style={{ fontSize: 12 }}>{Math.ceil(course.price / 1.23)} zł netto</p></p> }
                                     <div className={`courseCard-footer-button ${ selectedDate ? 'button-active' : 'button-disabled' }`} onClick={() => {addToCart(course!)}}>
                                         Dodaj do koszyka
                                     </div>

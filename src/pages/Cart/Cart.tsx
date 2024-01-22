@@ -109,9 +109,9 @@ const Cart = () => {
                     <div className="cart-wrapper-summary-sum">
                         <p className="cart-wrapper-summary-sum-label">Kwota:</p>
                         <div>
-                            <p className="cart-wrapper-summary-sum-value" style={{ fontSize: 14 }}>{Math.ceil(cartSum / 1.23)} zł netto</p>
-                            <br></br>
                             <p className="cart-wrapper-summary-sum-value">{cartSum} zł</p>
+                            <br></br>
+                            <p className="cart-wrapper-summary-sum-value" style={{ fontSize: 14 }}>{Math.ceil(cartSum / 1.23)} zł netto</p>
                         </div>
                     </div>
                     <div className={`cart-wrapper-summary-button ${cartItems.every((item) => item.quantity) && cartItems.length > 0 && cartSum > 0 ? 'button-active' : 'button-disabled' }`} onClick={() => {if (cartItems.length > 0) setIsModalOpen(true)}}>   
