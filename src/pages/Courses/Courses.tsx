@@ -89,7 +89,7 @@ const CoursesPage = () => {
     const [ currentPageCourses, setCurrentPageCourses] = useState<Array<Course>>([]);
     const [ currentPage, setCurrentPage ] = useState<number>(0);
     const [ numberOfPages, setNumberOfPages ] = useState<number>(0);
-    const [ numberOfItemsPerPage ] = useState<number>(4)
+    const [ numberOfItemsPerPage ] = useState<number>(10)
     
 
     const handleSelectCategoryFiltering = (category: any) => {
@@ -158,7 +158,7 @@ const CoursesPage = () => {
                     containerClassName={"pagination"}
                 />
             </PaginationWrapper>}
-            <Footer></Footer>
+            <Footer/>
         </StyledCoursePage>
         </div>
     )
