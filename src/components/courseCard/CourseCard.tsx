@@ -117,16 +117,31 @@ const CourseCard = (props:ICourseCardProps) => {
                 </div>
             </div>
             <div className='courseCard-dates'>
-                { availableDates && availableDates.length === 0 ? (  <div>
+                { availableDates && availableDates.length === 0 ? 
+                (<div>
                     <p>Wkrótce</p>
-                </div>) : (  <div>
+                </div>) 
+                : 
+                (  <div>
                     <Dropdown value={selectedCardDate} onChange={chooseDate} className='courseCard-dates-dropdown'  placeholder="Wybierz termin" options={availableDates}/>
-                </div>) }
+                </div>)}
               
               
             </div>
             <div className='courseCard-footer'>
-                { course.redeemedPrice ? (<div><p>{course.redeemedPrice} zł</p> <p style={{ fontSize: 12 }}>{Math.ceil(course.redeemedPrice/ 1.23)} zł netto</p><p style={{ textDecoration: 'line-through', fontSize: '16px' }}>{ course.price } zł</p>  </div>) : <p><p >{Math.ceil(course.price)} zł</p><p style={{ fontSize: 12 }}>{Math.ceil(course.price / 1.23)} zł netto</p></p> }
+                { course.redeemedPrice ? (
+                <div>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: 110 }}>
+                        <p>{course.redeemedPrice} zł</p> 
+                        <p style={{ textDecoration: 'line-through', fontSize: '16px' }}>{ course.price } zł</p>  
+                    </div>
+                    <p style={{ fontSize: 16 }}>{Math.ceil(course.redeemedPrice/ 1.23)} zł netto</p>
+                </div>) 
+                
+                : (<div >
+                        <p>{Math.ceil(course.price)} zł</p>
+                        <p style={{ fontSize: 15 }}>{Math.ceil(course.price / 1.23)} zł netto</p>
+                    </div> )}
                 <div className={`courseCard-footer-button ${ selectedCardDate ? 'button-active' : 'button-disabled' }`} onClick={() => {
                     addToCart(course)
                     }}>

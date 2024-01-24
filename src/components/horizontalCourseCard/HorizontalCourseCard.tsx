@@ -37,7 +37,19 @@ const HorizontalCourseCard = (props:any) => {
             </div>
             <div className='horizontal-card-wrapper-action'>
                 <input style={{ textAlign: 'center' }}  min="1" type='number' onChange={changeQuanity} value={item.quantity}></input> szt
-                { item.course.redeemedPrice ? (<div><p>{item.course.redeemedPrice} zł</p> <p style={{ fontSize: 12 }}>{Math.ceil(item.course.redeemedPrice/ 1.23)} zł netto</p><p style={{ textDecoration: 'line-through', fontSize: '16px' }}>{ item.course.price } zł</p>  </div>) : <p><p >{Math.ceil(item.course.price)} zł</p><p style={{ fontSize: 12 }}>{Math.ceil(item.course.price / 1.23)} zł netto</p></p> }
+                { item.course.redeemedPrice ? (
+                <div>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: 110 }}>
+                        <p>{item.course.redeemedPrice} zł</p> 
+                        <p style={{ textDecoration: 'line-through', fontSize: '16px' }}>{ item.course.price } zł</p>  
+                    </div>
+                    <p style={{ fontSize: 16 }}>{Math.ceil(item.course.redeemedPrice/ 1.23)} zł netto</p>
+                </div>) 
+                
+                : (<div >
+                        <p>{Math.ceil(item.course.price)} zł</p>
+                        <p style={{ fontSize: 15 }}>{Math.ceil(item.course.price / 1.23)} zł netto</p>
+                    </div> )}
                 <div className='horizontal-card-wrapper-action-button' onClick={() => {removeFromCart(index)}}>
                     Usuń z koszyka
                 </div>

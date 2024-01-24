@@ -29,7 +29,7 @@ const CourseDetailsPage = () => {
     const [ selectedDate, setSelectedDate ] = useState<any>();
     const [ availableDates, setAvailableDates ] = useState<Array<any>>([]);
     const [courses, setCourses] = useState<Array<Course>>([]);
-    const [ author, setAuthor ] = useState<Author>();
+    const [ authors, setAuthors ] = useState<Array<Author>>();
     const [ isModalOpen, setIsModalOpen ] = useState<boolean>(false);
 
     const navigate = useNavigate();
@@ -59,7 +59,7 @@ const CourseDetailsPage = () => {
                 const courseIdArray = author?.courses?.map((course) => course.id)
                 return courseIdArray?.includes(Number(params.id));
             })
-            setAuthor(filteredAuthor[0])
+            setAuthors(filteredAuthor)
         })
 
         CourseApi.getAllCourses().then((courses) => {
@@ -162,7 +162,19 @@ const CourseDetailsPage = () => {
                                     </div>
                                 </div>
                                 <div className='details-wrapper-header-sum-body-footer'>
-                                { course.redeemedPrice ? (<div><p>{course.redeemedPrice} zł</p> <p style={{ fontSize: 12 }}>{Math.ceil(course.redeemedPrice/ 1.23)} zł netto</p><p style={{ textDecoration: 'line-through', fontSize: '16px' }}>{ course.price } zł</p>  </div>) : <p><p >{Math.ceil(course.price)} zł</p><p style={{ fontSize: 12 }}>{Math.ceil(course.price / 1.23)} zł netto</p></p> }
+                                { course.redeemedPrice ? (
+                <div>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: 130, fontSize: '24px' }}>
+                        <p>{course.redeemedPrice} zł</p> 
+                        <p style={{ textDecoration: 'line-through', fontSize: '14px' }}>{ course.price } zł</p>  
+                    </div>
+                    <p style={{ fontSize: 16 }}>{Math.ceil(course.redeemedPrice/ 1.23)} zł netto</p>
+                </div>) 
+                
+                : (<div >
+                        <p>{Math.ceil(course.price)} zł</p>
+                        <p style={{ fontSize: 15 }}>{Math.ceil(course.price / 1.23)} zł netto</p>
+                    </div> )}
                                     <div className={`courseCard-footer-button ${ selectedDate ? 'button-active' : 'button-disabled' }`} onClick={() => {addToCart(course!)}}>
                                         Dodaj do koszyka
                                     </div>
@@ -222,7 +234,14 @@ const CourseDetailsPage = () => {
                     </div>
                     <div className="standart-center-section">
                         <p className="details-wrapper-description-header blueSecondaryHeader section-header-top-bottom-margin">Autor</p>
-                        <AuthorCard author={author} />
+                        <div style={{ display: "flex", justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap'}}>
+                            { authors?.map((author:Author, key: number) => {
+                                return (<div key={key}>
+                                    <AuthorCard author={author} />
+                                </div>)
+                            })}
+                        </div>
+                      
                     </div>
                     
                     <div className="home-course-types">
