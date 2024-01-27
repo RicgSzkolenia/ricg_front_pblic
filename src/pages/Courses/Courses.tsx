@@ -89,7 +89,7 @@ const CoursesPage = () => {
     const [ currentPageCourses, setCurrentPageCourses] = useState<Array<Course>>([]);
     const [ currentPage, setCurrentPage ] = useState<number>(0);
     const [ numberOfPages, setNumberOfPages ] = useState<number>(0);
-    const [ numberOfItemsPerPage ] = useState<number>(10)
+    const [ numberOfItemsPerPage ] = useState<number>(50)
     
 
     const handleSelectCategoryFiltering = (category: any) => {

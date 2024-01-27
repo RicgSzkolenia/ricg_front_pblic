@@ -28,6 +28,7 @@ const CourseCard = (props:ICourseCardProps) => {
     const [ isModalOpen, setIsModalOpen ] = useState<boolean>(false);
 
     useEffect(() => {
+        console.log(course);
         const tmp = course.courseDates.map((date) => {
             return {
                 label: date.isDateIndividual ? 'Indywidualny termin' : moment(date.date?.toString()).locale('pl').format('MMMM Do YYYY, HH:mm:ss'),
